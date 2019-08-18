@@ -40,6 +40,7 @@ export default merge(base, {
     circle: 9999
   },
   initialColorMode: 'light',
+  useCustomProperties: true,
   colors: {
     ...palette,
     text: palette.black,
