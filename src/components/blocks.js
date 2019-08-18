@@ -82,6 +82,21 @@ export const List = props => (
   />
 )
 
+const rainbow = {
+  red: '#ec3750',
+  orange: '#ff8c37',
+  yellow: '#f1c40f',
+  green: '#33d6a6',
+  cyan: '#5bc0de',
+  blue: '#338eda',
+  purple: '#8067c3'
+}
+
+const rainbowKids = {}
+Object.entries(rainbow).map(([name, bg], i) => {
+  rainbowKids[`&:nth-child(${Object.keys(rainbow).length}n + ${i + 1})`] = { bg }
+})
+
 export const ShortcutsList = props => (
   <List
     {...props}
@@ -93,13 +108,22 @@ export const ShortcutsList = props => (
       li: {
         bg: 'primary',
         px: 3,
-        py: 3,
+        py: [3, null, 4],
         borderRadius: 6,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        lineHeight: 'heading',
+        p: { my: 0 },
+        ...rainbowKids
       },
       a: {
-        color: 'background',
-        textDecoration: 'none'
+        color: 'white',
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        svg: {
+          m: '-6px',
+          mr: 2
+        }
       },
       ...props.sx
     }}

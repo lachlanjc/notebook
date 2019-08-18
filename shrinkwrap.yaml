@@ -13,6 +13,7 @@ dependencies:
   lodash: 4.17.15
   react: 16.9.0
   react-dom: 16.9.0
+  react-music-embed: 1.0.0
   rebass: 4.0.2
   resize-observer-polyfill: 1.5.1
   theme-ui: 0.2.35
@@ -8904,6 +8905,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+  /react-music-embed/1.0.0:
+    dev: false
+    peerDependencies:
+      prop-types: ^15.5.4
+      react: ^15.0.0 || ^16.0.0
+      react-dom: ^15.0.0 || ^16.0.0
+    resolution:
+      integrity: sha512-uu7rbgot+KjcrNDxf5Dvv6jNjFlKdpoxc9+vE8y2xXt9AlgBzFBXfBqq+nat2jngrSD87TAk/j3bgIqJkzTZRw==
   /react-reconciler/0.20.4/react@16.9.0:
     dependencies:
       loose-envify: 1.4.0
@@ -11392,6 +11401,7 @@ specifiers:
   lodash: ^4.17.15
   react: ^16.9.0
   react-dom: ^16.9.0
+  react-music-embed: ^1.0.0
   rebass: ^4.0.2
   resize-observer-polyfill: ^1.5.1
   theme-ui: ^0.2.35
