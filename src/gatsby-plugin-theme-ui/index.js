@@ -81,7 +81,7 @@ export default merge(base, {
       borderRadius: 3
     },
     a: {
-      color: 'blue'
+      color: 'primary'
     },
     ul: {
       '&.contains-task-list': {
