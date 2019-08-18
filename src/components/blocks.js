@@ -94,7 +94,7 @@ const rainbow = {
 
 const rainbowKids = {}
 Object.entries(rainbow).map(([name, bg], i) => {
-  rainbowKids[`&:nth-child(${Object.keys(rainbow).length}n + ${i + 1})`] = { bg }
+  rainbowKids[`&:nth-child(${Object.keys(rainbow).length}n + ${i + 1}) a`] = { bg }
 })
 
 export const ShortcutsList = props => (
@@ -103,21 +103,24 @@ export const ShortcutsList = props => (
     sx={{
       ul: {
         gridGap: 3,
+        alignItems: 'stretch',
         mb: 4
       },
       li: {
+        display: 'flex',
+        ...rainbowKids,
+        p: { my: 0 },
+      },
+      a: {
         bg: 'primary',
         px: 3,
         py: [3, null, 4],
         borderRadius: 6,
         fontWeight: 'bold',
         lineHeight: 'heading',
-        p: { my: 0 },
-        ...rainbowKids
-      },
-      a: {
         color: 'white',
         textDecoration: 'none',
+        width: '100%',
         display: 'flex',
         alignItems: 'center',
         svg: {
