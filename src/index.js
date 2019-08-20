@@ -25,7 +25,7 @@ export const Nav = props => {
     if (hasDate(path) && node.name === '') {
       const date = new Date(node.date)
       date.setDate(date.getDate() + 1) // I hate everything & everything hates me
-      node.name = format(date, 'MMMM DD, YYYY')
+      node.name = format(date, 'MMMM dd, yyyy')
     }
     return node
   }), ['date', 'name'], ['desc', 'asc'])

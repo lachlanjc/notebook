@@ -103,7 +103,6 @@ export const ShortcutsList = props => (
     sx={{
       ul: {
         gridGap: 3,
-        alignItems: 'stretch',
         mb: 4
       },
       li: {

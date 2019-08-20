@@ -81,6 +81,15 @@ export default merge(base, {
       bg: 'muted',
       borderRadius: 3
     },
+    blockquote: {
+      borderRadius: 'base',
+      borderLeft: '4px solid',
+      borderLeftColor: 'smoke',
+      bg: 'snow',
+      ml: 0,
+      pl: 3,
+      py: 2
+    },
     a: {
       color: 'primary'
     },
