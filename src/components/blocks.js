@@ -82,6 +82,32 @@ export const List = props => (
   />
 )
 
+export const LinkList = props => (
+  <List
+    {...props}
+    sx={{
+      mb: 4,
+      ul: {
+        gridGap: 3,
+        mb: 4
+      },
+      p: { my: 0 },
+      a: {
+        bg: 'primary',
+        color: 'background',
+        p: 3,
+        borderRadius: 6,
+        fontWeight: 'bold',
+        lineHeight: 'heading',
+        textDecoration: 'none',
+        display: 'block'
+      },
+      ...props.sx
+    }}
+  />
+)
+
+
 const rainbow = {
   red: '#ec3750',
   orange: '#ff8c37',

@@ -1,0 +1,63 @@
+import { LinkList } from '../components/blocks'
+
+# Learning web design
+
+Someone in the [Hack Club Slack](https://hackclub.com/community) recently asked me for advice on learning web design.
+
+Here's what I said (edited).
+
+___
+
+The #1 thing, beyond any articles, is practice. I’ve made literally thousands of webpages, basically all from scratch. You just need to design a lot of things, & coding everything yourself, regardless of how it looks in the beginning, will be immensely more useful than using a template to pump out products that look better but you didn’t write all the code for. CSS is incredibly complicated, & the only real way to learn it is just using it long-term.
+
+Try adding some constraints. I did a lot of these exercises & they genuinely helped me. Design a website with one font in one font weight—you’ll need to flex your white space & hierarchy muscles to make it communicate well. Design a website with just black & white, you’ll need a super clear hierarchy to draw attention. etc
+
+I also would recommend staying away from designing in Figma/Sketch/Photoshop first. There, you’re designing a simulation of a webpage, & I think it’s totally different.[^1] Plus, once you’ve finished a mockup in Figma, you still haven’t shipped a real product—again, it’s a simulation—& you learn nothing about the code side. Design in the browser, with real code ([CodePen](https://codepen.io) & [Glitch](https://glitch.com) are great tools for this), & you’ll end up shipping real sites you can put in your portfolio, learn more, & I think make better results. There’s great uses for tools like Figma, like designing logos/assets/more complicated mockups, but for learning web design, write the code.
+
+[^1]: See Jason Fried’s [Why we skip Photoshop](https://signalvnoise.com/posts/1061-why-we-skip-photoshop) for more. It’s from 2008 but still totally true.
+
+## Frameworks
+
+CSS frameworks/UI kits like Bulma & Bootstrap are totally valid for quickly building an app UI, but if you’re trying to learn web design, I suggest learning from them but not using them—since they make pre-packaged components, it’s easy to rely on them. Instead, make your own cards & buttons, & find out what you need to do that.
+
+Two frameworks that I do suggest checking out/using are [Tachyons](http://tachyons.io) & [Basscss](https://basscss.com). They both have a very similar idea—one class, like `.bold`, should do one thing, like make text bold. Combine `.bold` `.red` `.h1` & you’ve got big, red, bold text. They empower you to iterate quickly on design, while leaving the specific design choices up to you.
+
+## Specific resources
+
+I learned a _ton_ from David Kadavy’s (now a bit old) [Design for Hackers](https://g.co/kgs/brfr1V), which is about super-applicable design principles. He used to do a summer email course called “Summer of Design” that was great.
+
+I highly suggest keeping tabs on some blogs like [CSS-Tricks](https://css-tricks.com/), too—you’ll learn small things you can do with CSS on a regular basis that you can add to your sites.
+
+Read the spec. You’ll find out about a ton of tags, CSS properties, & uses for them you didn’t know existed.
+
+[Steve Schoger’s Twitter](https://mobile.twitter.com/i/moments/879086180909764608?lang=en) is amazing.
+[This article](https://www.freecodecamp.org/news/fundamental-design-principles-for-non-designers-ad34c30caa7/) is worth a read.
+
+[@jxnblk](https://jxnblk.com) is a personal hero in the world of web design for me. Two of his articles on typography really shifted how I think about it:
+
+<LinkList>
+
+* [I’m Sick of Your Tiny, Tiny Type](https://jxnblk.com/blog/im-sick-of-your-tiny-tiny-type/)
+* [Mathematical Web Typography](https://jxnblk.com/blog/mathematical-web-typography/)
+
+</LinkList>
+
+(Of course, [design is still about words](https://signalvnoise.com/posts/3404-reminder-design-is-still-about-words). [Start in the middle](http://37signals.com/gettingreal/ch09_Epicenter_Design.php), with real text, not lorem ipsum.)
+
+Basically all of [Adam Morse](https://mrmrs.cc)'s blog is a must-read, especially his early articles about CSS. (He built the Tachyons framework.)
+
+<LinkList>
+
+* [The Veil of Ignorance](http://mrmrs.cc/writing/the-veil-of-ignorance/)
+* [What is CSS for?](http://mrmrs.cc/writing/what-is-css-for/)
+* [Good CSS](http://mrmrs.cc/writing/good-css/)
+* [What are Classes for?](http://mrmrs.cc/writing/what-are-classes-for/)
+* [Learning CSS](http://mrmrs.cc/writing/learning-css/)
+* [Mobile-first CSS](http://mrmrs.cc/writing/mobile-first-css/)
+* [How to line-height](http://mrmrs.cc/writing/line-height/)
+* [Webfonts](http://mrmrs.cc/writing/webfonts/)
+* [Css and Scalability](http://mrmrs.cc/writing/scalable-css/)
+* [Developing UI](http://mrmrs.cc/writing/developing-ui/)
+* [Design Systems](http://mrmrs.cc/writing/design-systems/)
+
+</LinkList>
