@@ -17,16 +17,17 @@
     "@theme-ui/preset-base": "^0.2.29",
     "@theme-ui/prism": "^0.2.29",
     "gatsby": "^2.6.0",
-    "gatsby-plugin-catch-links": "^2.1.4",
+    "gatsby-plugin-catch-links": "^2.1.5",
     "gatsby-plugin-mdx": "^1.0.25",
     "gatsby-plugin-theme-ui": "^0.2.34",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "resize-observer-polyfill": "^1.5.1",
-    "theme-ui": "^0.2.35",
+    "theme-ui": "^0.2.36",
     "lodash": "^4.17.15",
-    "rebass": "^4.0.3",
-    "date-fns": "^2.0.0",
-    "react-music-embed": "^1.0.0"
+    "rebass": "^4.0.5",
+    "date-fns": "^2.0.1",
+    "react-music-embed": "^1.0.0",
+    "react-song-embed": "^1.0.0"
   }
 }

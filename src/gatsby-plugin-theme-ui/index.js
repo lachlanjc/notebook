@@ -45,7 +45,7 @@ export default merge(base, {
     ...palette,
     text: palette.black,
     background: palette.white,
-    elevated: palette.white,
+    sunken: palette.snow,
     primary: palette.blue,
     secondary: palette.muted,
     muted: palette.smoke,
@@ -54,11 +54,11 @@ export default merge(base, {
       dark: {
         text: palette.white,
         background: palette.darker,
-        elevated: palette.darkless,
+        sunken: palette.darkless,
         primary: palette.cyan,
         secondary: palette.muted,
         accent: palette.pink,
-        muted: palette.darkless
+        muted: palette.darkless,
       }
     }
   },
@@ -84,8 +84,8 @@ export default merge(base, {
     blockquote: {
       borderRadius: 'base',
       borderLeft: '4px solid',
-      borderLeftColor: 'smoke',
-      bg: 'snow',
+      borderLeftColor: 'muted',
+      bg: 'sunken',
       ml: 0,
       pl: 3,
       py: 2

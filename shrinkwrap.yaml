@@ -5,18 +5,19 @@ dependencies:
   '@mdx-js/react': 1.3.1
   '@theme-ui/preset-base': 0.2.29
   '@theme-ui/prism': 0.2.29
-  date-fns: 2.0.0
+  date-fns: 2.0.1
   gatsby: 2.13.58
-  gatsby-plugin-catch-links: 2.1.4
+  gatsby-plugin-catch-links: 2.1.5
   gatsby-plugin-mdx: 1.0.25
   gatsby-plugin-theme-ui: 0.2.34
   lodash: 4.17.15
   react: 16.9.0
   react-dom: 16.9.0
   react-music-embed: 1.0.0
-  rebass: 4.0.3
+  react-song-embed: 1.0.0
+  rebass: 4.0.5
   resize-observer-polyfill: 1.5.1
-  theme-ui: 0.2.35
+  theme-ui: 0.2.36
 packages:
   /@babel/code-frame/7.5.5:
     dependencies:
@@ -1181,91 +1182,91 @@ packages:
       react-dom: 15.x || 16.x || 16.4.0-alpha.0911da3
     resolution:
       integrity: sha512-kTaX08X4g27tzIFQGRukaHmNbtMYDS3LEWIS8+l6OayGIw6Oyo1HIF/JzeuR2FoF9z6oV+x/wJSVSq4v8tcUGQ==
-  /@styled-system/background/5.1.0:
+  /@styled-system/background/5.1.1:
     dependencies:
-      '@styled-system/core': 5.1.0
+      '@styled-system/core': 5.1.1
     dev: false
     resolution:
-      integrity: sha512-ZkDuxKCIQY/Bu2OKGOoSWH7oGnECktccwBmdHm2nv3jjksx0LdqNu7VnRZSnrDFhWnvzwqsZRRSwd5X3UQUC+g==
-  /@styled-system/border/5.1.0:
+      integrity: sha512-AtcDYXVO3Rfui2jZGNBuFinqx25FQ54d6d8JKRPd4g/5wlyw24hgps6VvB3fqNgsA6JKwulIuZf9mfUX4RnPFg==
+  /@styled-system/border/5.1.1:
     dependencies:
-      '@styled-system/core': 5.1.0
+      '@styled-system/core': 5.1.1
     dev: false
     resolution:
-      integrity: sha512-T7wecQ0L/4bEOhbnOmBvrmNX+kdYC7ihurwTZVDwuJUpq0XlXL9bvSjeUPZ18vSg0uR6SjrAcrvPCNfy44KpoQ==
-  /@styled-system/color/5.1.0:
+      integrity: sha512-N4jSiyq18zfY2xg1G2+adGCQ3s+geRYZPJ4R/PT/rZM7kbzCRr8xqHNg+OWkDiDTqgZ0eU7OSsRQD/byQpziZg==
+  /@styled-system/color/5.1.1:
     dependencies:
-      '@styled-system/core': 5.1.0
+      '@styled-system/core': 5.1.1
     dev: false
     resolution:
-      integrity: sha512-Rs7fmZJrUp7+PxT0VlS7wzK0EYGCr3ESj8CnPHEJGehzC12uPsHLq5ez0h7Sz6GDrEbhmKK4wuz1fFgRiPPqaA==
-  /@styled-system/core/5.1.0:
+      integrity: sha512-LHG5HQPZQdMNouXq9/cs/ovadNnnvPFkb6SkTqT9uxTUzTT416erGBaXZPGFqdwPpcDw4Y1MsmrAd1taeJEzvQ==
+  /@styled-system/core/5.1.1:
     dependencies:
       object-assign: 4.1.1
     dev: false
     resolution:
-      integrity: sha512-HW2ds0qCbmCeGufu0OjQhQ7w8gBHyUT7eeC6XwXwJm6vvLyclt23ervgdMiLhNF2i41Xu+tYFQnfeREZV9j9IA==
+      integrity: sha512-8doP1Uptn1nlNrG44O/DfiRtLvoh9OkPqxEv9Gp1YAKAD2RgRTTQou/wYw/4y4pqmV3Hjb3NA/5Nbp/Uo5eGUQ==
   /@styled-system/css/5.0.23:
     dev: false
     resolution:
       integrity: sha512-yC3S0Iox8OTPAyrP1t5yY9nURUICcUdhVYOkwffftuxa5+txxI4qkT2e9JNCc2aaem+DG8mlXTdnYefjqge5wg==
-  /@styled-system/flexbox/5.1.0:
+  /@styled-system/flexbox/5.1.1:
     dependencies:
-      '@styled-system/core': 5.1.0
+      '@styled-system/core': 5.1.1
     dev: false
     resolution:
-      integrity: sha512-/+wCgQdj/a7kyiEnEQFYZtydNqej3+cIUyTnTmhIi54E/kX9gK1GxkgxIjOPCWvsmblObFj1TVD2uQbsJRZiOA==
-  /@styled-system/grid/5.1.0:
+      integrity: sha512-r9kBiCpXJee4zUQJnBom/c8d2CfUXEqrnZ5sdH62RsisoAByJ6vF5a3jI3zQXc8diEHjvNaunZL+K3gQjwJQGg==
+  /@styled-system/grid/5.1.1:
     dependencies:
-      '@styled-system/core': 5.1.0
+      '@styled-system/core': 5.1.1
     dev: false
     resolution:
-      integrity: sha512-Ja2N8qcZY8VK5eS5sg6JHUEN+UteZsX5rHnfE4gJLGKEYbs/dKcEhil6b54XBICEd+FUKsLIS3OMgpUJI7SD6Q==
-  /@styled-system/layout/5.1.0:
+      integrity: sha512-vzBNBg62syA62jEpxS21QEIwgndtxFgpCWWpitytApAybEll0mZctB06eOFhFgSNgarzOyox+1NdETB5h9KGnw==
+  /@styled-system/layout/5.1.1:
     dependencies:
-      '@styled-system/core': 5.1.0
+      '@styled-system/core': 5.1.1
     dev: false
     resolution:
-      integrity: sha512-x9vx1McYHK77ZhKdqRCFlVEr9fMQFF2qBDUg5h49TGJOCoQQZil24TSZ7RyoSR2CHYzfj2SfAOU/D2kCb/x43g==
-  /@styled-system/position/5.1.0:
+      integrity: sha512-a0YnXNlORdpfcxejQEwMGd1k+pamRj+VjnAIafRdFBxBXsw55T8eG0iqWEs8U/d3i0+isKcfIyw/9OrElsksBg==
+  /@styled-system/position/5.1.1:
     dependencies:
-      '@styled-system/core': 5.1.0
+      '@styled-system/core': 5.1.1
     dev: false
     resolution:
-      integrity: sha512-xmOUlrOJgOpOVVYhpGpWuLKfWjKE1MhBsuA+J4uFHl2W+KXbA6Q4fzMsFV1dmDYwFEvx+nJav5jU+3V/yQ2ISg==
-  /@styled-system/shadow/5.1.0:
+      integrity: sha512-75+EvQA5Juh+Zbq1Hkcm0QHx5GwEGoG7BABpG/n/K0Uz2aBGKVKJ4Y3NmPRvSS7fl1Ktl7azIGAPW9XOZ9TdHA==
+  /@styled-system/shadow/5.1.1:
     dependencies:
-      '@styled-system/core': 5.1.0
+      '@styled-system/core': 5.1.1
     dev: false
     resolution:
-      integrity: sha512-fYeZhtlUyuMKxt8n0VjvXYKnLhty1jCkdQFB9eqJlWRqENnLL7UWloTcdEKfVP1+GZ6P+QvSfzMulJqUw7fMMA==
-  /@styled-system/should-forward-prop/5.1.0:
+      integrity: sha512-axdgRJ0gU8Rbw/DS24G4AAQIxYjo/fMmqxiegWja2XZDpeljqjyiYfGc7Dad3fgc+DUMn3Jjc1fHcTziTGWA4g==
+  /@styled-system/should-forward-prop/5.1.1:
     dependencies:
       '@emotion/is-prop-valid': 0.8.2
       '@emotion/memoize': 0.7.2
-      styled-system: 5.1.0
+      styled-system: 5.1.1
     dev: false
     resolution:
-      integrity: sha512-cHANlnbyHxSqp/wtq14NlSOgk77lAli3kDYq7yjMt8oxIuHRKwJDKdO/ainxSTtgTqVHm2Irr/UEmulphu1YFg==
-  /@styled-system/space/5.1.0:
+      integrity: sha512-vWgA9qtmo+Cjg63UiLNbuIHUA+nUMvl2tAFtiYE8KKIAz+CB8D11spVXE4JL89HG77sjuuQFwI5D778CKz7q6Q==
+  /@styled-system/space/5.1.1:
     dependencies:
-      '@styled-system/core': 5.1.0
+      '@styled-system/core': 5.1.1
     dev: false
     resolution:
-      integrity: sha512-rBCjAlXOLx8yVLTiG3noIelwDsFBYeFllH9Tf33/1oPZIWlykzLF3qOhyWLFjkjqfSyiu46+HzRcPwHgedoc8A==
-  /@styled-system/typography/5.1.0:
+      integrity: sha512-hwF938Zx83YRZmk30HtBE2EPWT8Z8H3+Rvpkdg13Q6P93DpSNH8wIlIObFKSgcmbOcqXzvFlAYcQ3l6F6Hu3IA==
+  /@styled-system/typography/5.1.1:
     dependencies:
-      '@styled-system/core': 5.1.0
+      '@styled-system/core': 5.1.1
     dev: false
     resolution:
-      integrity: sha512-3XI25fwASdWrt49768yiLbnZ24MD1r/YZiEDwhvwHbikhWE7WWb6t6qHjvoh2KV4DLQpoM1It//EYbzFCZFosA==
-  /@styled-system/variant/5.1.0:
+      integrity: sha512-zqrA9+nboPl5h/VhSKdlsUDUciHKb+Ly9YSCsvYb0Di1vI0lnYAtHzbBmI1xsfQW5us1BNflUpirCAQJshJMSQ==
+  /@styled-system/variant/5.1.1:
     dependencies:
-      '@styled-system/core': 5.1.0
+      '@styled-system/core': 5.1.1
       '@styled-system/css': 5.0.23
     dev: false
     resolution:
-      integrity: sha512-4YrBGpxutxMcdE10zzMeqMup7g/pUtuQkC3DS0rbn6D56ggS+wgFUuhVgqcoXbbbUeIwJyj+UjjPpZAU5oG8yg==
+      integrity: sha512-Gh3iBqksx+cTx5drqazu56KL5cJrGEdxMFQ/6Yo4ravrZd0dRmzBhsUh0+UWtSvfWfN0M0ziE3m/Zu4ZKMHMaQ==
   /@theme-ui/preset-base/0.2.29:
     dev: false
     resolution:
@@ -3446,10 +3447,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==
-  /date-fns/2.0.0:
+  /date-fns/2.0.1:
     dev: false
     resolution:
-      integrity: sha512-nGZDA64Ktq5uTWV4LEH3qX+foV4AguT5qxwRlJDzJtf57d4xLNwtwrfb7SzKCoikoae8Bvxf0zdaEG/xWssp/w==
+      integrity: sha512-C14oTzTZy8DH1Eq8N78owrCWvf3+cnJw88BTK/N3DYWVxDJuJzPaNdplzYxDYuuXXGvqBcO4Vy5SOrwAooXSWw==
   /date-now/0.1.4:
     dev: false
     resolution:
@@ -4903,7 +4904,7 @@ packages:
       gatsby: ^2.0.0
     resolution:
       integrity: sha512-yHL4OKgVEOWOuTUCO2ZPPmWyA1bAtSUPrf+W5w3p24pUwqMkz2Yu2hii/PhgQs+2ap6BkpSwBjBSYS2YLRmTNg==
-  /gatsby-plugin-catch-links/2.1.4:
+  /gatsby-plugin-catch-links/2.1.5:
     dependencies:
       '@babel/runtime': 7.5.5
       escape-string-regexp: 1.0.5
@@ -4913,7 +4914,7 @@ packages:
     peerDependencies:
       gatsby: ^2.0.0
     resolution:
-      integrity: sha512-CFOFVVg4wAjA+Muwmp6rBNBwHTF5hB65hZuL0Oty1Ifc/RhklpjymKjcHL+wsbXcgdqcci0L1CP8q4TtooRx4g==
+      integrity: sha512-YL4heo4WtELBRDGejERNfDOSNZzXFnjQAbEwYk09vkTczWd0NO3BUeVpfK3bJY0Md+5ELiCxQSV0xDBle8ddeQ==
   /gatsby-plugin-mdx/1.0.25:
     dependencies:
       '@babel/core': 7.5.5
@@ -8948,6 +8949,14 @@ packages:
       react: ^16.0.0
     resolution:
       integrity: sha512-kxERc4H32zV2lXMg/iMiwQHOtyqf15qojvkcZ5Ja2CPkjVohHw9k70pdDBwrnQhLVetUJBSYyqU3yqrlVTOajA==
+  /react-song-embed/1.0.0:
+    dev: false
+    peerDependencies:
+      prop-types: ^15.5.4
+      react: ^15.0.0 || ^16.0.0
+      react-dom: ^15.0.0 || ^16.0.0
+    resolution:
+      integrity: sha512-EOJBeBrOmYj83SMaSBWgXikH27pVIX9msuR1skl7rtJflsir3XkXDKMAV8QyPvqfilIYSoSBnaKtpzna0xHtgg==
   /react/16.9.0:
     dependencies:
       loose-envify: 1.4.0
@@ -9026,12 +9035,12 @@ packages:
       node: '>=0.10'
     resolution:
       integrity: sha512-1JU/8q+VgFZyxwrJ+SVIOsh+KywWGpds3NTqikiKpDMZWScmAYyKIgqkO+ARvNWJfXeXR1zxz7aHF4u4CyH6vQ==
-  /rebass/4.0.3:
+  /rebass/4.0.5:
     dependencies:
-      reflexbox: 4.0.2
+      reflexbox: 4.0.5
     dev: false
     resolution:
-      integrity: sha512-Yg7ZAXWa9oDf8Rqb2IKtkNbxulHeiGMcAt5F/cI6isxO2WOz3jAdpJ4A4fjIDOJ0FVX6pR4wQgvNMKjgNR9nrg==
+      integrity: sha512-8MZngk/AmbC8u8pGmI1WelbsKYjmN9Z91C11G4ESB9QZnoppWsI+OAqio1/4/l6dxHmwZ/hR8Q4UApF+IVEprA==
   /recursive-readdir/2.2.1:
     dependencies:
       minimatch: 3.0.3
@@ -9051,17 +9060,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==
-  /reflexbox/4.0.2:
+  /reflexbox/4.0.5:
     dependencies:
       '@emotion/core': /@emotion/core/10.0.16/react@16.9.0
       '@emotion/styled': /@emotion/styled/10.0.15/4d7cdfe9d879aa1ba46c1a95642853ce
       '@styled-system/css': 5.0.23
-      '@styled-system/should-forward-prop': 5.1.0
+      '@styled-system/should-forward-prop': 5.1.1
       react: 16.9.0
-      styled-system: 5.1.0
+      styled-system: 5.1.1
     dev: false
     resolution:
-      integrity: sha512-j5vbfB/aLgGbyiioNlXdpSTK97nbR5t7HWeX4w4+rlJVCvqNjZs9SfyLhwE9v4u7C6FookW39m5PhlUCgArPeQ==
+      integrity: sha512-SFWlrlKusgQVqjEimlLGNls3khjMlaTLrrF1H7YY7FfXv/mKK5mREDOW4l95D6Qa1kGoyM3hF+H5RLb3N6bCCA==
   /regenerate-unicode-properties/8.1.0:
     dependencies:
       regenerate: 1.4.0
@@ -10199,24 +10208,24 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1d/k4EY2N7jVLOqf2j04dTc37TPOv/hHxZmvpg8Pdh8UYydxeu/C1W1U4vD8alzf5V2Gt7rLsmkr4dxAlDm9ng==
-  /styled-system/5.1.0:
+  /styled-system/5.1.1:
     dependencies:
-      '@styled-system/background': 5.1.0
-      '@styled-system/border': 5.1.0
-      '@styled-system/color': 5.1.0
-      '@styled-system/core': 5.1.0
-      '@styled-system/flexbox': 5.1.0
-      '@styled-system/grid': 5.1.0
-      '@styled-system/layout': 5.1.0
-      '@styled-system/position': 5.1.0
-      '@styled-system/shadow': 5.1.0
-      '@styled-system/space': 5.1.0
-      '@styled-system/typography': 5.1.0
-      '@styled-system/variant': 5.1.0
+      '@styled-system/background': 5.1.1
+      '@styled-system/border': 5.1.1
+      '@styled-system/color': 5.1.1
+      '@styled-system/core': 5.1.1
+      '@styled-system/flexbox': 5.1.1
+      '@styled-system/grid': 5.1.1
+      '@styled-system/layout': 5.1.1
+      '@styled-system/position': 5.1.1
+      '@styled-system/shadow': 5.1.1
+      '@styled-system/space': 5.1.1
+      '@styled-system/typography': 5.1.1
+      '@styled-system/variant': 5.1.1
       object-assign: 4.1.1
     dev: false
     resolution:
-      integrity: sha512-rlZvEXQKFDXHxAfVzph6GDowOyUb9PGZrE3pGgv6W8chEnG02HJrB6AfosNEEZzuQI2RdUX2piqnW4eEkG9lMg==
+      integrity: sha512-jTFstSW5valWSkCsJhgh0fqUFLi1hL+S7Zj6Q6Dj1VTkR77l8B3/mgtSROjjiIwRG9SLW1BsJWjLn8mTNiwqgg==
   /stylehacks/4.0.3:
     dependencies:
       browserslist: 4.6.6
@@ -10374,7 +10383,7 @@ packages:
     dev: false
     resolution:
       integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
-  /theme-ui/0.2.35:
+  /theme-ui/0.2.36:
     dependencies:
       '@emotion/is-prop-valid': 0.8.2
       '@styled-system/css': 5.0.23
@@ -10385,7 +10394,7 @@ packages:
       '@emotion/core': ^10.0.0
       '@mdx-js/react': ^1.0.0
     resolution:
-      integrity: sha512-NJJEtnLogIULuwL/dF15kfv+97ZR/rWFLccrR60iGCj6j8hk4krqO+g573hV4bowDorCFPA4yQb0HHZbm+1P1g==
+      integrity: sha512-7K+rVfl6txPnd05YyNGmgsgrzep2V99/d+CrHjAfBYX9GGoVmKs5X1/3KkdJD8rf/bjF8yDGLwLyaFUYL6T/0A==
   /through/2.3.8:
     dev: false
     resolution:
@@ -11415,15 +11424,16 @@ specifiers:
   '@mdx-js/react': ^1.3.1
   '@theme-ui/preset-base': ^0.2.29
   '@theme-ui/prism': ^0.2.29
-  date-fns: ^2.0.0
+  date-fns: ^2.0.1
   gatsby: ^2.6.0
-  gatsby-plugin-catch-links: ^2.1.4
+  gatsby-plugin-catch-links: ^2.1.5
   gatsby-plugin-mdx: ^1.0.25
   gatsby-plugin-theme-ui: ^0.2.34
   lodash: ^4.17.15
   react: ^16.9.0
   react-dom: ^16.9.0
   react-music-embed: ^1.0.0
-  rebass: ^4.0.3
+  react-song-embed: ^1.0.0
+  rebass: ^4.0.5
   resize-observer-polyfill: ^1.5.1
-  theme-ui: ^0.2.35
+  theme-ui: ^0.2.36
