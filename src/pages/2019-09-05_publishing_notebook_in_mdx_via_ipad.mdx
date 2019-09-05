@@ -1,0 +1,83 @@
+import { ShortcutsList } from '../components/blocks'
+
+# Publishing Notebook in MDX via my iPad
+
+It’s no secret that my iPad Pro is my primary computer. It’s the perfect device for being a student, & even outside that, I absolutely love using it.
+
+But I’m also a web designer. Coding on an iPad has long been…a joke. There are various hacky workarounds, & this is one of them, but it’s free & requires no complicated setup.
+
+My notebook is a place for me to post daily notes. They’re kind of blog posts, but with a much lower bar for posting, more options in authoring/presentation, & more of a ”work in public“ attitude. I’m not trying to get maximum claps on Medium, maybe no one at all cares, but I want to make what I’m thinking about & working on public, & I love this format.
+
+> Before you ask, yes, this site is open source. [Read the source](https://glitch.com/~lachlanjc-notebook)
+
+My notebook here runs on [Gatsby](https://www.gatsbyjs.org) with [MDX](https://mdxjs.com), hosted on [Netlify](https://Netlify.com).
+
+Original inspiration came from [jxnblk/notebook](https://github.com/jxnblk/notebook), but I set mine up pretty differently. I’m eyeing [John Otander’s digital garden](https://johno.com/txt/drafts/digital-garden), but the Gatsby Theme is still maturing.
+
+## MDX
+
+I love MDX because I can embed custom-styled React components inside my writing, while still writing in readable, easily-editable Markdown. Check out [this recent post](https://notebook.lachlanjc.me/2019-09-05_windy_city_hacks_newsletters/) for an example of embedded components.
+
+## Basic workflow
+
+I draft the text in my native Markdown editor (more below), then write the code on [Glitch](https://glitch.com), my favorite web-based Node.js editor. I then export changes to GitHub, where Netlify jumps in to deploy the latest changes to my site.
+
+This means [the Glitch preview](https://lachlanjc-notebook.glitch.me) is just that—a preview. For real visitors, they’re getting the static site served by a CDN, instead of a tiny development server that takes a minute to boot up.
+
+I typically write posts in [Drafts](https://getdrafts.com/) on my iPad, because it’s a great text editor that immediately opens to a new note.
+
+### Shortcuts
+
+(The most useful one is the first one, the others are for processing images)
+
+<ShortcutsList>
+
+- [New Notebook Page](https://www.icloud.com/shortcuts/7a2dcbde921e4cd89ef75dbc6fd69b6a)
+- [Photo Join](https://www.icloud.com/shortcuts/8825a0e9171b4f0491ed64785683e634)
+- [Create GIF](https://www.icloud.com/shortcuts/43681747e4c645cc81ab69835c24f6c7)
+- [Live Photo to GIF](https://www.icloud.com/shortcuts/9205c57be3d44b11b2196c0dd3bd8e28)
+- [Convert Image](https://www.icloud.com/shortcuts/792866e39f9b405ea6873f5826f0fd34)
+- [Compress Image](https://www.icloud.com/shortcuts/e412d6ffbb6c4ca8b2e64c9ad79fead1)
+
+</ShortcutsList>
+
+Regarding `New Notebook Page`: Remember to change the project URL to yours at the end! I have two notebooks, this one & [one for my college major coursework](https://ima.lachlanjc.me)—if you just have one, delete the Choose from Menu near the end.
+
+## Publishing a post
+
+Once I’ve got the text ready & want to jump into adding code components/previewing it on the site, I run the `New Notebook Page` Shortcut. Type in the short name of the post to show up on the homepage/become the slug. I typically put Safari in Split View next to Drafts, running the Shortcut from the widget/Slide Over.
+
+I then tap New File, paste, then copy the post text, & paste it into the editor. Show Live → In a New Window, check it out, make edits.
+
+When it’s ready for primetime, I just tap Tools → Git, Import, Export → Export to GitHub, add a commit message, & wait 1 minute while it deploys. All done!
+
+### Images
+
+If you take a photo with your iPhone or iPad, you’ll have a multi-megabyte file, & sometimes the Live Photo is important, etc. I linked a variety of Shortcuts to aid:
+
+- `Create GIF` is fun if you have a bunch of images taken in short sequence.
+- `Live Photo to GIF` does just what it sounds like.
+- `Convert Image` just changes image formats.
+- `Compress Image` is the most important—you’ll want to compress photos before embedding them on your page, for performance reasons.
+
+When you’ve got an image ready, just upload it to Glitch Assets, copy the URL, & use it in Markdown as a standard image.
+
+### Technical note: if you use Next.js or Gatsby
+
+If you set up a basic project on Glitch with Next.js or Gatsby, you’ll find development unbearable, as Glitch entirely restarts the server on every change, instead of allowing those frameworks’ hot reloading to work.
+
+[This forum post](https://support.glitch.com/t/glitch-next-js-issues-double-compilation/6849/4) rescued me. I think Glitch should make this built-in, but until then, make a `watch.json` file in the root of your project & paste in:
+
+```json
+{
+  "install": {
+    "include": ["^package\\.json$"],
+    "exclude": []
+  },
+  "restart": {
+    "include": ["^\\.env$"],
+    "exclude": []
+  },
+  "noSavedEvents": true
+}
+```
