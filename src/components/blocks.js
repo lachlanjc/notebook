@@ -1,30 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import React from 'react'
-import { Box } from 'rebass'
-
-export const Banner = props => (
-  <div
-    {...props}
-    sx={{
-      py: [4, 5, 6],
-      fontWeight: 'bold',
-      h1: {
-        fontSize: [6, 7, 8, 9]
-      },
-      p: {},
-      ul: {
-        listStyle: 'none',
-        display: 'flex',
-        p: 0,
-        m: 0
-      },
-      li: {
-        mr: 3
-      }
-    }}
-  />
-)
 
 export const Container = ({ wide, ...props }) => (
   <div

@@ -88,11 +88,11 @@ export default ({ xl, ...props }) => {
         </Styled.a>
         <ColorSwitcher />
       </header>
-      <p variant="container" sx={{ display: 'flex', alignItems: 'center', color: 'secondary', my: 0 }}>
+      <p variant="container" sx={{ display: 'flex', alignItems: 'center', color: 'secondary', mt: 0, mb: [3, 4] }}>
         <Icon glyph="view" sx={{ mr: 2 }} />
         Page views:
         <img
-          src={`https://lachlanjc-analytics.glitch.me/counter.png?fallback=notebook.lachlanjc.me&color=%23${theme.colors.secondary.replace('#', '')}`}
+          src={`https://lachlanjc-analytics.glitch.me/counter.png?fallback=notebook.lachlanjc.me&color=${theme.colors.secondary.replace('#', '%23')}`}
           alt="View counter"
           style={{ verticalAlign: 'bottom' }}
         />

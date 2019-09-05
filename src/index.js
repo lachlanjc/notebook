@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { graphql, useStaticQuery, Link } from 'gatsby'
+import theme from './gatsby-plugin-theme-ui'
 import Layout from './layout'
 import { filter, startCase, includes, isEmpty, orderBy } from 'lodash'
 import { format } from 'date-fns'
@@ -9,6 +10,42 @@ export const wrapPageElement = ({ element, props }) =>
   <Layout {...props}>
     {element}
   </Layout>
+
+export const Banner = props => (
+  <div
+    sx={{
+      display: 'flex',
+      flexDirection: ['column', 'row'],
+      alignItems: ['flex-start', 'center'],
+      mb: [4, 5],
+      img: {
+        width: [72, 96],
+        mr: [0, 3, 4],
+        mb: [3, 0]
+      },
+      h1: {
+        mt: 0,
+        mb: 0,
+        lineHeight: 'heading'
+      },
+      p: {
+        mt: 1,
+        mb: 0,
+        fontSize: [2, 3],
+        lineHeight: 'heading',
+        color: 'secondary'
+      },
+      a: {
+        color: 'primary'
+      }
+    }}
+  >
+    <img src={`https://contrast.now.sh/fff/${theme.colors.primary.replace('#', '')}?text=%F0%9F%93%9D&radius=999&size=512&fontSize=2&baseline=1`} />
+    <div>
+      {props.children}
+    </div>
+  </div>
+)
 
 export const Nav = props => {
   const data = useStaticQuery(pages)
