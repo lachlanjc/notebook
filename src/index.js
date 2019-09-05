@@ -20,6 +20,7 @@ export const Banner = props => (
       mb: [4, 5],
       img: {
         width: [72, 96],
+        maxWidth: '100%',
         mr: [0, 3, 4],
         mb: [3, 0]
       },

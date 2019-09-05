@@ -1,0 +1,75 @@
+import { Box } from 'rebass'
+import { ShortcutsList } from '../components/blocks'
+
+# Windy City Hacks Newsletters
+
+For Windy City Hacks, I wanted to send out custom HTML newsletters, entirely from my iPad. The process I came up with isn’t necessarily _good_, but here’s how I did it.
+
+Note: This will require significant customization if you’re intending to use a similar process. Also, be prepared to spend several hours per newsletter, start to finish.
+
+I started by using a [Zurb responsive email template](https://zurb.com/playground/responsive-email-templates), because CSS + emails is a horrible combination. I spent several hours updating the design to the Windy brand, testing in various clients, etc.
+
+[**Check out a sample newsletter**](https://2019.windyhacks.com/newsletters/first.html)
+
+## Writing a newsletter
+
+### Apps
+
+- Shortcuts
+- Drafts
+- Working Copy
+- Numbers
+
+### Shortcuts
+
+<ShortcutsList>
+
+- [Compose Newsletter](https://www.icloud.com/shortcuts/fb0d8b55d9014266812942c83b6fbc97)
+- [Newsletter HTML](https://www.icloud.com/shortcuts/af62700c88d7409ab231aa37beebcfd4)
+- [Make Plain Text Newsletter](https://www.icloud.com/shortcuts/21225bcd5b494ad8acf0b3272ee3dbb1)
+
+</ShortcutsList>
+
+I started by composing the newsletters (with [Matthew](https://matthewstanciu.me)), focusing just on what we wanted to say. (Apple Notes works great here.) Remember, the content matters a whole lot more than the formatting :)
+
+### Composing the HTML
+
+I then ran the `Compose Newsletter` Shortcut, which creates a new file in Working Copy at the correct path with the basic template.
+
+If you plug your iPad into an external display (USB-C → HDMI adapter if your monitor isn’t directly supported), Working Copy renders a preview of the HTML on the external display, & the code on your iPad. Fab!
+
+I’d set up Split View with Working Copy next to Shortcuts, & Notes in Slide Over.
+
+The next part was always horrendously painful, because of the need to generate HTML with inline styles. For each line of text, I’d run the `Newsletter HTML` Shortcut, fill out whatever options, & paste into the Working Copy editor. Inline formatting like bold or links must be handled individually.
+
+### Generating a plain text copy
+
+Sending plain text alongside your HTML email is good form. Unfortunately, I couldn’t just use the original text, because I’d always edit it while making the HTML version/reading it in my client.
+
+Select all the HTML in the Working Copy editor, Share → Shortcuts → Make Plain Text Newsletter, then edit in Drafts.
+
+## Sending a newsletter
+
+Hack Club has an installation of [Sendy](https://sendy.co), which is honestly the best newsletter software I’ve ever used. Highly recommend it over MailChimp & friends.
+
+Note: I’ve previously tried TinyLetter, but if anyone replies to your email with an attachment, you can’t see the attachment. This is a big no.
+
+### Generating the recipient list
+
+Our attendees were stored in Airtable, so I did whatever relevant filtering there, then exported a CSV. (This is only available via the website because Airtable SUCKS on iPad, but the website is becoming more usable on iPadOS). Then I’d open the CSV in Numbers to manipulate the columns (renaming the emergency contact name to `name`, deleting unused columns, etc), re-export as CSV, & upload the list to Sendy.
+
+This is super tiresome, but there wasn’t a clear pattern to automate, & CSV is rough to automate in Shortcuts.
+
+### Sending it out
+
+This part is pretty simple! Paste the plain text & HTML into Sendy’s editor. They’ve got options for scheduling, sending test emails, etc.
+
+### Test your newsletter. Always!
+
+Never, ever send out a newsletter without sending yourself a test copy, sometimes several, first. I would undoubtedly discover a typo, need to make an edit, find a bug, etc.
+
+***
+
+I hope this was somewhat useful. It’s not a recommendation to use this system, merely documentation of what I did if you wanted to recreate it for your own hackathon, club, etc.
+
+Happy emailing! 💌

@@ -62,6 +62,14 @@ export default merge(base, {
       }
     }
   },
+  variants: {
+    sheet: {
+      bg: 'sunken',
+      borderRadius: 8,
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.0625)',
+      overflow: 'hidden'
+    }
+  },
   styles: {
     hr: {
       border: 0,

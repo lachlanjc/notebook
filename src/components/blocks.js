@@ -38,6 +38,19 @@ export const Tiles = props => (
   />
 )
 
+export const Embed = ({ src, sx, ...props }) => (
+  <div variant="sheet" {...props} sx={{ p: 0, maxHeight: 512, width: '100%', mt: [3, 4], ...sx }}>
+    <iframe
+      src={src}
+      frameBorder="0"
+      onMouseWheel=""
+      width="100%"
+      height="512"
+      style={{ display: 'block', maxWidth: '100%' }}
+    />
+  </div>
+)
+
 export const List = props => (
   <div
     {...props}
