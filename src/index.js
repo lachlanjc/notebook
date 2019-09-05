@@ -41,7 +41,7 @@ export const Banner = props => (
       }
     }}
   >
-    <img src={`https://contrast.now.sh/fff/${theme.colors.primary.replace('#', '')}?text=%F0%9F%93%9D&radius=999&size=512&fontSize=2&baseline=1`} />
+    <img src={`https://contrast.now.sh/fff/${theme.colors.primary.replace('#', '')}?text=%F0%9F%93%9D&radius=999&size=512&fontSize=2&baseline=1`} width={72} />
     <div>
       {props.children}
     </div>
