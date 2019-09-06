@@ -59,9 +59,11 @@ export const List = props => (
         p: 0,
         m: 0,
         listStyle: 'none',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(256px, 1fr))',
-        gridGap: 4
+        columnWidth: 256,
+        columnGap: 4
+      },
+      li: {
+        mb: 4
       },
       a: {
         fontWeight: 'bold'
@@ -72,11 +74,16 @@ export const List = props => (
 )
 
 export const LinkList = props => (
-  <List
+  <div
     {...props}
     sx={{
       mb: 4,
       ul: {
+        p: 0,
+        m: 0,
+        listStyle: 'none',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(256px, 1fr))',
         gridGap: 3,
         mb: 4
       },
