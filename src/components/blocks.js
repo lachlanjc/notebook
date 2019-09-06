@@ -58,6 +58,7 @@ export const List = props => (
       ul: {
         p: 0,
         m: 0,
+        lineHeight: 1,
         listStyle: 'none',
         columnWidth: 256,
         columnGap: 4
