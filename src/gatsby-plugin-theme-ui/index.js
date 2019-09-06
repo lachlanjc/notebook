@@ -30,6 +30,9 @@ export default merge(base, {
     heading: 900,
     body: 400
   },
+  lineHeights: {
+    body: 1.75
+  },
   sizes: {
     container: 768,
     xl: 1024
@@ -108,6 +111,7 @@ export default merge(base, {
       }
     },
     li: {
+      mb: 3,
       '&.task-list-item': {
         my: 1,
         'input': {

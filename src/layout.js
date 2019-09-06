@@ -62,6 +62,7 @@ export default ({ xl, ...props }) => {
         p: 3,
         fontSize: 1,
         maxWidth: home ? 'xl' : 'container',
+        lineHeight: 'body',
         mx: 'auto'
       }}
     >

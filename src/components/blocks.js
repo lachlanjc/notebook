@@ -88,6 +88,7 @@ export const LinkList = props => (
         gridGap: 3,
         mb: 4
       },
+      li: { mb: 0 },
       p: { my: 0 },
       a: {
         bg: 'primary',
