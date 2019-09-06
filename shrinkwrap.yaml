@@ -1,15 +1,15 @@
 dependencies:
   '@emotion/core': 10.0.15
   '@hackclub/icons': 0.0.2
-  '@mdx-js/mdx': 1.4.0
-  '@mdx-js/react': 1.4.0
+  '@mdx-js/mdx': 1.4.4
+  '@mdx-js/react': 1.4.4
   '@theme-ui/preset-base': 0.2.29
   '@theme-ui/prism': 0.2.29
   date-fns: 2.0.1
   gatsby: 2.13.58
-  gatsby-plugin-catch-links: 2.1.7
+  gatsby-plugin-catch-links: 2.1.8
   gatsby-plugin-mdx: 1.0.25
-  gatsby-plugin-theme-ui: 0.2.38
+  gatsby-plugin-theme-ui: 0.2.41
   lodash: 4.17.15
   react: 16.9.0
   react-dom: 16.9.0
@@ -17,7 +17,7 @@ dependencies:
   react-song-embed: 1.0.0
   rebass: 4.0.5
   resize-observer-polyfill: 1.5.1
-  theme-ui: 0.2.38
+  theme-ui: 0.2.41
 packages:
   /@babel/code-frame/7.5.5:
     dependencies:
@@ -1104,20 +1104,20 @@ packages:
     dev: false
     resolution:
       integrity: sha512-JmS9/vQK6dcUYn7wc2YZTqzIKubAQcJKu2KCKAru6es482U5RT5fP1EXCPtlXpiK7PR0On/kpQKI4fRKkzpZBQ==
-  /@mdx-js/mdx/1.4.0:
+  /@mdx-js/mdx/1.4.4:
     dependencies:
       '@babel/core': 7.5.5
       '@babel/plugin-syntax-jsx': /@babel/plugin-syntax-jsx/7.2.0/@babel!core@7.5.5
       '@babel/plugin-syntax-object-rest-spread': /@babel/plugin-syntax-object-rest-spread/7.2.0/@babel!core@7.5.5
-      '@mdx-js/util': 1.4.0
-      babel-plugin-apply-mdx-type-prop: 1.4.0
-      babel-plugin-extract-import-names: 1.4.0
+      '@mdx-js/util': 1.4.4
+      babel-plugin-apply-mdx-type-prop: 1.4.4
+      babel-plugin-extract-import-names: 1.4.4
       camelcase-css: 2.0.1
       detab: 2.0.2
       hast-util-raw: 5.0.1
       lodash.uniq: 4.5.0
       mdast-util-to-hast: 6.0.2
-      remark-mdx: 1.4.0
+      remark-mdx: 1.4.4
       remark-parse: 7.0.1
       remark-squeeze-paragraphs: 3.0.4
       style-to-object: 0.2.3
@@ -1126,17 +1126,17 @@ packages:
       unist-util-visit: 2.0.0
     dev: false
     resolution:
-      integrity: sha512-JV7lBmc4GXu/g6ATIjBBe9iovLnMFP6Ka6ZAIeiZHBRrhec1oj9iYTTShmRY+w2MsMfk0vBIxJxQSiorf4pGYw==
-  /@mdx-js/react/1.4.0:
+      integrity: sha512-7oDVba/KOr4PM3AN3AMp6rpLwO2lAUKtt5cFaZ/lmW5yBAph9TYW0/Y89lkRbQ8SoyUWj85URTgSg7qJ0ECx5w==
+  /@mdx-js/react/1.4.4:
     dev: false
     peerDependencies:
       react: ^16.9.0
     resolution:
-      integrity: sha512-UHPG74qvLM8wO+evIKzNQqSw3PzgPei4oEFPuFGee15rK0cYNDKL+utzQLM1Ngv2gmjU/WN9BYrpJxyFh8xOCg==
-  /@mdx-js/util/1.4.0:
+      integrity: sha512-R3qI6ghWSgQw/Y/vtzRnHFnSqmsVdtLv9S6HFNYz3z9H04UachPpnWoCXRcW6RdBdRHIt1gYiRADGpPDh2Yciw==
+  /@mdx-js/util/1.4.4:
     dev: false
     resolution:
-      integrity: sha512-idIFyiYzVr3kNOGtIZzx2n9V0iJdTn06hYmJ05miktP4bHdrTJeonp/6wfLtDxfsfx00mkCxxX0YymvnrqozeA==
+      integrity: sha512-/mczKmKul33/Um6WZ3UYKKXQJg6MuHg6/WkZzndC2z5Geclbai3COLrcono7KQ6rstu3kKRmzkQLJfUB+cu8Pg==
   /@mikaelkristiansson/domready/1.0.9:
     dev: false
     resolution:
@@ -1927,13 +1927,13 @@ packages:
     dev: false
     resolution:
       integrity: sha1-mumh9KjcZ/DN7E9K7aHkOl/2XiU=
-  /babel-plugin-apply-mdx-type-prop/1.4.0:
+  /babel-plugin-apply-mdx-type-prop/1.4.4:
     dependencies:
       '@babel/helper-plugin-utils': 7.0.0
-      '@mdx-js/util': 1.4.0
+      '@mdx-js/util': 1.4.4
     dev: false
     resolution:
-      integrity: sha512-yeLqZ9HinXo0EiV4dUxpwxXswQzya2YhgGw4FErYxD/dQxtPMGnBXNxxudCBvoCThjxclFXU2IDfpfMbJR2UFQ==
+      integrity: sha512-K4CUJcyOnH9p7sXUVQzRZljEESzVt7IoxRIS/qY2IQKAcjFxEB4xCsD96/oEDuM2evyHFn8vInhuUphlOW3YWQ==
   /babel-plugin-dynamic-import-node/1.2.0:
     dependencies:
       babel-plugin-syntax-dynamic-import: 6.18.0
@@ -1976,12 +1976,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-a01Xrourr/VRpw4KicX9drDwfVGHmw8HmlQk++N4fv0j73EfHKWC1Ah4Vu8s1cTGVvTiwum+UhVpJenV8j03FQ==
-  /babel-plugin-extract-import-names/1.4.0:
+  /babel-plugin-extract-import-names/1.4.4:
     dependencies:
       '@babel/helper-plugin-utils': 7.0.0
     dev: false
     resolution:
-      integrity: sha512-tPGjqJj44L1saGZ2GGeKKLlaqLYV9oNYawE5nAFMF2umfKv3krXz8ANmsnS5EoagC96fvjo0JBOiMlifUZTiZA==
+      integrity: sha512-kI0ujH0X7UGwCV+/P19/b6AQ8/SyLTmUdRT/D2ur+C8FEWxil+yXEKaZyNbCRsdPikDv8Ul6YIvUlmxbCSnhhg==
   /babel-plugin-macros/2.6.1:
     dependencies:
       '@babel/runtime': 7.5.5
@@ -4904,7 +4904,7 @@ packages:
       gatsby: ^2.0.0
     resolution:
       integrity: sha512-yHL4OKgVEOWOuTUCO2ZPPmWyA1bAtSUPrf+W5w3p24pUwqMkz2Yu2hii/PhgQs+2ap6BkpSwBjBSYS2YLRmTNg==
-  /gatsby-plugin-catch-links/2.1.7:
+  /gatsby-plugin-catch-links/2.1.8:
     dependencies:
       '@babel/runtime': 7.5.5
       escape-string-regexp: 1.0.5
@@ -4914,7 +4914,7 @@ packages:
     peerDependencies:
       gatsby: ^2.0.0
     resolution:
-      integrity: sha512-Qz/wKW50qpFY0Nod07zfvntAkI52L4d92f6rNu0v9GXOJrrAAkueID34eBGQu02p1Rlz40UgqrsT7TX90bimrA==
+      integrity: sha512-jCwugtUcNWcLAG/PGNf7SPtoO1xJSyCaXHSxGqiJ+obPqKCRCftaXNvHPFwCUvEjYt0kTL8olXJ37jBlcY6NAg==
   /gatsby-plugin-mdx/1.0.25:
     dependencies:
       '@babel/core': 7.5.5
@@ -4974,13 +4974,13 @@ packages:
       gatsby: ^2.0.0
     resolution:
       integrity: sha512-nUcsaJAaMy9UQS66QY0Dys6Xx+2CGG2EVyvDQ4NQ713la62jicOU764Bmi5G7sE2QGgpNoBtUQCW+aE6UMGpLQ==
-  /gatsby-plugin-theme-ui/0.2.38:
+  /gatsby-plugin-theme-ui/0.2.41:
     dev: false
     peerDependencies:
       gatsby: ^2.13.1
       theme-ui: ^0.2.0
     resolution:
-      integrity: sha512-4HUf5EoYQAuxrSyLRVyrYNzqOVnj4hNuPorQk55l8kvTR1MdL3URaoQmsES895cb6+mNOb4/ODb66tFCOdwjwQ==
+      integrity: sha512-Wnusm81qSHY+O9Kc+GJBsxE0gaBGd7BkgJD3q8v9NOiN4K82rhaH0jKHPYJbcxDHjd5fqxOrO7H1etDrnmK1WQ==
   /gatsby-react-router-scroll/2.1.3/@reach!router@1.2.1:
     dependencies:
       '@babel/runtime': 7.5.5
@@ -9183,19 +9183,19 @@ packages:
     dev: false
     resolution:
       integrity: sha512-o/LPFHTI6+3FLJXM3Ec4N6hzkKYILVHYRJThNX0UQlMnqjTVPR6NO4qFE2QzzEiUS+lys+qfnvBzSmNbSh1zWQ==
-  /remark-mdx/1.4.0:
+  /remark-mdx/1.4.4:
     dependencies:
       '@babel/core': 7.5.5
       '@babel/helper-plugin-utils': 7.0.0
       '@babel/plugin-proposal-object-rest-spread': /@babel/plugin-proposal-object-rest-spread/7.5.5/@babel!core@7.5.5
       '@babel/plugin-syntax-jsx': /@babel/plugin-syntax-jsx/7.2.0/@babel!core@7.5.5
-      '@mdx-js/util': 1.4.0
+      '@mdx-js/util': 1.4.4
       is-alphabetical: 1.0.3
       remark-parse: 7.0.1
       unified: 8.3.2
     dev: false
     resolution:
-      integrity: sha512-wheABifW7zegJ9ASCbHJ6SlKp5ZF2YgWB62kU9zLR6SE2wSfipk3yK1tgXKmBTpXLrRuxPY/VEaV7YcO8dLLgg==
+      integrity: sha512-yz/kvkczimzJ3AT1ZbDPBw2V2TQd9D+0RM30kUi2NMW1CElYcMey1DtmAb0V2xJzjHtAIdh6qi2+uXyBH7lBJw==
   /remark-parse/6.0.3:
     dependencies:
       collapse-white-space: 1.0.5
@@ -10384,7 +10384,7 @@ packages:
     dev: false
     resolution:
       integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
-  /theme-ui/0.2.38:
+  /theme-ui/0.2.41:
     dependencies:
       '@emotion/is-prop-valid': 0.8.2
       '@styled-system/css': 5.0.23
@@ -10395,7 +10395,7 @@ packages:
       '@emotion/core': ^10.0.0
       '@mdx-js/react': ^1.0.0
     resolution:
-      integrity: sha512-nPjZlDyRISPu1EYlYHOUT5IKFd22cSEg3i2Kr9EH/mbtD3ezTAqAdE7SKzjUe9tFyagJ9y0UbY/tUI+SENu8wQ==
+      integrity: sha512-VketIz3vjXMcmXxTX+7QO4QDx69GqNocmGwrXqYwKngKEOYxvXl0clDZLQzNIZBdo+UZcYa8gKf/jyBXXQ2/xQ==
   /through/2.3.8:
     dev: false
     resolution:
@@ -11421,15 +11421,15 @@ shrinkwrapVersion: 3
 specifiers:
   '@emotion/core': ^10.0.15
   '@hackclub/icons': ^0.0.2
-  '@mdx-js/mdx': ^1.4.0
-  '@mdx-js/react': ^1.4.0
+  '@mdx-js/mdx': ^1.4.3
+  '@mdx-js/react': ^1.4.3
   '@theme-ui/preset-base': ^0.2.29
   '@theme-ui/prism': ^0.2.29
   date-fns: ^2.0.1
   gatsby: ^2.6.0
-  gatsby-plugin-catch-links: ^2.1.7
+  gatsby-plugin-catch-links: ^2.1.8
   gatsby-plugin-mdx: ^1.0.25
-  gatsby-plugin-theme-ui: ^0.2.38
+  gatsby-plugin-theme-ui: ^0.2.41
   lodash: ^4.17.15
   react: ^16.9.0
   react-dom: ^16.9.0
@@ -11437,4 +11437,4 @@ specifiers:
   react-song-embed: ^1.0.0
   rebass: ^4.0.5
   resize-observer-polyfill: ^1.5.1
-  theme-ui: ^0.2.38
+  theme-ui: ^0.2.41
