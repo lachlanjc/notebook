@@ -112,6 +112,7 @@ export default merge(base, {
     },
     li: {
       mb: 3,
+      li: { mt: 3 },
       '&.task-list-item': {
         my: 1,
         'input': {
