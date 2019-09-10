@@ -5,7 +5,7 @@ dependencies:
   '@mdx-js/react': 1.4.4
   '@theme-ui/preset-base': 0.2.29
   '@theme-ui/prism': 0.2.29
-  date-fns: 2.0.1
+  date-fns: 2.1.0
   gatsby: 2.13.58
   gatsby-plugin-catch-links: 2.1.8
   gatsby-plugin-mdx: 1.0.25
@@ -3447,10 +3447,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==
-  /date-fns/2.0.1:
+  /date-fns/2.1.0:
     dev: false
     resolution:
-      integrity: sha512-C14oTzTZy8DH1Eq8N78owrCWvf3+cnJw88BTK/N3DYWVxDJuJzPaNdplzYxDYuuXXGvqBcO4Vy5SOrwAooXSWw==
+      integrity: sha512-eKeLk3sLCnxB/0PN4t1+zqDtSs4jb4mXRSTZ2okmx/myfWyDqeO4r5nnmA5LClJiCwpuTMeK2v5UQPuE4uMaxA==
   /date-now/0.1.4:
     dev: false
     resolution:
@@ -11425,7 +11425,7 @@ specifiers:
   '@mdx-js/react': ^1.4.3
   '@theme-ui/preset-base': ^0.2.29
   '@theme-ui/prism': ^0.2.29
-  date-fns: ^2.0.1
+  date-fns: ^2.1.0
   gatsby: ^2.6.0
   gatsby-plugin-catch-links: ^2.1.8
   gatsby-plugin-mdx: ^1.0.25
