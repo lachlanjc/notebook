@@ -15,7 +15,6 @@ dependencies:
   react-dom: 16.9.0
   react-music-embed: 1.0.0
   react-song-embed: 1.0.0
-  react-tweet-embed: 1.2.2
   rebass: 4.0.5
   resize-observer-polyfill: 1.5.1
   theme-ui: 0.2.42
@@ -9076,12 +9075,6 @@ packages:
       react-dom: ^15.0.0 || ^16.0.0
     resolution:
       integrity: sha512-EOJBeBrOmYj83SMaSBWgXikH27pVIX9msuR1skl7rtJflsir3XkXDKMAV8QyPvqfilIYSoSBnaKtpzna0xHtgg==
-  /react-tweet-embed/1.2.2:
-    dev: false
-    peerDependencies:
-      react: '>0.14.0'
-    resolution:
-      integrity: sha512-Y932BlSaJsDUsKDucC2opzzd+uhc0YNhrlTa/4Beb2be1od+AjLGo6Fhuo2wPT0D+fF4VTXOyoZyA8Yc88RdYA==
   /react/16.9.0:
     dependencies:
       loose-envify: 1.4.0
@@ -11559,7 +11552,6 @@ specifiers:
   react-dom: ^16.9.0
   react-music-embed: ^1.0.0
   react-song-embed: ^1.0.0
-  react-tweet-embed: ^1.2.2
   rebass: ^4.0.5
   resize-observer-polyfill: ^1.5.1
   theme-ui: ^0.2.42

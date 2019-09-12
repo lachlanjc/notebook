@@ -112,7 +112,13 @@ export default merge(base, {
     },
     li: {
       mb: 3,
-      li: { mt: 3 },
+      li: {
+        mt: 1,
+        mb: 1,
+        '&:last-of-type': {
+          mb: 3
+        }
+      },
       '&.task-list-item': {
         my: 1,
         'input': {
