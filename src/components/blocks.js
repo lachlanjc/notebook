@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import React from 'react'
-import TweetEmbed from 'react-tweet-embed'
 
 export const Container = ({ wide, ...props }) => (
   <div
@@ -51,8 +50,6 @@ export const Embed = ({ src, sx, ...props }) => (
     />
   </div>
 )
-
-export const Tweet = props => <TweetEmbed {...props} />
 
 export const List = props => (
   <div

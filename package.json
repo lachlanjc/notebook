@@ -28,7 +28,6 @@
     "rebass": "^4.0.5",
     "date-fns": "^2.1.0",
     "react-music-embed": "^1.0.0",
-    "react-song-embed": "^1.0.0",
-    "react-tweet-embed": "^1.2.2"
+    "react-song-embed": "^1.0.0"
   }
 }
