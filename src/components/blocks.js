@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import React from 'react'
+import TweetEmbed from 'react-tweet-embed'
 
 export const Container = ({ wide, ...props }) => (
   <div
@@ -50,6 +51,8 @@ export const Embed = ({ src, sx, ...props }) => (
     />
   </div>
 )
+
+export const Tweet = props => <TweetEmbed {...props} />
 
 export const List = props => (
   <div
@@ -122,14 +125,11 @@ Object.entries(rainbow).map(([name, bg], i) => {
 })
 
 export const ShortcutsList = props => (
-  <List
+  <LinkList
     {...props}
     sx={{
-      ul: {
-        gridGap: 3,
-        mb: 4
-      },
       li: {
+        mb: 0,
         display: 'flex',
         ...rainbowKids,
         p: { my: 0 },
