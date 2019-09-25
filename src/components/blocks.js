@@ -51,6 +51,18 @@ export const Embed = ({ src, sx, ...props }) => (
   </div>
 )
 
+export const Handwriting = props => (
+  <div
+    {...props}
+    sx={{
+      borderRadius: 8,
+      bg: 'smoke',
+      p: 1,
+      mx: -3
+    }}
+  />
+)
+
 export const List = props => (
   <div
     {...props}
