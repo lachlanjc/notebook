@@ -1,4 +1,5 @@
 import base from '@theme-ui/preset-base'
+import nightOwl from '@theme-ui/prism/presets/night-owl.json'
 import { merge } from 'lodash'
 
 export const palette = {
@@ -43,7 +44,7 @@ export default merge(base, {
     circle: 9999
   },
   initialColorMode: 'light',
-  useCustomProperties: true,
+  useColorSchemeMediaQuery: true,
   colors: {
     ...palette,
     text: palette.black,
@@ -84,7 +85,8 @@ export default merge(base, {
     pre: {
       p: 3,
       bg: 'muted',
-      borderRadius: 6
+      borderRadius: 6,
+      ...nightOwl
     },
     inlineCode: {
       fontFamily: 'monospace',
