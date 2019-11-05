@@ -1,8 +1,8 @@
 import { isEmpty, startCase } from 'lodash'
 import { format } from 'date-fns'
 
-export const getName = path =>
-  startCase(
+export const getName = path => {
+  let name = startCase(
     path
       .replace(/(\d{4}-\d{2}-\d{2})/, '')
       .replace('-', ' ')
@@ -18,6 +18,11 @@ export const getName = path =>
     .replace('A ', 'a ')
     .replace('In ', 'in ')
     .replace('Via', 'via')
+  if (hasDate(path) && name === '') {
+    name = format(new Date(getDate(path)), 'MMMM d, yyyy')
+  }
+  return name
+}
 
 export const hasDate = path =>
   !isEmpty(path.toString().match(/\d{4}-\d{2}-\d{2}/))
@@ -48,9 +53,7 @@ export const getImage = path => {
   let theme = 'light'
   if (hasDate(path)) {
     let date = getDate(path)
-    if (name === '') {
-      name = format(new Date(date), 'MMMM d, yyyy')
-    } else {
+    if (path.replace(/\//g, '') !== date) {
       caption = format(new Date(date), 'MMM d, yyyy')
     }
   } else {
