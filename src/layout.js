@@ -3,6 +3,8 @@ import { jsx, Styled, useColorMode } from 'theme-ui'
 import { Link } from 'gatsby'
 import Avatar from './components/avatar'
 import Icon from './components/icon'
+import Meta from './components/meta'
+import { getName, getDescription, getImage } from './util'
 import theme from './gatsby-plugin-theme-ui'
 
 const ColorSwitcher = props => {
@@ -53,8 +55,11 @@ const ColorSwitcher = props => {
 }
 
 export default ({ xl, ...props }) => {
-  const home = props.location.pathname === '/'
+  const path = props.location.pathname
+  const home = path === '/'
   if (home) xl = true
+  const base = '@lachlanjc/notebook'
+  const name = home ? base : getName(path)
 
   return (
     <Styled.root
@@ -66,6 +71,12 @@ export default ({ xl, ...props }) => {
         mx: 'auto'
       }}
     >
+      <Meta
+        title={home ? base : `${name} – ${base}`}
+        name={name}
+        description={getDescription(path)}
+        image={getImage(path)}
+      />
       <header
         sx={{
           display: 'flex',

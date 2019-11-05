@@ -3,7 +3,8 @@ import { jsx } from 'theme-ui'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import theme from './gatsby-plugin-theme-ui'
 import Layout from './layout'
-import { filter, startCase, includes, isEmpty, orderBy } from 'lodash'
+import { hasDate, getDate, getName } from './util'
+import { filter, includes, isEmpty, orderBy } from 'lodash'
 import { format } from 'date-fns'
 
 export const wrapPageElement = ({ element, props }) => (
@@ -54,27 +55,26 @@ export const Banner = props => (
 
 export const Nav = props => {
   const data = useStaticQuery(pages)
-  const nodes = filter(data.allSitePage.nodes, n => !includes(['/', '/dev-404-page/'], n.path))
-  
-  const getName = path => startCase(
-    path.replace(/(\d{4}-\d{2}-\d{2})/, '').replace('-', ' ').replace('/', '')
-  ).replace('Ipad', 'iPad').replace('Iphone', 'iPhone').replace('Macbook', 'MacBook').replace('Ios', 'iOS').replace('iPados', 'iPadOS')
-   .replace('Mdx', 'MDX').replace('Ui', 'UI')
-   .replace('A ', 'a ').replace('In ', 'in ').replace('Via', 'via')
-  const hasDate = path => !isEmpty(path.match(/^\/\d{4}-/))
-  const getDate = path => path.match(/(\d{4}-\d{2}-\d{2})/)[0]
-  
-  const links = orderBy(nodes.map(node => {
-    const { path } = node
-    node.name = getName(path)
-    node.date = hasDate(path) ? getDate(path) : null
-    if (hasDate(path) && node.name === '') {
-      const date = new Date(node.date)
-      date.setDate(date.getDate() + 1) // I hate everything & everything hates me
-      node.name = format(date, 'MMMM dd, yyyy')
-    }
-    return node
-  }), ['date', 'name'], ['desc', 'asc'])
+  const nodes = filter(
+    data.allSitePage.nodes,
+    n => !includes(['/', '/dev-404-page/'], n.path)
+  )
+
+  const links = orderBy(
+    nodes.map(node => {
+      const { path } = node
+      node.name = getName(path)
+      node.date = hasDate(path) ? getDate(path) : null
+      if (hasDate(path) && node.name === '') {
+        const date = new Date(node.date)
+        date.setDate(date.getDate() + 1) // I hate everything & everything hates me
+        node.name = format(date, 'MMMM dd, yyyy')
+      }
+      return node
+    }),
+    ['date', 'name'],
+    ['desc', 'asc']
+  )
 
   return (
     <ul
