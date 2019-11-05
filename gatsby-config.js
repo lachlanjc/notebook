@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Notebook',
+    title: 'Notebook'
   },
   plugins: [
     'gatsby-plugin-mdx',

@@ -89,11 +89,23 @@ export default ({ xl, ...props }) => {
         </Styled.a>
         <ColorSwitcher />
       </header>
-      <p variant="container" sx={{ display: 'flex', alignItems: 'center', color: 'secondary', mt: 0, mb: [3, 4] }}>
+      <p
+        variant="container"
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          color: 'secondary',
+          mt: 0,
+          mb: [3, 4]
+        }}
+      >
         <Icon glyph="view" sx={{ mr: 2 }} />
         Page views:
         <img
-          src={`https://lachlanjc-analytics.glitch.me/counter.png?fallback=notebook.lachlanjc.me&color=${theme.colors.secondary.replace('#', '%23')}`}
+          src={`https://lachlanjc-analytics.glitch.me/counter.png?fallback=notebook.lachlanjc.me&color=${theme.colors.secondary.replace(
+            '#',
+            '%23'
+          )}`}
           alt="View counter"
           style={{ verticalAlign: 'bottom' }}
         />
@@ -110,7 +122,6 @@ export default ({ xl, ...props }) => {
         <a
           href="https://twitter.com/lachlanjc"
           title="Twitter"
-          target="_blank"
           variant="styles.navitem"
           sx={{ color: 'primary', mx: 2 }}
         >
@@ -119,7 +130,6 @@ export default ({ xl, ...props }) => {
         <a
           href="https://github.com/lachlanjc/notebook"
           title="GitHub"
-          target="_blank"
           variant="styles.navitem"
           sx={{ color: 'primary', mx: 2 }}
         >

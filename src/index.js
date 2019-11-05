@@ -6,10 +6,9 @@ import Layout from './layout'
 import { filter, startCase, includes, isEmpty, orderBy } from 'lodash'
 import { format } from 'date-fns'
 
-export const wrapPageElement = ({ element, props }) =>
-  <Layout {...props}>
-    {element}
-  </Layout>
+export const wrapPageElement = ({ element, props }) => (
+  <Layout {...props}>{element}</Layout>
+)
 
 export const Banner = props => (
   <div
@@ -41,10 +40,15 @@ export const Banner = props => (
       }
     }}
   >
-    <img src={`https://contrast.now.sh/fff/${theme.colors.primary.replace('#', '')}?text=%F0%9F%93%9D&radius=999&size=512&fontSize=2&baseline=1`} width={72} />
-    <div>
-      {props.children}
-    </div>
+    <img
+      alt="Logo"
+      src={`https://contrast.now.sh/fff/${theme.colors.primary.replace(
+        '#',
+        ''
+      )}?text=%F0%9F%93%9D&radius=999&size=512&fontSize=2&baseline=1`}
+      width={72}
+    />
+    <div>{props.children}</div>
   </div>
 )
 
@@ -80,15 +84,18 @@ export const Nav = props => {
         p: 0,
         m: 0,
         gridGap: 3,
-        gridTemplateColumns: 'repeat(auto-fit, minmax(256px, 1fr))',
-      }}>
+        gridTemplateColumns: 'repeat(auto-fit, minmax(256px, 1fr))'
+      }}
+    >
       {links.map(({ name, date, path }) => (
         <li key={path}>
           <Link to={path} sx={{ color: 'primary', textDecoration: 'none' }}>
             <span sx={{ display: 'block', fontWeight: 600 }}>{name}</span>
-            {!isEmpty(date) &&
-              <small sx={{ display: 'block', color: 'secondary' }}>{date}</small>
-            }
+            {!isEmpty(date) && (
+              <small sx={{ display: 'block', color: 'secondary' }}>
+                {date}
+              </small>
+            )}
           </Link>
         </li>
       ))}
