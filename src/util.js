@@ -45,6 +45,7 @@ export const getImage = path => {
   }
   let name = getName(path.toString())
   let caption
+  let theme = 'light'
   if (hasDate(path)) {
     let date = getDate(path)
     if (name === '') {
@@ -52,8 +53,10 @@ export const getImage = path => {
     } else {
       caption = format(new Date(date), 'MMM d, yyyy')
     }
+  } else {
+    theme = 'dark'
   }
   name = encodeURIComponent(name)
   caption = encodeURIComponent(caption)
-  return `https://notebook-cards.lachlanjc.now.sh/${name}.png?caption=${caption}`
+  return `https://notebook-cards.lachlanjc.now.sh/${name}.png?caption=${caption}&theme=${theme}`
 }
