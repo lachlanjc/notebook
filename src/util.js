@@ -17,7 +17,9 @@ export const getName = path => {
     .replace('Ui', 'UI')
     .replace('A ', 'a ')
     .replace('In ', 'in ')
-    .replace('Via', 'via')
+    .replace('On ', 'on ')
+    .replace('Of ', 'of ')
+    .replace('Via ', 'via ')
   if (hasDate(path) && name === '') {
     name = format(new Date(getDate(path)), 'MMMM d, yyyy')
   }
