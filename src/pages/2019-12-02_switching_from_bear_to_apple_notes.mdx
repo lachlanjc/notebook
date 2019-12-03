@@ -1,0 +1,56 @@
+# Switching from Bear to Apple Notes
+
+I’ve used primarily two note-taking systems in 2019 so far, but a few months ago I switched to a third.
+
+## System 1: [Working Copy](https://apps.apple.com/us/app/working-copy-git-client/id896694807) + [iA Writer](https://apps.apple.com/us/app/ia-writer/id775737172) + Shortcuts + GitHub
+
+I’ve used Git to keep track of files on my Mac for years. This setup was based on the same idea, but set up for iOS.
+
+* `brain` repository stored on GitHub, cloned in Working Copy
+* Using Working Copy’s [Files integration](https://www.macstories.net/ios/my-markdown-writing-and-collaboration-workflow-powered-by-working-copy-3-6-icloud-drive-and-github/), set brain as an external location in iA Writer
+* Wrote various Shortcuts for adding images, creating new journal entries/notes, committing/pushing
+* Had a custom web instance of [Mullog](https://github.com/zachlatta/mullog) for viewing/editing online, which I never used & eventually took down
+
+This setup was mostly awesome, but had a few major shortcomings:
+
+* Portability was awesome, just regular plain text files. Having constant backups beyond iCloud, via GitHub, was awesome too.
+* Committing every change was a big pain. I often wouldn’t do it, so then I couldn’t edit notes on any other device until I did that.
+* I can write as many Shortcuts as I want, but that doesn’t make running them not a pain. (This was iOS 12, so they used URL schemes & were slow/inflexible.) Sometimes I’d forget or something’d go wrong.
+* iA Writer is an incredible text editor, but doesn’t feel right for quick notes/journal entries. I’d rather do the longer-form writing it’s designed for.
+
+## System 2: [Bear](https://apps.apple.com/us/app/bear/id1016366447)
+
+[Zach Latta](https://twitter.com/zachlatta) used to use a Git repo + Vim from his desktop (& Vim on his iPhone over mosh/[Blink](https://apps.apple.com/us/app/blink-shell-mosh-ssh-client/id1156707581), but that’s another story), but once he found Bear, switched. I’d used it in the past after seeing [early coverage on MacStories](https://www.macstories.net/stories/why-im-considering-bear-as-a-notes-app-replacement/), but trying it out this spring, it seemed like the perfect app for my needs.
+
+For several months, Bear was instrumental in my workflow, across all my devices. It was where all my ideas got written down, fleshed out, shared. It kept all my ideas, writing email drafts, plans, documents, meeting notes, etc. Bear notes aren’t for final documents I’d print/publish like I’d produce with iA Writer or Pages, they’re thoughts I’m working on & want to keep around. Bear kept an archive of my work in text. The app is an amazing balance of Markdown, easy export, great design, flawless sync (no committing, pushing, or pulling required), and superb native clients across every platform, from watchOS to macOS (and in many ways, [pushes the bar on features like drag-and-drop](https://www.macstories.net/ios/ipad-diaries-working-with-drag-and-drop-bear-and-gladys/)). The quick Markdown formatting controls (esp on iPad/Touch Bar), super simple file export, fast search, simple nested hashtags, and internal note links made it pretty exactly the way I want a note-taking tool to function in my workflow.
+
+I always had a few hesitations. My three primary hang-ups were a complete lack of decent handwriting integration, a need for Apple Notes-style sharing (or export in a capacity including a note’s future edits), and better webpage archiving/linking/annotating. These didn’t keep me from using Bear, but I continued using other apps’ features, like handwriting in GoodNotes, the document scanner in Apple Notes, the collaboration of Dropbox Paper/Apple Notes/Google Docs, alongside Bear.
+
+## Apple Notes
+
+For a power-user, it would seem like using the built-in Notes app would be a non-starter, but I think it’s actually one of the best note-taking apps built for the platform. None of its features are the best-in-class (long-form writing will do better in iA Writer, extended handwritten notes will enjoy GoodNotes, Markdown is better in Drafts, etc), but the integration of them all into a seamless, system-integrated package is fantastic.
+
+* The handwriting integration in Apple Notes is better than any I’ve seen. Instead of needing to write in another app and export a static, unsearchable PNG or PDF, you can seamlessly combine Apple Pencil handwriting with rich text and attachments. With iOS 13, background, on-device OCR makes that handwriting searchable.
+* You know what app features Apple Notes-like collaboration? Apple Notes! iOS 13 adds folder sharing and view-only collaboration, which only makes the proposition better.
+* One of the reasons I told myself I needed Bear was automation, but in reality, I only use [one Shortcut with Bear](https://thesweetsetup.com/using-bear-things-note-attachment-repository/), which Apple Notes’ system integration can do better.
+* I don’t use themes in Bear beyond switching light & dark, which iOS 13 has, and on a schedule.
+* A fantastic document scanner is built right in it. I was previously thinking about building an app myself using Notes’ document scanner & Markup that could take the end result to an app like Bear, but Apple Notes just…has it, including a Quick Action from the home screen.
+* One of Bear’s major shortcomings on iOS is the poor support for PDFs. They exist only as tappable thumbnails, but there’s no inline preview, Markup integration, or searching inside them. In Apple Notes, they elegantly preview inline, and you can immediately start marking them up with Apple Pencil. In iOS 13, the text contents of PDFs is searchable too.
+* I would absolutely prefer Markdown to Apple Notes’ rich text, but Apple’s implementation is surprisingly elegant on mobile devices. It includes tables (which Bear doesn’t support), checklists (including automatic resorting upon completion), inline attachments, code, bulleted/numbered lists (including swipe-to-indent), and a few heading styles, and they have keyboard shortcuts.
+* The iMessage-style inline link previews of Apple Notes are far superior to old-school URLs in your text like Bear’s.
+* The Share extension is the best for a note-taking app I’ve seen. Bear’s is fine, and you can clip an article to text, but it’s a tiny textarea, and tagging the note in the share extension is never an obvious move. With Apple Notes, you can easily append to a note you locate in folders or search (and a recent destination will be automatically preserved if you’re saving multiple items), or create a new note with a real area to write.
+* Tags are just not a system I really enjoy in any app. I use Bear’s hashtags for the exclusive purpose of essentially making folders in my sidebar, and I wish notes that were tagged weren’t in my main stream. Apple Notes’ implementation of folders does exactly that, and with iOS 13, you can create & expand/collapse nested folders in Notes on iOS (previously Mac-only).
+* This isn’t really a factor for me since Bear Pro costs only $15/year, but Apple Notes is free.
+* But above all, the system integration. Building features like “Hey Siri, remind me about this” isn’t even an option for third-party apps like Bear. You can tap the Apple Pencil to the sleeping iPad screen & immediately launch into a new note for sketching, handwriting, or typing without even unlocking the device. While the Shortcuts for Apple Notes have a long way to go in supporting rich text and more complex actions, basic support is there.
+
+A few use cases I enjoy with Apple Notes:
+
+* When I want tomake notes on an article, instead of pasting the URL & typing up notes below it, I can use the Share extension to file a note when I save it, have a rich link preview, then annotate a preserved copy of the article with my Apple Pencil, and have the entire package saved & shareable.
+* Saving a bunch of links for a project in one note. The Share extension makes this super easy, then I have an easy-to-scan list of links I can accumulate in one session or for years. Gallery view of attachments, searching in webpage titles are both infinitely more accessible than searching for a domain.
+* Scanning a document, marking it up, and sharing the PDF, all in one app.
+
+One disappointing aspect of Apple Notes is the lack of portability, and I wouldn’t want to keep all my notes in another company’s proprietary app without great export. However, because it’s an Apple product, it’s not going anywhere soon, and there’s a bunch of tools for exporting if I decide to do that in the future. I also wish it had [easier internal note links](https://www.macstories.net/ios/11-tips-for-working-on-the-ipad/#1-create-launchers-for-notes), but I can live without them.
+
+With that, I switched to Apple Notes. The exclusive integration of rich text is understandable, if slightly disappointing, but the handwriting integration, Share extension, link previews, and system integration of Apple’s alternative are too enticing.
+
+I’ve been super happy with the app. The nested folders support on iOS/iPadOS 13 is great, I love being able to scribble down handwritten notes and have them automatically searchable, I love the flexibility of the attachments support. Apple Notes might not be ideal for everything, but its versatility and system integration make it a key part of my workflow.
