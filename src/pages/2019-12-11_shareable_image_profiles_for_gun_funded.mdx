@@ -1,0 +1,72 @@
+# Shareable image profiles for Gun Funded
+
+![A grid of 4 examples of the social cards](https://d2wkqk610zk1ag.cloudfront.net/items/1u1c1M1j0L2B04082U3O/30jf53wht60447457zcr123c7maehrp4.png)
+
+I’m working on a new project called [Gun Funded](https://gunfunded.com), showcasing the gun lobby’s funding of the U.S. Congress. Sharing links to Congresspeople’s profiles on Twitter, Facebook, etc, I wanted to highlight the gun funding amount before people even open the site. But I also wanted the profiles to be shareable on Instagram Stories (for us youths), which requires a vertical format (as seen on the left & right). Here’s how I made a social cards service for Gun Funded.
+
+## Avatars
+
+Before we can get to the cards, each Congress member needs an avatar.
+
+The [unitedstates.io](https://theunitedstates.io/) project has the [unitedstates/images](https://github.com/unitedstates/images) archive on GitHub, but it’s unfortunately out of date. [Someone forked it](https://github.com/SeanKMcGinnis/images) with updates, then I [added](https://github.com/SeanKMcGinnis/images/pull/1) a few missing members.
+
+Next, I wanted to compress the images (they’re also used on the main website, where Google PageSpeed flagged their extra size as slowing down the site). I wrote a quick Bash script to run Google’s fantastic [Guetzli](http://github.com/google/guetzli) image compressing library on the folder. (There’s probably a better way to do this, but I’m terrible at Bash.)
+
+```sh
+#!/bin/bash
+
+for file in $@
+do
+  guetzli $file $file
+done
+```
+
+It took about half an hour & drained half my laptop’s battery, fans up 100% 😅
+
+### Getting online
+
+I’ve been using & loving [ZEIT Now](https://now.sh) for the main Gun Funded site, so I deployed the static folder to a new Now project:
+
+![Hyper terminal window open running now](https://d2wkqk610zk1ag.cloudfront.net/items/2Y3j37001L0k1h0f0B3Q/zq6d83r41hxve1u92t244awm6vtec8qh.png)
+
+One more command (`now alias gunfunded-avatars.now.sh avatars.gunfunded.com`) and our images are live!
+
+### The lineup, visually
+
+I wrote a quick iOS Shortcut to get the headshots of every member of Congress, ranked by their gun funding, & create a grid of them all:
+
+![Shortcut on vertical iPad Pro](https://d2wkqk610zk1ag.cloudfront.net/items/202V2Q3N310G2j3G3x2H/7qkvtky698dtbbk4zwr1cr3qubucd57c.png)
+
+It took a few minutes to run, since it has to download hundreds of photos individually, but here’s the result:
+
+![Grid of every Congressperson’s portraits](https://d2wkqk610zk1ag.cloudfront.net/items/351W0P230F3F102R0t20/pb0az1r8xagu1wj021dvcbyugm80xzyf.jpeg)
+
+Yes, Congress is that white.
+
+## Social cards
+
+Back to the original mission. I’ve written in the past about [making custom social card services](https://notebook.lachlanjc.me/2019-11-05_custom_social_card_services/) based on [ZEIT’s og-image](https://github.com/zeit/og-image), but this project is more complicated.
+
+- I need to fetch data from the Gun Funded records database, to show funding
+- I need to change styling based on the data
+- I want variants for Twitter/Facebook/Open Graph social cards as well as vertical Instagram Stories
+
+I cloned my [ima-cards](https://github.com/lachlanjc/ima-cards) project, and removed [the web testing UI](https://ima-cards.lachlanjc.now.sh) code to simplify development.
+
+The development process took several hours but wasn’t too hard—mostly, I don’t have much experience using TypeScript, but running the project with [`now dev`](https://zeit.co/blog/now-dev) was great. I copied the full data JSON file directly over, then worked on the design.
+
+![Screenshot of VSCode with the template file open](https://d2wkqk610zk1ag.cloudfront.net/items/3e090v3j2N3M0u1P0j0O/jcd9v0y4re4fy6ptvcm1eypdgx0ekuk9.png)
+
+The design references the “I Voted” stickers, but with the brand, candidate, and funding amount. For Instagram Stories, I used the Instagram handle (@gunfunded), whereas on the web it uses the domain (gunfunded.com). With the Stories’ extra vertical space, it also shows the current term of the Congressperson.
+
+I copied the same color palette as the site to keep the vibe/brand consistent. Though the site uses San Francisco/system-ui for typography, the incredible [Inter](https://rsms.me/inter/) font stepped in here.
+
+Deployment was just as easy as for Avatars—just `now` & `now alias` to `cards.gunfunded.com`.
+
+### End results
+
+Whether for Representatives or Senators, funded or not funded, Republican or Democrat, Instagram or Twitter, cards for all!
+
+![A grid of 4 examples of the social cards](https://d2wkqk610zk1ag.cloudfront.net/items/1u1c1M1j0L2B04082U3O/30jf53wht60447457zcr123c7maehrp4.png)
+
+[View source on GitHub](https://github.com/lachlanjc/gunfunded-cards), check out [Gun Funded](https://gunfunded.com) (launching soon!), & most importantly, [register to vote](https://vote.org).
