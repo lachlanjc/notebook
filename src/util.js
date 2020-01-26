@@ -40,7 +40,7 @@ export const getDescription = path => {
 
 export const getImage = path => {
   if (path === '/') {
-    return 'https://notebook-cards.lachlanjc.now.sh/Notebook.png?theme=dark'
+    return 'https://notebook-cards.lachlanjc.now.sh/Notebook.png?fontSize=400px'
   }
   let name = getName(path.toString())
   let caption
