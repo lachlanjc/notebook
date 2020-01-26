@@ -1,0 +1,31 @@
+# Tracking Twitter Opens with Shortcuts
+
+Sometimes I use Twitter too much—especially on my phone, where I often open the app out of habit. I saw a fun idea [on Twitter](https://twitter.com/jordanmorgan10/status/1216063785812791296?s=21) (where else…) for increasing my awareness of when I open the app. I’ve been living with it for a week, and it’s wild how often I didn’t even _realize_ I was opening Twitter. Now, when I open the app, I get a notification with the number of times I’ve already opened it today:
+
+![Preview of this automation running](https://d2wkqk610zk1ag.cloudfront.net/items/1g1c1y1M0r1G1Y1k3E3w/688jq5bbk9qt0gnhc5f6ehae4eb9rvgz.png)
+
+You can set this up with the Shortcuts app built into iOS/iPadOS 13. I’ve tried to write this article for complete beginners. You can also adapt this for any other app (like Instagram)—none of it is Twitter-specific.
+
+***
+
+By default, Shortcuts doesn’t give you an (easy) way to save data & retrieve it later. [Toolbox Pro](https://toolboxpro.app/) is an incredible app that extends native Shortcuts functionality with nearly 100 extra actions (triggering Face ID, detecting objects in images, lots more). One of Toolbox Pro’s free actions, “Global Variables,” makes it easy to keep track of data. Before getting started, [download Toolbox Pro](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977?uo=4).
+
+First, in Toolbox Pro, we need to create two Global Variables. You can call them whatever you want, but I used `tw_date` & `tw_count` for Twitter. In the first, write today’s date, formatted as `YYYY-MM-DD` (such as `2020-01-26`). In the second variable, `tw_count`, enter `0` (this stores the number of opens).
+
+![Creating global variables with Toolbox Pro](https://d2wkqk610zk1ag.cloudfront.net/items/1J2R1M2C1h0k0U1H1G17/1q79vrpt7hua99u8qgf44d1v06n6fmrt.png)
+
+Next, create the automation. Open the Shortcuts app, go to the “Automation” tab, then tap “Create Personal Automation.” Select “Open App” as the trigger (bottom of the list), then select Twitter (or whatever app you want to track). Now you should be at a screen called “Actions.”
+
+To find & add an action, tap the search bar, search the name (“Global Variables,” “Format Date”, “If,” etc), then tap the action to add it to your shortcut. You can drag & drop to reorganize, & if you add the wrong action, tap the X & search again.
+
+Here’s the exact actions you want to replicate:
+
+![Shortcut steps](https://d2wkqk610zk1ag.cloudfront.net/items/3q0a0m3I1a3h2f2y1W2j/zn20rvyakybzbejxp76qpg4zqzq4utdd.png)
+
+Whenever you need to connect actions (filling in the “If” value, etc), tap the blue fields, then tap “Magic Variable,” & pick the blue bubble with the matching name.
+
+When you’re done, tap “Next,” then _disable_ “Ask Before Running” (so it automatically runs the counter without asking you first), & tap “Done.”
+
+Open Twitter/your app, & you’ve got your first open!
+
+I don’t find blocking apps or shaming myself very effective, personally. I really like this setup because it gives me a second to pause & decide if I really want to be looking at Twitter one more time each day.
