@@ -24,7 +24,7 @@ export default merge(base, {
   fonts: {
     body: 'system-ui, Roboto, sans-serif',
     heading: 'system-ui, Roboto, sans-serif',
-    monospace: 'Menlo, monospace',
+    monospace: 'Menlo, monospace'
   },
   fontSizes: [14, 18, 24, 28, 36, 48, 64, 72, 96, 128],
   fontWeights: {
@@ -43,7 +43,7 @@ export default merge(base, {
     extra: 9,
     circle: 9999
   },
-  initialColorMode: 'light',
+  initialColorModeName: 'light',
   useColorSchemeMediaQuery: true,
   colors: {
     ...palette,
@@ -62,7 +62,7 @@ export default merge(base, {
         primary: palette.cyan,
         secondary: palette.muted,
         accent: palette.pink,
-        muted: palette.darkless,
+        muted: palette.darkless
       }
     }
   },
@@ -123,7 +123,7 @@ export default merge(base, {
       },
       '&.task-list-item': {
         my: 1,
-        'input': {
+        input: {
           mr: 2
         }
       }
