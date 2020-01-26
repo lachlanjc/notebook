@@ -17,7 +17,7 @@ export const Banner = props => (
       display: 'flex',
       flexDirection: ['column', 'row'],
       alignItems: ['flex-start', 'center'],
-      mb: [4, 5],
+      mb: 4,
       img: {
         width: [72, 96],
         maxWidth: '100%',
@@ -90,7 +90,9 @@ export const Nav = props => {
       {links.map(({ name, date, path }) => (
         <li key={path}>
           <Link to={path} sx={{ color: 'primary', textDecoration: 'none' }}>
-            <span sx={{ display: 'block', fontWeight: 600 }}>{name}</span>
+            <strong sx={{ fontWeight: 600, lineHeight: 'title' }}>
+              {name}
+            </strong>
             {!isEmpty(date) && (
               <small sx={{ display: 'block', color: 'secondary' }}>
                 {date}

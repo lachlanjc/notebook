@@ -1,3 +1,4 @@
+import title from 'title'
 import { isEmpty, startCase } from 'lodash'
 import { format } from 'date-fns'
 
@@ -8,19 +9,9 @@ export const getName = path => {
       .replace('-', ' ')
       .replace('/', '')
   )
-    .replace('Ipad', 'iPad')
-    .replace('Iphone', 'iPhone')
-    .replace('Macbook', 'MacBook')
-    .replace('Ios', 'iOS')
-    .replace('iPados', 'iPadOS')
-    .replace('Mdx', 'MDX')
-    .replace('Ui', 'UI')
-    .replace('A ', 'a ')
-    .replace('In ', 'in ')
-    .replace('On ', 'on ')
-    .replace('Of ', 'of ')
-    .replace('For ', 'for ')
-    .replace('Via ', 'via ')
+  name = title(name, {
+    special: ['iPhone', 'iPad', 'MacBook', 'iOS', 'iPadOS', 'MDX', 'UI']
+  })
   if (hasDate(path) && name === '') {
     name = format(new Date(getDate(path)), 'MMMM d, yyyy')
   }
