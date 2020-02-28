@@ -1,0 +1,54 @@
+import { Columns, YouTube } from '../components/blocks'
+
+# Working with color
+
+_(Recently someone in the [Hack Club Slack](https://hackclub.com/community/) asked me about picking colors. Thought I’d write about it!)_
+
+Picking colors for a website, UI, logo, etc is intimidating, and [really hard](https://twitter.com/colmtuite/status/933186215800553473?s=21). I don’t think I’m very good at it either. Nonetheless, here’s some advice!
+
+## Using color
+
+My top advice: **keep it simple**. Similar to fonts, the more colors you’re using, the harder it is to use them well. If you’re only using black and white, it’s hard to use them wrong—you only have two options for each element, and one is already the background. If you add a cyan for accents, you can selectively pick a few elements (like buttons or links) to highlight. Once you’ve added a green, orange, and pink to that mix, you’re juggling a ton. 🤹 Juggling is hard.
+
+To help keep your color usage consistent/simple in a project, use a unified palette. If you’re coding/in the browser, [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) can be useful for this. If you’re in a design tool like Figma, I like making a grid of squares off to one side with all the colors, then never using a color not from that grid:
+
+![Color palette in the Windy City Hacks Figma doc](https://d1fmxjrxw87eps.cloudfront.net/2020-02-27T23:22:37-05:00.png)
+
+Color theory is super complicated. I don’t have a great understanding of it, but the chapter from [*Design for Hackers*](https://smile.amazon.com/Design-Hackers-Reverse-Engineering-Beauty/dp/1119998956) was super useful.
+
+Thinking about color for an entire organization is a very different task, but [Diana Mounter](https://broccolini.net/) is amazing:
+
+<YouTube url="https://youtu.be/VYWPH8QGuGE" />
+
+(If you want more of this, look for resources on [“design tokens.”](https://css-tricks.com/what-are-design-tokens/))
+
+## Picking colors
+
+I’ll let you in on a secret: I rarely use colors I picked on a colorpicker. I get most of my colors from websites I like (I collect colors I like—I literally have an Apple Note called “blue” with a list of hex codes.) Having some colors saved is super handy when you need to design something in a pinch. To get colors, you can use browser DevTools if you have them (on iOS, I recommend [Inspect Browser](https://apps.apple.com/us/app/inspect-browser/id1203594958?uo=4)) or [CSS Stats](https://cssstats.com). I also frequently copy color palettes from project to project—the color palette I used for [Windy City Hacks 2019](http://2019.windyhacks.com) was all the secondary colors from [Hack Pennsylvania](https://2019.hackpenn.com).
+
+If you’re making a site/graphic around one image, or a background image, one trick I use all the time is to use the eyedropper tool in Figma/Photoshop/etc & use a color(s) from the photo as a base for your color palette—it makes the whole project look magically coordinated. [Brian Lovin](https://brianlovin.com) made [a Figma plugin](https://www.figma.com/community/plugin/744725347356614754/Dominant-Color-Toolkit-🎨) to automate this, too. Just a few days ago, I was making some social media graphics/posters (for [Queer Union @ NYU](https://www.instagram.com/p/B9CHX_FBCPm/))—notice the color matching:
+
+![Screenshot of making color-coordinated graphics in Figma](https://d1fmxjrxw87eps.cloudfront.net/2020-02-27T23:48:54-05:00.jpeg)
+
+If you’re looking to spice things up, music videos are sometimes a fun source. There are a zillion cool color palettes just in these (excellent) music videos:
+
+<Columns>
+
+<YouTube url="https://youtu.be/tGRzz0oqgUE" />
+
+<YouTube url="https://youtu.be/n48vQgfXygc" />
+
+</Columns>
+
+If you’re picking colors from a video or a still image, sometimes they’re kind of dark/desaturated. Set your design tool to HSL color, & keep the hue the same, but increase the saturation &/or lightness. Will still look like the same color but you can get a more cheery or moody palette, as desired.
+
+One other important thing to remember when picking colors: accessibility. This is a great site to check if your text/background color are accessible: [colorable.jxnblk.com](https://colorable.jxnblk.com).
+
+## TL;DR
+
+- Color is just hard. & very subjective.
+- Keep it simple. The fewer colors you’re using, the harder it is to mess them up.
+- Save colors you like for future projects.
+- If you have relevant photography, extract colors from there.
+- Go hunting for colors from fun sources like music videos.
+- Always ensure accessibility of your color palettes.

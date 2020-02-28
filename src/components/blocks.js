@@ -75,6 +75,22 @@ export const Handwriting = props => (
   />
 )
 
+export const Columns = props => (
+  <div
+    {...props}
+    sx={{
+      columnWidth: 256,
+      columnGap: theme.space[4],
+      p: {
+        my: 0
+      },
+      'h2:first-child': {
+        mt: 0
+      }
+    }}
+  />
+)
+
 export const List = props => (
   <div
     {...props}
