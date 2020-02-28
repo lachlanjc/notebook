@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import React from 'react'
+import { YouTubePlayer } from 'react-player'
 
 export const Container = ({ wide, ...props }) => (
   <div
@@ -49,6 +50,17 @@ export const Embed = ({ src, sx, ...props }) => (
       style={{ display: 'block', maxWidth: '100%' }}
     />
   </div>
+)
+
+export const YouTube = ({ url, ...props }) => (
+  <YouTubePlayer
+    url={url}
+    width="100%"
+    height={400}
+    controls
+    config={{ youtube: { playerVars: { showinfo: 1 } } }}
+    {...props}
+  />
 )
 
 export const Handwriting = props => (
