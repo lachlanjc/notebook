@@ -80,7 +80,7 @@ export const Columns = props => (
     {...props}
     sx={{
       columnWidth: 256,
-      columnGap: theme.space[4],
+      columnGap: 16,
       p: {
         my: 0
       },
