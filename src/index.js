@@ -73,7 +73,7 @@ export const Nav = props => {
       return node
     }),
     ['date', 'name'],
-    ['desc', 'asc']
+    ['desc', 'desc']
   )
 
   return (

@@ -14,10 +14,10 @@ export const palette = {
   snow: '#f9fafc',
   white: '#ffffff',
   pink: '#FF0080',
-  red: '#EE0000',
-  yellow: '#F5A623',
-  cyan: '#79FFE1',
-  blue: '#0070F3'
+  red: '#F05544',
+  yellow: '#FACA33',
+  green: '#93BB3D',
+  blue: '#12A2B7'
 }
 
 export default merge(base, {
@@ -54,15 +54,15 @@ export default merge(base, {
     primary: palette.blue,
     secondary: palette.muted,
     muted: palette.smoke,
-    accent: palette.pink,
+    accent: palette.red,
     modes: {
       dark: {
         text: palette.white,
         background: palette.darker,
         sunken: palette.darkless,
-        primary: palette.cyan,
+        primary: palette.blue,
         secondary: palette.muted,
-        accent: palette.pink,
+        accent: palette.red,
         muted: palette.darkless
       }
     }
@@ -76,6 +76,14 @@ export default merge(base, {
     }
   },
   styles: {
+    root: {
+      fontFamily: 'body',
+      lineHeight: 'body',
+      fontSize: 2,
+      transitionProperty: 'background-color',
+      transitionTimingFunction: 'ease-out',
+      transitionDuration: '.25s'
+    },
     hr: {
       border: 0,
       height: 4,

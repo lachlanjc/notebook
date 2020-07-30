@@ -1,13 +1,12 @@
 import React from 'react'
-import { Image } from 'rebass'
+import { Avatar } from 'theme-ui'
 
-export default ({ size = 32, ...props }) => (
-  <Image
+export default ({ size = 48, ...props }) => (
+  <Avatar
     {...props}
-    src="https://cloud-8xnn7u7df.vercel.app/2020-07-19_gz5xxab9k2n21xzghx8k60vu9rx6ejmc.jpeg"
+    size={size}
+    src="https://cloud-btbmmnt8b.vercel.app/2020-07-30_2uyaqbjft934eee46qc616x333r5w5h0.jpeg"
     alt="Lachlan's avatar"
-    width={size}
-    height={size}
-    sx={{ borderRadius: '50%', overflow: 'hidden', mr: 3, ...props.sx }}
+    mr={3}
   />
 )
