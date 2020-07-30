@@ -4,7 +4,7 @@ import { Image } from 'rebass'
 export default ({ size = 32, ...props }) => (
   <Image
     {...props}
-    src="https://cdn.glitch.com/4d99d0f7-c364-44a5-b1b9-2c3c3f5cb333%2FIMG_2040-2.jpeg?v=1565688136581"
+    src="https://cloud-8xnn7u7df.vercel.app/2020-07-19_gz5xxab9k2n21xzghx8k60vu9rx6ejmc.jpeg"
     alt="Lachlan's avatar"
     width={size}
     height={size}

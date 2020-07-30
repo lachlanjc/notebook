@@ -28,7 +28,7 @@ export default merge(base, {
   },
   fontSizes: [14, 18, 24, 28, 36, 48, 64, 72, 96, 128],
   fontWeights: {
-    heading: 900,
+    heading: 800,
     body: 400
   },
   lineHeights: {

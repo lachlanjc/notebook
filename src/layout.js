@@ -147,7 +147,7 @@ export default ({ xl, ...props }) => {
           <Icon glyph="github" size={36} />
         </a>
         <a
-          href="mailto:lachlan@hackpenn.com"
+          href="mailto:lachlan@hackclub.com"
           title="Email"
           variant="styles.navitem"
           sx={{ color: 'primary', mx: 2 }}
