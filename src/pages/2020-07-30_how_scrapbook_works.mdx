@@ -1,0 +1,84 @@
+# How Scrapbook works
+
+Throughout June & July, I’ve been designing & building the [Hack Club Scrapbook](https://scrapbook.hackclub.com), our primary [Summer of Making](https://summer.hackclub.com/) initiative. The idea is to share updates of what you’re working on every day: every day this summer, [Hack Clubbers](https://hackclub.com/) are learning & building projects, sharing short video & photo updates via a Slack channel. Through a Slack bot, an Airtable, & a Next.js website, the public website makes everything browsable. 360 Hack Clubbers have posted 3,768 updates, with 7,910 unique emoji reactions already. It’s been an incredibly exhilarating project to build. Today I wanted to shed some light on exactly how it works.
+
+Early this year, I wrote [a manifesto for web services](https://www.notion.so/hackclub/A-new-era-for-web-at-Hack-Club-37f224e3b22d43e183eea08aa5c62485) at Hack Club. Essentially: decentralized, easy to spin up or down, based on Next.js + Airtable. Looking back at building Scrapbook, it feels like a real validation of this philosophy. The site has been totally manageably to build & maintain, never gone down, and worked pretty consistently. At the same time, while we’re not shutting it down, if we wanted to, we could turn off the Scrappy bot & walk away. The site would continue working as it does now with no hosting cost or maintenance.
+
+I’ve never seen a website at some scale use a setup quick like ours, so I wanted to write about how we built the site on JAMstack tech.
+
+![Screenshot of Amogh’s profile](https://cloud-ay61vhx5y.vercel.app/2020-07-30_nmrcgz1qugur2mvkj3y6db6x4z7nuh39.png)
+
+## Overview
+
+Behind the scenes, the site ([all open source!](https://github.com/hackclub/summer-scrapbook)) runs on [Next.js](https://nextjs.org/), React.js, & [SWR](https://swr.now.sh/) for data fetching. All pages are [static-rendered](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation), hosted on [Vercel](https://vercel.com/). Videos are hosted by [Mux](https://mux.com/). The custom domains use a [Vercel serverless function](https://github.com/hackclub/summer-domains). The [Slack integration](https://github.com/hackclub/scrappy) runs on [Express.js](https://expressjs.com/), hosted on [Heroku](https://heroku.com/). We built the initial version in just a week.
+
+We don’t have a database in a traditional sense. All the data is stored in Airtable, fetched using our service [airbridge](https://github.com/hackclub/airbridge), an API service for querying our Airtable projects as JSON. (On Airbridge, we can pass it an API key for Airtable to query anything in our account, or there’s a [public list](https://github.com/hackclub/airbridge/blob/master/src/v0.1/airtable-info.yml) of tables & fields to expose without any authentication.)
+
+## Scrappy
+
+Scrappy, the Slack bot, has been by far the most complex part of the experience & required the most maintenance. This is only natural—the website is in the end a glorified JSON printer, but Scrappy is trying to bring personality to a set of several dozen interaction points & edge cases.
+
+Scrappy started as a set of [API Routes](https://nextjs.org/docs/api-routes/introduction) on the frontend codebase, but we ran into a bunch of issues running a Slack bot as serverless on Vercel: namely a poor logging/debugging experience, in addition to slow response times. In a hasty technical transition, we migrated the functions into their own codebase, which is still a Next.js app but [using a custom server](https://nextjs.org/docs/advanced-features/custom-server), hosted on Heroku. Avoiding serverless ended up being way more productive for the team.
+
+_Scrappy is [Matthew](https://matthewstanciu.me)’s domain & developed nearly entirely by him._
+
+## Frontend
+
+The frontend is a Next.js app, where every page is static-rendered. It stores no data itself and handles very little state.
+
+### Data fetching
+
+The most interesting part of this story is data fetching, on both the backend and frontend. Every page on the site uses Next’s [`getStaticProps`](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) feature, which means you’re always getting a static page served to you from Vercel’s CDN, for every user.
+
+The data used for every page is accessible over an API, [documented here](https://scrapbook.hackclub.com/about), which runs on Next’s API Routes with [dynamic routing](https://nextjs.org/docs/routing/dynamic-routes). (The API itself is merely a wrapper around Airbridge, making specific requests & restructuring the data in a consistent schema instead of the raw Airtable fields.) Because API Routes are merely functions, their functionality can be imported like any other JavaScript function. So each frontend page imports the function that powers its API counterpart, running it at build. It gives Next a `revalidate: x` option, which means it will generate statically at build time, but whenever that page gets hit, if it’s been more than x seconds, it will regenerate that page in the background and update its cache, but always serve the static page.
+
+To further speed up the app, we don’t pre-render all pages on the site at build, or it’d take several minutes to build, which slows down the app. We pre-render only the top 75 most active users (by querying Airbridge for them), and the emoji reactions that are linked to on the homepage.
+
+For pages not pre-rendered, such as when a new user starts using Scrapbook or a new emoji is added, we enabled the `fallback: true` option of [`getStaticPaths`](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation). When a path is visited for a user profile not yet rendered, it on-the-fly queries Airbridge & renders the profile page & caches it before serving to you. If you’ve seen “Loading…” on a profile page, the backend was generating a page for the profile & caching it.
+
+On the frontend, you want to see posts in real-time as they’re added to Scrapbook, without reloading the page. For this, we use [SWR](https://swr.vercel.app), Vercel’s data fetching library. It polls the API endpoint for the page, on most pages using the same [Feed component](https://github.com/hackclub/summer-scrapbook/blob/main/components/feed.js), which handles fetching the data every few seconds. The data is cached on the frontend. If the network disconnects, there’s data cached, so we can keep showing it, & SWR will retry fetching at exponentially slower intervals. If it reconnects, no page reload is needed, it can download new data, re-render, and cache it on the frontend for the future. This is all the built-in behavior of SWR, nothing custom, which is wild.
+
+To summarize: The page you’re served initially is static-rendered with all the data, & pretty much up-to-date, so you’re getting an instant response cached on a CDN. The component tree renders with the initial data passed down as props. Then SWR caches it on the frontend for good measure. Every few seconds, SWR refetches the data from an API function, which is the same function that ran at page build, to re-render on the client side. All of the pages of Scrapbook work like this.
+
+### Images & video
+
+Images I think are still not an ideal experience on Scrapbook, but making them load quickly & fluidly was critical. After several packages & different techniques over time, I settled on rolling [my own component](https://github.com/hackclub/summer-scrapbook/blob/main/components/image.js), inspired by this [example project’s](https://github.com/okbel/next-store/blob/master/components/core/Image.js), using intersection observers.
+
+Video, somehow, was far simpler to integrate thanks to [Mux Video](https://mux.com). Serving video files directly from Airtable initially was super slow to load, so we instead upload videos directly to Mux on the backend, and they essentially livestream the footage directly into the `<video>` tag, without any proprietary libraries. On the frontend, using [their Next.js example](https://github.com/vercel/next.js/tree/canary/examples/with-mux-video), I made [a component](https://github.com/hackclub/summer-scrapbook/blob/main/components/video.js) with live thumbnails that plays videos on hover. Mux even [wrote a case study](https://mux.com/case-studies/hackclub/) about the integration with Scrapbook! Highly recommend Mux for a video-intensive project, especially with user-uploaded content.
+
+### CSS
+
+CSS was an interesting part of this. Most of Hack Club’s websites use [Theme UI](https://theme-ui.com) & the [Hack Club Theme](https://theme.hackclub.com), and our early prototype did. But to make [CSS customization](https://scrapbook.hackclub.com/customizer) easy for beginners meant the HTML on profile pages had to be super readable, and Theme UI/Emotion creates randomly-named classes. So I [switched](https://github.com/hackclub/summer-scrapbook/commit/7e2086303983acd949c7aa6170304ff9ea220767) to using an [app-wide imported stylesheet](https://nextjs.org/docs/basic-features/built-in-css-support) for the [basic theme](https://github.com/hackclub/summer-scrapbook/blob/main/public/themes/default.css), which worked seamlessly. For custom themes, it’s super simple—we add a `<link>` tag pointed to your CSS file. On pages that don’t allow customization, I lightly use [styled-jsx](https://github.com/vercel/styled-jsx). To share colors & fonts between the stylesheet, styled-jsx, & custom theme files, we use [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables). That’s it on CSS.
+
+![Screenshot of custom profile](https://cloud-6hnbzkiy4.vercel.app/2020-07-30_fqwzc8ru0bze2mngzqq719y012euww8u.png)
+
+![Screenshot of Caleb Denio’s profile](https://cloud-4hk4cxjvy.vercel.app/2020-07-30_kefkhaxyet6b361nhpzvkq2wfz5txnvx.png)
+
+### Analytics
+
+Like other sites at Hack Club, we don’t use creepy tracking or analytics. We only use Fathom Analytics, which are [public here](https://app.usefathom.com/share/lqtgbzmy/scrapbook.hackclub.com), integrated following [this guide](https://vercel.com/guides/deploying-nextjs-using-fathom-analytics-with-vercel).
+
+## Custom domains
+
+### Enabling/setup
+
+Behind the scenes, when you invoke the Slack slash command to add a custom domain, it hits a route on Scrappy. That function:
+
+1. Sets the domain on your user record in Airtable
+2. Uses the [Vercel API](https://vercel.com/docs/api#getting-started/introduction) to [add a custom domain](https://vercel.com/docs/api#endpoints/projects/add-a-domain-to-a-project) to the project
+3. If you’ve previously set up a custom domain, uses the Vercel API to remove it from Vercel
+
+### Serving the site
+
+The profile pages run in the Next.js app, where they’re statically rendered for performance. We want people to point their domains to their profiles, but you can’t CNAME to a specific path, so we need to serve the custom domain functionality at the root path. This would be doable with `getServerSideProps` in Next (checking the host header & serving the appropriate page), but it’d mean a performance hit (running a function instead of serving a static file) for every visit to the homepage, which we want to avoid. Instead, in a separate project we host a single serverless function, [source code here](https://github.com/hackclub/summer-domains/blob/main/api/index.js), with an HTTP [rewrite](https://vercel.com/docs/configuration?query=rewrite#project/rewrites) at the root to its path. When that site is accessed, we:
+
+1. Get the `host` header of your request
+2. Find the user by that domain in our Airtable database, accessed over [Airbridge](https://github.com/hackclub/airbridge)
+3. Fetch the HTML of the profile page from the [live site](https://scrapbook.hackclub.com/)
+4. Serve that HTML directly
+
+This means social cards, etc still work as expected, because while slower than accessing the main Scrapbook domain, the custom domain serves the profile as a regular HTML page, even though it doesn’t generate any of that HTML or JS in the function. It also means we don’t have to update or test custom domain functionality on every change, since if it works on Scrapbook, it works on custom domains.
+
+---
+
+I’ve never seen another website at some scale using Airtable for the entire backend & a collection of serverless functions & a fully static frontend, but this tech stack has been kind of a dream to work with. It’s impossible to introduce security issues, performance tuning has basically meant fetching less data per request, & the frontend I find to feel incredibly alive. Check out [the code](https://github.com/hackclub/summer-scrapbook), & I’m happy to expand on any topics.

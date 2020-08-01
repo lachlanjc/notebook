@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled, useColorMode } from 'theme-ui'
+import { jsx, Box, BaseStyles, useColorMode } from 'theme-ui'
 import { Link } from 'gatsby'
 import Avatar from './components/avatar'
 import Icon from './components/icon'
@@ -62,7 +62,8 @@ export default ({ xl, ...props }) => {
   const name = home ? base : getName(path)
 
   return (
-    <Styled.root
+    <Box
+      as="main"
       sx={{
         p: 3,
         fontSize: 1,
@@ -81,23 +82,22 @@ export default ({ xl, ...props }) => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
           mb: [4, 5]
         }}
       >
         <Avatar />
-        <Styled.a
-          as={Link}
+        <Link
           to="/"
           sx={{
             fontWeight: 'bold',
             color: 'inherit',
-            textDecoration: 'none'
+            textDecoration: 'none',
+            mr: 'auto'
           }}
         >
           @lachlanjc
           {!home && '/notebook'}
-        </Styled.a>
+        </Link>
         <ColorSwitcher />
       </header>
       <p
@@ -121,11 +121,12 @@ export default ({ xl, ...props }) => {
           style={{ verticalAlign: 'bottom' }}
         />
       </p>
-      {props.children}
-      <div
+      <BaseStyles as="article">{props.children}</BaseStyles>
+      <footer
         sx={{
           py: 4,
           display: 'flex',
+          alignItems: 'center',
           justifyContent: 'center'
         }}
       >
@@ -154,7 +155,7 @@ export default ({ xl, ...props }) => {
         >
           <Icon glyph="email-fill" size={36} />
         </a>
-      </div>
-    </Styled.root>
+      </footer>
+    </Box>
   )
 }
