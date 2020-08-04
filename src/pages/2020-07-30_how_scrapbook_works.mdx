@@ -16,7 +16,7 @@ We don’t have a database in a traditional sense. All the data is stored in Air
 
 ## Scrappy
 
-Scrappy, the Slack bot, has been by far the most complex part of the experience & required the most maintenance. This is only natural—the website is in the end a glorified JSON printer, but Scrappy is trying to bring personality to a set of several dozen interaction points & edge cases.
+[Scrappy, the Slack bot](https://github.com/hackclub/scrappy), has been by far the most complex part of the experience & required the most maintenance. This is only natural—the website is in the end a glorified JSON printer, but Scrappy is trying to bring personality to a set of several dozen interaction points & edge cases.
 
 Scrappy started as a set of [API Routes](https://nextjs.org/docs/api-routes/introduction) on the frontend codebase, but we ran into a bunch of issues running a Slack bot as serverless on Vercel: namely a poor logging/debugging experience, in addition to slow response times. In a hasty technical transition, we migrated the functions into their own codebase, which is still a Next.js app but [using a custom server](https://nextjs.org/docs/advanced-features/custom-server), hosted on Heroku. Avoiding serverless ended up being way more productive for the team.
 
