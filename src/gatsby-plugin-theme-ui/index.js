@@ -23,7 +23,7 @@ export const palette = {
 export default merge(base, {
   fonts: {
     body: 'system-ui, Roboto, sans-serif',
-    heading: 'system-ui, Roboto, sans-serif',
+    heading: 'ui-rounded, system-ui, Roboto, sans-serif',
     monospace: 'Menlo, monospace'
   },
   fontSizes: [14, 18, 24, 28, 36, 48, 64, 72, 96, 128],
