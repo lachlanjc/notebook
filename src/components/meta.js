@@ -1,7 +1,6 @@
-import React from 'react'
 import Helmet from 'react-helmet'
 
-export default ({
+const Meta = ({
   title = '@lachlanjc/notebook',
   name = '@lachlanjc/notebook',
   description = 'Lachlan Campbell’s daily blog, Notebook.',
@@ -21,3 +20,5 @@ export default ({
     <meta name="twitter:image" content={image} />
   </Helmet>
 )
+
+export default Meta

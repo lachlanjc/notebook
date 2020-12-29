@@ -1,10 +1,8 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
-import React from 'react'
+import { Box } from 'theme-ui'
 import YouTubePlayer from 'react-player/lib/players/YouTube'
 
 export const Container = ({ wide, ...props }) => (
-  <div
+  <Box
     {...props}
     sx={{
       maxWidth: wide ? 'wide' : 'container'
@@ -13,7 +11,7 @@ export const Container = ({ wide, ...props }) => (
 )
 
 export const Tiles = props => (
-  <div
+  <Box
     {...props}
     sx={{
       ul: {
@@ -40,7 +38,11 @@ export const Tiles = props => (
 )
 
 export const Embed = ({ src, sx, ...props }) => (
-  <div variant="sheet" {...props} sx={{ p: 0, maxHeight: 512, width: '100%', mt: [3, 4], ...sx }}>
+  <Box
+    variant="sheet"
+    {...props}
+    sx={{ p: 0, maxHeight: 512, width: '100%', mt: [3, 4], ...sx }}
+  >
     <iframe
       src={src}
       frameBorder="0"
@@ -49,7 +51,7 @@ export const Embed = ({ src, sx, ...props }) => (
       height="512"
       style={{ display: 'block', maxWidth: '100%' }}
     />
-  </div>
+  </Box>
 )
 
 export const YouTube = ({ url, ...props }) => (
@@ -64,7 +66,8 @@ export const YouTube = ({ url, ...props }) => (
 )
 
 export const Handwriting = props => (
-  <div
+  <Box
+    as="figure"
     {...props}
     sx={{
       borderRadius: 8,
@@ -76,7 +79,7 @@ export const Handwriting = props => (
 )
 
 export const Columns = props => (
-  <div
+  <Box
     {...props}
     sx={{
       columnWidth: 256,
@@ -92,7 +95,7 @@ export const Columns = props => (
 )
 
 export const List = props => (
-  <div
+  <Box
     {...props}
     sx={{
       ul: {
@@ -115,7 +118,7 @@ export const List = props => (
 )
 
 export const LinkList = props => (
-  <div
+  <Box
     {...props}
     sx={{
       mb: 4,
@@ -145,7 +148,6 @@ export const LinkList = props => (
   />
 )
 
-
 const rainbow = {
   red: '#ec3750',
   orange: '#ff8c37',
@@ -158,7 +160,9 @@ const rainbow = {
 
 const rainbowKids = {}
 Object.entries(rainbow).map(([name, bg], i) => {
-  rainbowKids[`&:nth-child(${Object.keys(rainbow).length}n + ${i + 1}) a`] = { bg }
+  rainbowKids[`&:nth-child(${Object.keys(rainbow).length}n + ${i + 1}) a`] = {
+    bg
+  }
 })
 
 export const ShortcutsList = props => (
@@ -169,7 +173,7 @@ export const ShortcutsList = props => (
         mb: 0,
         display: 'flex',
         ...rainbowKids,
-        p: { my: 0 },
+        p: { my: 0 }
       },
       a: {
         bg: 'primary',

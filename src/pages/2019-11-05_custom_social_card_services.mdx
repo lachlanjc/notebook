@@ -1,8 +1,8 @@
-import { Button } from 'rebass'
+import { Button } from 'theme-ui'
 
 # Custom social card image services
 
-Open Graph images are the image you sometimes see when sharing a link on iMessage, Slack, Twitter, etc. Though they can be any normal image, I first saw the idea of dynamically generating Open Graph images [from @levelsio/NomadList](https://levels.io/phantomjs-social-media-share-pictures/) a few years ago. 
+Open Graph images are the image you sometimes see when sharing a link on iMessage, Slack, Twitter, etc. Though they can be any normal image, I first saw the idea of dynamically generating Open Graph images [from @levelsio/NomadList](https://levels.io/phantomjs-social-media-share-pictures/) a few years ago.
 
 Earlier this year, the indomitable ZEIT team [built a web service](https://zeit.co/blog/social-og-image-cards-as-a-service) for their own site’s social cards called [og-image](https://github.com/zeit/og-image), which I forked for [Hack Club’s Workshop Cards](https://hackclub-workshopcards.now.sh). Since then, they’ve rewritten the system to be simpler to run & deploy, so I used their latest version for my new projects.
 
@@ -12,9 +12,13 @@ I’ve now created custom cards for all pages on both Notebook & my [IMA blog](h
 
 If you want to play with the systems, try them out here:
 
-<Button as="a" href="https://notebook-cards.lachlanjc.now.sh" sx={{ mr: 2 }}>Notebook demo</Button>
+<Button as="a" href="https://notebook-cards.lachlanjc.now.sh" sx={{ mr: 2 }}>
+  Notebook demo
+</Button>
 
-<Button as="a" href="https://ima-cards.lachlanjc.now.sh">IMA demo</Button>
+<Button as="a" href="https://ima-cards.lachlanjc.now.sh">
+  IMA demo
+</Button>
 
 Under the hood, a Node microservice (hosted on [ZEIT Now](https://zeit.co/), of course) spins up a Puppeteer instance to render a webpage to an image file. The backend is written in TypeScript and the frontend uses [.dom](https://github.com/wavesoft/dot-dom). If you want to read more, [ZEIT has you covered](https://zeit.co/blog/social-og-image-cards-as-a-service#how-it-works).
 
@@ -27,9 +31,17 @@ My changes:
 
 View the final source:
 
-<Button as="a" href="https://github.com/lachlanjc/notebook-cards" sx={{ mr: 2 }}>Notebook source</Button>
+<Button
+  as="a"
+  href="https://github.com/lachlanjc/notebook-cards"
+  sx={{ mr: 2 }}
+>
+  Notebook source
+</Button>
 
-<Button as="a" href="https://github.com/lachlanjc/ima-cards">IMA source</Button>
+<Button as="a" href="https://github.com/lachlanjc/ima-cards">
+  IMA source
+</Button>
 
 If you’re looking to create your own, similar service for your own website/blog, I recommend forking [`notebook-cards`](https://github.com/lachlanjc/notebook-cards). `npm i`, `now dev`, then jump into the [`api/_lib/template.ts`](https://github.com/lachlanjc/notebook-cards/blob/master/api/_lib/template.ts) file to edit the template with your own content/styling. When it’s done, just deploy via `now` & you’re ready to go!
 

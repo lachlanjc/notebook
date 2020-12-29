@@ -10,7 +10,19 @@ export const getName = path => {
       .replace('/', '')
   )
   name = title(name, {
-    special: ['iPhone', 'iPad', 'MacBook', 'iOS', 'iPadOS', 'MDX', 'UI', 'COVID']
+    special: [
+      'iPhone',
+      'iPad',
+      'MacBook',
+      'iOS',
+      'iPadOS',
+      'macOS',
+      'AirPods',
+      'HomePod',
+      'MDX',
+      'UI',
+      'COVID'
+    ]
   })
   if (hasDate(path) && name === '') {
     name = format(new Date(getDate(path)), 'MMMM d, yyyy')
