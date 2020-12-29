@@ -36,9 +36,7 @@ const ColorSwitcher = props => {
         width="24"
         height="24"
         fill="currentcolor"
-        sx={{
-          display: 'block'
-        }}
+        sx={{ display: 'block' }}
       >
         <circle
           cx="16"
@@ -148,7 +146,7 @@ export default ({ xl, ...props }) => {
           <Icon glyph="github" size={36} />
         </a>
         <a
-          href="mailto:lachlan@hackclub.com"
+          href="mailto:lachlanjc@hey.com"
           title="Email"
           variant="styles.navitem"
           sx={{ color: 'primary', mx: 2 }}

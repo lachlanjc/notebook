@@ -1,3 +1,4 @@
+import React from 'react'
 import { Box } from 'theme-ui'
 import YouTubePlayer from 'react-player/lib/players/YouTube'
 
@@ -37,7 +38,7 @@ export const Tiles = props => (
   />
 )
 
-export const Embed = ({ src, sx, ...props }) => (
+export const Embed = ({ src, sx, title, ...props }) => (
   <Box
     variant="sheet"
     {...props}
@@ -48,7 +49,8 @@ export const Embed = ({ src, sx, ...props }) => (
       frameBorder="0"
       onMouseWheel=""
       width="100%"
-      height="512"
+      height={512}
+      title={title}
       style={{ display: 'block', maxWidth: '100%' }}
     />
   </Box>
@@ -160,9 +162,8 @@ const rainbow = {
 
 const rainbowKids = {}
 Object.entries(rainbow).map(([name, bg], i) => {
-  rainbowKids[`&:nth-child(${Object.keys(rainbow).length}n + ${i + 1}) a`] = {
-    bg
-  }
+  rainbowKids[`&:nth-child(${Object.keys(rainbow).length}n + ${i + 1}) a`] =
+    { bg }
 })
 
 export const ShortcutsList = props => (
