@@ -3,24 +3,24 @@ import { ShortcutsList } from '../components/blocks'
 
 # Windy City Hacks Newsletters
 
-For Windy City Hacks, I wanted to send out custom HTML newsletters, entirely from my iPad. The process I came up with isn’t necessarily _good_, but here’s how I did it.
+For [Windy City Hacks](https://windyhacks.com/), I wanted to send out custom HTML newsletters, entirely from my iPad. The process I came up with isn’t necessarily _good_, but here’s how I did it.
 
 Note: This will require significant customization if you’re intending to use a similar process. Also, be prepared to spend several hours per newsletter, start to finish.
 
 I started by using a [Zurb responsive email template](https://zurb.com/playground/responsive-email-templates), because CSS + emails is a horrible combination. I spent several hours updating the design to the Windy brand, testing in various clients, etc.
 
-[**Check out a sample newsletter**](https://2019.windyhacks.com/newsletters/first.html)
+[**Check out a sample newsletter**](https://2019-site.windyhacks.com/newsletters/first.html)
 
 ## Writing a newsletter
 
-### Apps
+### Apps I used
 
 - Shortcuts
 - Drafts
 - Working Copy
 - Numbers
 
-### Shortcuts
+### Shortcuts I made
 
 <ShortcutsList>
 
@@ -40,7 +40,7 @@ If you plug your iPad into an external display (USB-C → HDMI adapter if your m
 
 I’d set up Split View with Working Copy next to Shortcuts, & Notes in Slide Over.
 
-The next part was always horrendously painful, because of the need to generate HTML with inline styles. For each line of text, I’d run the `Newsletter HTML` Shortcut, fill out whatever options, & paste into the Working Copy editor. Inline formatting like bold or links must be handled individually.
+The next part was always super painful, because of the need to generate HTML with inline styles. For each line of text, I’d run the `Newsletter HTML` Shortcut, fill out whatever options, & paste into the Working Copy editor. Inline formatting like bold or links must be handled individually.
 
 ### Generating a plain text copy
 
@@ -50,13 +50,13 @@ Select all the HTML in the Working Copy editor, Share → Shortcuts → Make Pla
 
 ## Sending a newsletter
 
-Hack Club has an installation of [Sendy](https://sendy.co), which is honestly the best newsletter software I’ve ever used. Highly recommend it over MailChimp & friends.
+If you’re using [Hack Club Bank](https://hackclub.com/bank/), Hack Club has an installation of [Sendy](https://sendy.co), which is honestly the best newsletter software I’ve ever used. Highly recommend it over MailChimp & friends.
 
-Note: I’ve previously tried TinyLetter, but if anyone replies to your email with an attachment, you can’t see the attachment. This is a big no.
+> Note: I’ve previously tried TinyLetter for a hackathon, but if anyone replies to your email with an attachment (like their signed waiver form), you can’t see the attachment. This is a big no.
 
 ### Generating the recipient list
 
-Our attendees were stored in Airtable, so I did whatever relevant filtering there, then exported a CSV. (This is only available via the website because Airtable SUCKS on iPad, but the website is becoming more usable on iPadOS). Then I’d open the CSV in Numbers to manipulate the columns (renaming the emergency contact name to `name`, deleting unused columns, etc), re-export as CSV, & upload the list to Sendy.
+Our attendees were stored in Airtable, so I did whatever relevant filtering there, then exported a CSV. (This is only available via the website because Airtable’s iPad app sucks, but the website is becoming more usable via iPadOS). Then I’d open the CSV in Numbers to manipulate the columns (renaming the emergency contact name to `name`, deleting unused columns, etc), re-export as CSV, & upload the list to Sendy.
 
 This is super tiresome, but there wasn’t a clear pattern to automate, & CSV is rough to automate in Shortcuts.
 
@@ -68,7 +68,6 @@ This part is pretty simple! Paste the plain text & HTML into Sendy’s editor. T
 
 Never, ever send out a newsletter without sending yourself a test copy, sometimes several, first. I would undoubtedly discover a typo, need to make an edit, find a bug, etc.
 
----
 
 I hope this was somewhat useful. It’s not a recommendation to use this system, merely documentation of what I did if you wanted to recreate it for your own hackathon, club, etc.
 
