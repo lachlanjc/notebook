@@ -69,7 +69,12 @@ export default merge(base, {
   },
   buttons: {
     primary: {
-      color: 'white'
+      borderRadius: 'circle',
+      color: 'white !important', // prevent child a selector from overwriting
+      ':hover,:focus': {
+        bg: 'accent',
+        textShadow: '0 0 4px currentColor'
+      }
     }
   },
   cards: {
