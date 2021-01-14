@@ -40,14 +40,14 @@ export const getDate = path => {
 
 export const getDescription = path => {
   if (path === '/') {
-    return 'Lachlan Campbell’s daily blog, Notebook.'
+    return 'Lachlan Campbell’s personal blog, Notebook, with posts about whatever they want.'
   }
   let date = ''
   if (hasDate(path)) {
     date = new Date(getDate(path))
     date = ` on ${format(date, 'MMMM d, yyyy')}`
   }
-  return `Post by Lachlan Campbell${date} on their daily blog, Notebook.`
+  return `Post by Lachlan Campbell${date} on their personal Notebook blog.`
 }
 
 export const getImage = path => {
@@ -64,7 +64,7 @@ export const getImage = path => {
       caption = format(new Date(date), 'MMM d, yyyy')
     }
     if (name.length > 30) {
-      params += '&fontSize=200px'
+      params += '&fontSize=225px'
     }
   } else {
     theme = 'dark'
