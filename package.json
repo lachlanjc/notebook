@@ -23,6 +23,7 @@
     "lodash": "^4.17.20",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-figma-embed": "^1.0.1",
     "react-helmet": "^6.1.0",
     "react-music-embed": "^1.0.1",
     "react-player": "^2.7.2",
