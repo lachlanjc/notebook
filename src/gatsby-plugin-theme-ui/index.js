@@ -67,6 +67,11 @@ export default merge(base, {
       }
     }
   },
+  buttons: {
+    primary: {
+      color: 'white'
+    }
+  },
   variants: {
     sheet: {
       bg: 'sunken',

@@ -4,11 +4,11 @@ import { Button } from 'theme-ui'
 
 Open Graph images are the image you sometimes see when sharing a link on iMessage, Slack, Twitter, etc. Though they can be any normal image, I first saw the idea of dynamically generating Open Graph images [from @levelsio/NomadList](https://levels.io/phantomjs-social-media-share-pictures/) a few years ago.
 
-Earlier this year, the indomitable ZEIT team [built a web service](https://zeit.co/blog/social-og-image-cards-as-a-service) for their own site’s social cards called [og-image](https://github.com/zeit/og-image), which I forked for [Hack Club’s Workshop Cards](https://hackclub-workshopcards.now.sh). Since then, they’ve rewritten the system to be simpler to run & deploy, so I used their latest version for my new projects.
+Earlier this year, the indomitable ZEIT team [built a web service](https://zeit.co/blog/social-og-image-cards-as-a-service) for their own site’s social cards called [og-image](https://github.com/vercel/og-image), which I forked for [Hack Club’s Workshop Cards](https://hackclub-workshopcards.now.sh). Since then, they’ve rewritten the system to be simpler to run & deploy, so I used their latest version for my new projects.
 
-I’ve now created custom cards for all pages on both Notebook & my [IMA blog](https://ima.lachlanjc.me):
+I’ve now created custom cards for all pages on both Notebook & my [IMA blog](https://ima.lachlanjc.com):
 
-![ Examples of my new social cards, composited with Photoshop for iPad](https://d2wkqk610zk1ag.cloudfront.net/items/453j0U0N0p3h0I2x2s3j/IMG_0991.PNG)
+![Examples of my new social cards, composited with Photoshop for iPad](https://cloud-1tm0gjs2w.vercel.app/2021-01-13_8n9y3u809epu1r9qgdf2nh1xddz5vkgk.png)
 
 If you want to play with the systems, try them out here:
 
@@ -20,14 +20,14 @@ If you want to play with the systems, try them out here:
   IMA demo
 </Button>
 
-Under the hood, a Node microservice (hosted on [ZEIT Now](https://zeit.co/), of course) spins up a Puppeteer instance to render a webpage to an image file. The backend is written in TypeScript and the frontend uses [.dom](https://github.com/wavesoft/dot-dom). If you want to read more, [ZEIT has you covered](https://zeit.co/blog/social-og-image-cards-as-a-service#how-it-works).
+Under the hood, a serverless Node.js function (hosted on [ZEIT Now](https://zeit.co/), of course) spins up a Puppeteer instance to render a webpage to an image file. The backend is written in TypeScript and the frontend uses [.dom](https://github.com/wavesoft/dot-dom). If you want to read more, [ZEIT has you covered](https://zeit.co/blog/social-og-image-cards-as-a-service#how-it-works).
 
 My changes:
 
 - I added a `caption` field, for displaying the course name and/or date
 - I removed the default images (ZEIT logos)
 - I edited the frontend, removing their image presets and custom width/height functionality and updating the style/typography
-- I of course remade the final card template (primarily static HTML/CSS)
+- I remade the final card template (primarily static HTML/CSS)
 
 View the final source:
 
@@ -43,12 +43,12 @@ View the final source:
   IMA source
 </Button>
 
-If you’re looking to create your own, similar service for your own website/blog, I recommend forking [`notebook-cards`](https://github.com/lachlanjc/notebook-cards). `npm i`, `now dev`, then jump into the [`api/_lib/template.ts`](https://github.com/lachlanjc/notebook-cards/blob/master/api/_lib/template.ts) file to edit the template with your own content/styling. When it’s done, just deploy via `now` & you’re ready to go!
+If you’re looking to create your own, similar service for your own website/blog, I recommend forking [`notebook-cards`](https://github.com/lachlanjc/notebook-cards). `npm i`, `now dev`, then jump into the [`api/_lib/template.ts`](https://github.com/lachlanjc/notebook-cards/blob/main/api/_lib/template.ts) file to edit the template with your own content/styling. When it’s done, just deploy via `now` & you’re ready to go!
 
-You’ll then need to add the meta tags to links to your card service. This depends significantly on your site’s tech stack, but if you’re using React, I highly recommend making [a component](https://github.com/lachlanjc/notebook/blob/345afbf4b512e5d5f4c66a15fab1d1be8ce46297/src/components/meta.js) to wrap all the necessary tags. If you’re using Next.js, you’ll need their [`Head` component](https://nextjs.org/docs#populating-head), for Gatsby, [`react-helmet` and its associated plugin](https://www.gatsbyjs.org/docs/add-page-metadata/#using-react-helmet-and-gatsby-plugin-react-helmet).
+You’ll then need to add the meta tags to links to your card service. This depends significantly on your site’s tech stack, but if you’re using React, I highly recommend making [a component](https://github.com/lachlanjc/notebook/blob/345afbf4b512e5d5f4c66a15fab1d1be8ce46297/src/components/meta.js) to wrap all the necessary tags. If you’re using Next.js, you’ll need their [`Head` component](https://nextjs.org/docs/api-reference/next/head), for Gatsby, [`react-helmet` and its associated plugin](https://www.gatsbyjs.org/docs/add-page-metadata/#using-react-helmet-and-gatsby-plugin-react-helmet).
 
 (On Notebook, I use a completely-ridiculous method of storing post names in slugs, so [the way I generate the metadata](https://github.com/lachlanjc/notebook/commit/345afbf4b512e5d5f4c66a15fab1d1be8ce46297#diff-34a6d62af0cf0b784f8444529f3130efR42) is confusing and not recommendable, but it works great for me.)
 
-One nice touch is that the service supports a dark mode, which you can automatically use for special posts. On Notebook, that’s my non-dated pages like [Shortcuts](https://notebook.lachlanjc.me/shortcuts/), and on IMA, I made midterm & final projects use dark mode. If you never touch it, that works too.
+One nice touch is that the service supports a dark mode, which you can automatically use for special posts. On Notebook, that’s my non-dated pages like [Tools](https://notebook.lachlanjc.com/tools/), and on IMA, I made midterm & final projects use dark mode. If you never touch it, that works too.
 
 Those are my systems, remixed from ZEIT’s & now open source for you to remix too. If you make your own version, let me know!
