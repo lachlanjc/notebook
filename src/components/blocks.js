@@ -1,7 +1,6 @@
 import React from 'react'
 import { Box } from 'theme-ui'
-import YouTubePlayer from 'react-player/players/YouTube'
-import VimeoPlayer from 'react-player/players/Vimeo'
+import ReactPlayer from 'react-player/lazy'
 
 export const Container = ({ wide, ...props }) => (
   <Box
@@ -57,9 +56,8 @@ export const Embed = ({ src, sx, title, ...props }) => (
   </Box>
 )
 
-export const YouTube = ({ url, ...props }) => (
-  <YouTubePlayer
-    url={url}
+export const YouTube = (props) => (
+  <ReactPlayer
     width="100%"
     height={400}
     controls
@@ -68,9 +66,8 @@ export const YouTube = ({ url, ...props }) => (
   />
 )
 
-export const Vimeo = ({ url, ...props }) => (
-  <VimeoPlayer
-    url={url}
+export const Player = (props) => (
+  <ReactPlayer
     width="100%"
     height={400}
     controls
