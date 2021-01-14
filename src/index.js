@@ -77,31 +77,51 @@ export const Nav = props => {
   )
 
   return (
-    <ul
+    <ol
       sx={{
         listStyle: 'none',
-        display: 'grid',
         p: 0,
-        m: 0,
-        gridGap: 3,
-        gridTemplateColumns: 'repeat(auto-fit, minmax(256px, 1fr))'
+        ml: 0,
+        mt: -2
       }}
     >
       {links.map(({ name, date, path }) => (
-        <li key={path}>
-          <Link to={path} sx={{ color: 'primary', textDecoration: 'none' }}>
-            <strong sx={{ fontWeight: 600, lineHeight: 'title' }}>
-              {name}
-            </strong>
+        <li key={path} sx={{ mb: isEmpty(date) ? 3 : 1 }}>
+          <Link
+            to={path}
+            sx={{
+              display: 'flex',
+              flexDirection: ['column-reverse', 'row'],
+              color: 'primary',
+              textDecoration: 'none',
+              ...(isEmpty(date)
+                ? {
+                    px: 2,
+                    border: '2px solid currentColor',
+                    borderRadius: 'base',
+                    mr: 3,
+                    display: 'inline-block'
+                  }
+                : {})
+            }}
+          >
             {!isEmpty(date) && (
-              <small sx={{ display: 'block', color: 'secondary' }}>
+              <small
+                sx={{
+                  mt: [1, 0],
+                  mr: [null, 3],
+                  fontVariantNumeric: 'tabular-nums',
+                  color: 'secondary'
+                }}
+              >
                 {date}
               </small>
             )}
+            <strong sx={{ lineHeight: 'title' }}>{name}</strong>
           </Link>
         </li>
       ))}
-    </ul>
+    </ol>
   )
 }
 

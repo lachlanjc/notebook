@@ -13,17 +13,18 @@ export const palette = {
   smoke: '#e0e6ed',
   snow: '#f9fafc',
   white: '#ffffff',
-  pink: '#FF0080',
-  red: '#F05544',
-  yellow: '#FACA33',
-  green: '#93BB3D',
-  blue: '#12A2B7'
+  pink: '#ffeaeb',
+  red: '#ff2467',
+  yellow: '#ffaf26',
+  blue: '#3b47a8'
 }
 
 export default merge(base, {
   fonts: {
-    body: 'ui-rounded, system-ui, Roboto, sans-serif',
-    heading: 'ui-rounded, system-ui, Roboto, sans-serif',
+    body:
+      'Whyte, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    heading:
+      'WhyteInktrap, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     monospace: 'Menlo, monospace'
   },
   fontSizes: [14, 18, 24, 28, 36, 48, 64, 72, 96, 128],
@@ -32,11 +33,11 @@ export default merge(base, {
     body: 400
   },
   lineHeights: {
-    title: 1.5,
-    body: 1.625
+    title: 1.25,
+    body: 1.5
   },
   sizes: {
-    container: 768,
+    container: 680,
     xl: 1024
   },
   radii: {
@@ -49,7 +50,7 @@ export default merge(base, {
   colors: {
     ...palette,
     text: palette.black,
-    background: palette.white,
+    background: palette.pink,
     sunken: palette.snow,
     primary: palette.blue,
     secondary: palette.muted,
@@ -59,10 +60,9 @@ export default merge(base, {
       dark: {
         text: palette.white,
         background: palette.darker,
-        sunken: palette.darkless,
+        sunken: palette.dark,
         primary: palette.blue,
         secondary: palette.muted,
-        accent: palette.red,
         muted: palette.darkless
       }
     }
@@ -70,6 +70,25 @@ export default merge(base, {
   buttons: {
     primary: {
       color: 'white'
+    }
+  },
+  cards: {
+    secondary: {
+      borderRadius: 'extra',
+      color: 'secondary',
+      border: '1px solid',
+      borderColor: 'border',
+      p: 3,
+      my: 0,
+      lineHeight: 'caption',
+      strong: {
+        display: 'block',
+        fontSize: 2
+      },
+      a: {
+        display: 'block',
+        textDecoration: 'none'
+      }
     }
   },
   variants: {

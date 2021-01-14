@@ -6,6 +6,7 @@ import Icon from './components/icon'
 import Meta from './components/meta'
 import { getName, getDescription, getImage } from './util'
 import theme from './gatsby-plugin-theme-ui'
+import './fonts.css'
 
 const ColorSwitcher = props => {
   const [mode, setMode] = useColorMode()
@@ -52,10 +53,9 @@ const ColorSwitcher = props => {
   )
 }
 
-export default ({ xl, ...props }) => {
+const Layout = ({ xl, ...props }) => {
   const path = props.location.pathname
   const home = path === '/'
-  if (home) xl = true
   const base = '@lachlanjc/notebook'
   const name = home ? base : getName(path)
 
@@ -65,7 +65,7 @@ export default ({ xl, ...props }) => {
       sx={{
         p: 3,
         fontSize: 1,
-        maxWidth: home ? 'xl' : 'container',
+        maxWidth: xl ? 'xl' : 'container',
         lineHeight: 'body',
         mx: 'auto'
       }}
@@ -80,7 +80,7 @@ export default ({ xl, ...props }) => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          mb: [4, 5]
+          mb: 4
         }}
       >
         <Avatar />
@@ -105,11 +105,11 @@ export default ({ xl, ...props }) => {
           alignItems: 'center',
           color: 'secondary',
           mt: 0,
-          mb: [3, 4]
+          mb: 3
         }}
       >
         <Icon glyph="view" sx={{ mr: 2 }} />
-        Page views:
+        Site views:
         <img
           src={`https://lachlanjc-analytics.glitch.me/counter.png?fallback=notebook.lachlanjc.me&color=${theme.colors.secondary.replace(
             '#',
@@ -157,3 +157,5 @@ export default ({ xl, ...props }) => {
     </Box>
   )
 }
+
+export default Layout
