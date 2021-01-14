@@ -1,0 +1,24 @@
+@font-face {
+  font-family: Whyte;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://cdn.glitch.com/4d99d0f7-c364-44a5-b1b9-2c3c3f5cb333%2FWhyte-Regular-412d6af025a4cfe3d36ab0850f3b258f.woff2?v=1582525105493)
+    format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: Whyte;
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://cdn.glitch.com/4d99d0f7-c364-44a5-b1b9-2c3c3f5cb333%2FWhyte-Bold-259eea7f642aa1973e3688f57b803286.woff2?v=1582525121432)
+    format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: WhyteInktrap;
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://cdn.glitch.com/4d99d0f7-c364-44a5-b1b9-2c3c3f5cb333%2FWhyteInktrap-Bold-d5fda619e54a4948a42c0f133a4ad5ed.woff2?v=1582525136783)
+    format('woff2');
+  font-display: swap;
+}
