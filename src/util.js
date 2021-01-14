@@ -63,6 +63,9 @@ export const getImage = path => {
     if (path.replace(/\//g, '') !== date) {
       caption = format(new Date(date), 'MMM d, yyyy')
     }
+    if (name.length > 30) {
+      params += '&fontSize=200px'
+    }
   } else {
     theme = 'dark'
     params += '&fontSize=275px'
