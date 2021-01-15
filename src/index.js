@@ -53,11 +53,11 @@ export const Banner = props => (
   </div>
 )
 
-export const Nav = props => {
+export const Nav = () => {
   const data = useStaticQuery(pages)
   const nodes = filter(
     data.allSitePage.nodes,
-    n => !includes(['/', '/dev-404-page/'], n.path)
+    n => !includes(['/', '404'], n.path)
   )
 
   const links = orderBy(

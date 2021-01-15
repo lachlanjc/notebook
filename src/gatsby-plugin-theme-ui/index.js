@@ -70,10 +70,11 @@ export default merge(base, {
   buttons: {
     primary: {
       borderRadius: 'circle',
+      transition: 'text-shadow 0.125s ease-in, background-color 0.5s ease-in-out',
       color: 'white !important', // prevent child a selector from overwriting
       ':hover,:focus': {
         bg: 'accent',
-        textShadow: '0 0 4px currentColor'
+        textShadow: '0 0 6px currentColor'
       }
     }
   },
