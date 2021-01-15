@@ -34,7 +34,7 @@ export default merge(base, {
   },
   lineHeights: {
     title: 1.25,
-    body: 1.5
+    body: 1.625
   },
   sizes: {
     container: 680,

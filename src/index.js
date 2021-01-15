@@ -82,11 +82,18 @@ export const Nav = props => {
         listStyle: 'none',
         p: 0,
         ml: 0,
-        mt: -2
+        mt: -3
       }}
     >
       {links.map(({ name, date, path }) => (
-        <li key={path} sx={{ mb: isEmpty(date) ? 3 : 1 }}>
+        <li
+          key={path}
+          sx={
+            isEmpty(date)
+              ? { display: 'inline-block', mr: 3, mb: 4 }
+              : { mb: 1 }
+          }
+        >
           <Link
             to={path}
             sx={{
@@ -98,9 +105,7 @@ export const Nav = props => {
                 ? {
                     px: 2,
                     border: '2px solid currentColor',
-                    borderRadius: 'base',
-                    mr: 3,
-                    display: 'inline-block'
+                    borderRadius: 'base'
                   }
                 : {})
             }}

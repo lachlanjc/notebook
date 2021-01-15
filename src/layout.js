@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Box, BaseStyles, useColorMode } from 'theme-ui'
+import { jsx, Box, BaseStyles, Flex, useColorMode } from 'theme-ui'
 import { Link } from 'gatsby'
 import Avatar from './components/avatar'
 import Icon from './components/icon'
@@ -31,22 +31,16 @@ const ColorSwitcher = props => {
         }
       }}
     >
-      <svg
-        viewBox="0 0 32 32"
-        width="24"
-        height="24"
-        fill="currentcolor"
-        sx={{ display: 'block' }}
-      >
+      <svg viewBox="0 0 32 32" width={24} height={24}>
         <circle
-          cx="16"
-          cy="16"
-          r="14"
+          cx={16}
+          cy={16}
+          r={14}
           fill="none"
-          stroke="currentcolor"
-          strokeWidth="4"
+          stroke="currentColor"
+          strokeWidth={4}
         />
-        <path d="M 16 0 A 16 16 0 0 0 16 32 z" />
+        <path d="M 16 0 A 16 16 0 0 0 16 32 z" fill="currentColor" />
       </svg>
     </button>
   )
@@ -57,6 +51,7 @@ const Layout = ({ xl, ...props }) => {
   const home = path === '/'
   const base = '@lachlanjc/notebook'
   const name = home ? base : getName(path)
+  const counterColor = theme.colors.secondary.replace('#', '%23')
 
   return (
     <Box
@@ -97,62 +92,48 @@ const Layout = ({ xl, ...props }) => {
         </Link>
         <ColorSwitcher />
       </header>
-      <p
+      <Flex
+        as="p"
         variant="container"
         sx={{
-          display: 'flex',
           alignItems: 'center',
           color: 'secondary',
           mt: 0,
-          mb: 3
+          mb: 3,
+          img: { verticalAlign: 'bottom' }
         }}
       >
         <Icon glyph="view" sx={{ mr: 2 }} />
         Site views:
         <img
-          src={`https://lachlanjc-analytics.glitch.me/counter.png?fallback=notebook.lachlanjc.me&color=${theme.colors.secondary.replace(
-            '#',
-            '%23'
-          )}`}
+          src={`https://lachlanjc-analytics.glitch.me/counter.png?fallback=notebook.lachlanjc.com&color=${counterColor}`}
           alt="View counter"
-          style={{ verticalAlign: 'bottom' }}
         />
-      </p>
-      <BaseStyles as="article">{props.children}</BaseStyles>
-      <footer
+      </Flex>
+      <article>
+        <BaseStyles>{props.children}</BaseStyles>
+      </article>
+      <Flex
+        as="footer"
         sx={{
           py: 4,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          a: { color: 'primary', mx: 2 }
         }}
       >
         <Avatar />
-        <a
-          href="https://twitter.com/lachlanjc"
-          title="Twitter"
-          variant="styles.navitem"
-          sx={{ color: 'primary', mx: 2 }}
-        >
+        <a href="https://twitter.com/lachlanjc" title="Twitter">
           <Icon glyph="twitter" size={36} />
         </a>
-        <a
-          href="https://github.com/lachlanjc/notebook"
-          title="GitHub"
-          variant="styles.navitem"
-          sx={{ color: 'primary', mx: 2 }}
-        >
+        <a href="https://github.com/lachlanjc/notebook" title="GitHub">
           <Icon glyph="github" size={36} />
         </a>
-        <a
-          href="mailto:lachlanjc@hey.com"
-          title="Email"
-          variant="styles.navitem"
-          sx={{ color: 'primary', mx: 2 }}
-        >
+        <a href="mailto:lachlanjc@hey.com" title="Email">
           <Icon glyph="email-fill" size={36} />
         </a>
-      </footer>
+      </Flex>
     </Box>
   )
 }
