@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from 'theme-ui'
+import { Box, Card } from 'theme-ui'
 import ReactPlayer from 'react-player/lazy'
 
 export const Container = ({ wide, ...props }) => (
@@ -204,4 +204,8 @@ export const ShortcutsList = props => (
       ...props.sx
     }}
   />
+)
+
+export const Lyrics = props => (
+  <Card {...props} sx={{ borderRadius: 12, color: 'white', fontWeight: 'bold', fontFamily: 'heading', p: { my: 0 } }} />
 )
