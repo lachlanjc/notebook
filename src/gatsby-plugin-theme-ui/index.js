@@ -59,7 +59,7 @@ export default merge(base, {
     accent: palette.red,
     modes: {
       dark: {
-        text: palette.white,
+        text: palette.pink,
         background: palette.darker,
         sunken: palette.dark,
         primary: palette.yellow,
@@ -165,8 +165,8 @@ export default merge(base, {
     },
     'p > img:first-of-type:last-of-type': {
       maxWidth: ['100%', null, 768],
-      mx: (680 - 768) / 2,
-      borderRadius: 'base'
+      mx: [null, null, (680 - 768) / 2],
+      borderRadius: 'extra'
     },
     ul: {
       '&.contains-task-list': {
