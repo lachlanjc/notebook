@@ -62,7 +62,7 @@ export default merge(base, {
         text: palette.white,
         background: palette.darker,
         sunken: palette.dark,
-        primary: palette.blue,
+        primary: palette.yellow,
         secondary: palette.muted,
         muted: palette.darkless
       }
