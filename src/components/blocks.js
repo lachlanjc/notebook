@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from 'theme-ui'
+import { Box, Grid } from 'theme-ui'
 import ReactPlayer from 'react-player/lazy'
 
 export const Container = ({ wide, ...props }) => (
@@ -202,6 +202,82 @@ export const ShortcutsList = props => (
         }
       },
       ...props.sx
+    }}
+  />
+)
+
+export const AppList = props => (
+  <Grid
+    {...props}
+    as="section"
+    columns="64px 1fr"
+    gap={3}
+    sx={{
+      p: {
+        my: 0,
+        ':nth-of-type(odd)': {
+          lineHeight: 0,
+          '> a': {
+            display: 'inline-block',
+            border: '1px solid rgba(0,0,0,0.125)',
+            overflow: 'hidden',
+            transition: '0.125s ease-in-out box-shadow, 0.2s ease-out transform',
+            borderRadius: 14,
+            img: {
+              width: 64,
+              height: 64,
+            },
+            ':hover,:focus': {
+              boxShadow: '0 2px 6px rgba(0,0,0,0.125)',
+              transform: 'scale(1.25) rotate(-3deg)'
+            }
+          }
+        }
+      }
+    }}
+  />
+)
+
+export const AppGrid = props => (
+  <Grid
+    {...props}
+    as="section"
+    columns="repeat(auto-fit, minmax(96px, 1fr))"
+    gap={3}
+    sx={{
+      justifyContent: 'center',
+      textAlign: 'center',
+      p: {
+        my: 0,
+        '> a': {
+          color: 'text',
+          fontSize: 1,
+          lineHeight: 'title',
+          transition: '0.125se ease-in-out color',
+          img: {
+            display: 'inline-block',
+            border: '1px solid rgba(0,0,0,0.125)',
+            overflow: 'hidden',
+            transition: '0.125s ease-in-out box-shadow, 0.2s ease-out transform',
+            transformOrigin: 'center bottom',
+            width: 96,
+            height: 96,
+            borderRadius: 20,
+            mx: 'auto',
+            mb: 2
+          },
+          display: 'flex',
+          flexDirection: 'column',
+          textDecoration: 'none',
+          ':hover,:focus': {
+            color: 'accent',
+            img: {
+              boxShadow: '0 2px 8px rgba(0,0,0,0.125)',
+              transform: 'scale(1.25)'
+            }
+          }
+        }
+      }
     }}
   />
 )
