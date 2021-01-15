@@ -13,19 +13,21 @@ const ColorSwitcher = props => {
     <button
       {...props}
       onClick={e => setMode(mode === 'dark' ? 'light' : 'dark')}
-      title="Cycle Color Mode"
+      title="Switch color theme"
       sx={{
         display: 'inline-block',
         appearance: 'none',
         bg: 'transparent',
-        color: 'inherit',
+        color: 'primary',
         p: 1,
         m: 0,
+        lineHeight: 0,
         border: 0,
         borderRadius: 9999,
-        transition: 'box-shadow .125s ease-in-out',
+        transition: '.125s ease-in-out',
+        transitionProperty: 'box-shadow, color',
         ':hover,:focus': {
-          color: 'primary',
+          color: 'accent',
           boxShadow: '0 0 0 3px',
           outline: 'none'
         }

@@ -28,7 +28,7 @@
     "react-music-embed": "^1.0.1",
     "react-player": "^2.7.2",
     "react-song-embed": "^1.0.0",
-    "theme-ui": "^0.3.5",
+    "theme-ui": "^0.6.0-alpha.4",
     "title": "^3.4.2"
   }
 }

@@ -1,63 +1,20 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import theme from './gatsby-plugin-theme-ui'
 import Layout from './layout'
 import { hasDate, getDate, getName } from './util'
-import { filter, includes, isEmpty, orderBy } from 'lodash'
+import { filter, isEmpty, orderBy } from 'lodash'
 import { format } from 'date-fns'
 
 export const wrapPageElement = ({ element, props }) => (
   <Layout {...props}>{element}</Layout>
 )
 
-export const Banner = props => (
-  <div
-    sx={{
-      display: 'flex',
-      flexDirection: ['column', 'row'],
-      alignItems: ['flex-start', 'center'],
-      mb: 4,
-      img: {
-        width: [72, 96],
-        maxWidth: '100%',
-        mr: [0, 3, 4],
-        mb: [3, 0]
-      },
-      h1: {
-        mt: 0,
-        mb: 0,
-        lineHeight: 'heading'
-      },
-      p: {
-        mt: 1,
-        mb: 0,
-        fontSize: [2, 3],
-        lineHeight: 'heading',
-        color: 'secondary'
-      },
-      a: {
-        color: 'primary'
-      }
-    }}
-  >
-    <img
-      alt="Logo"
-      src={`https://contrast.now.sh/fff/${theme.colors.primary.replace(
-        '#',
-        ''
-      )}?text=%F0%9F%93%9D&radius=999&size=512&fontSize=2&baseline=1`}
-      width={72}
-    />
-    <div>{props.children}</div>
-  </div>
-)
-
 export const Nav = () => {
   const data = useStaticQuery(pages)
   const nodes = filter(
     data.allSitePage.nodes,
-    n => !includes(['/', '404'], n.path)
+    ({ path }) => path !== '/' && !path.includes('404')
   )
 
   const links = orderBy(
@@ -81,8 +38,7 @@ export const Nav = () => {
       sx={{
         listStyle: 'none',
         p: 0,
-        ml: 0,
-        mt: -3
+        ml: 0
       }}
     >
       {links.map(({ name, date, path }) => (
@@ -91,7 +47,7 @@ export const Nav = () => {
           sx={
             isEmpty(date)
               ? { display: 'inline-block', mr: 3, mb: 4 }
-              : { mb: 1 }
+              : { my: 1 }
           }
         >
           <Link
@@ -103,10 +59,13 @@ export const Nav = () => {
               textDecoration: 'none',
               ...(isEmpty(date)
                 ? {
-                    px: 2,
-                    border: '2px solid currentColor',
-                    borderRadius: 'base'
-                  }
+                  px: 3,
+                  py: 1,
+                  border: '2px solid currentColor',
+                  borderRadius: 'circle',
+                  fontSize: 2,
+                  transform: 'rotate(-2deg)'
+                }
                 : {})
             }}
           >

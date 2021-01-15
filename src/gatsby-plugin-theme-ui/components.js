@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Themed } from 'theme-ui'
 import React from 'react'
-import Prism from '@theme-ui/prism'
+// import Prism from '@theme-ui/prism'
 import { kebabCase } from 'lodash'
 
 const wavy = {
@@ -13,26 +13,25 @@ const wavy = {
 }
 const headingLink = {
   color: 'inherit',
-  textDecoration: 'none',
-  ':hover, :focus': wavy
+  textDecoration: 'none'
 }
 
 export default {
-  pre: props => props.children,
-  code: Prism,
+  // pre: props => props.children,
+  // code: Prism, // commented out while Theme UI Prism has a bug
   h2: props => (
-    <h2 {...props}>
+    <Themed.h2 id={kebabCase(props.children)} {...props}>
       <a href={`#${kebabCase(props.children)}`} sx={headingLink}>
         {props.children}
       </a>
-    </h2>
+    </Themed.h2>
   ),
   h3: props => (
-    <h3 {...props}>
+    <Themed.h3 id={kebabCase(props.children)} {...props}>
       <a href={`#${kebabCase(props.children)}`} sx={headingLink}>
         {props.children}
       </a>
-    </h3>
+    </Themed.h3>
   ),
   a: props => <a sx={wavy} {...props} />
 }

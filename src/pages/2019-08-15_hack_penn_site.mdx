@@ -15,7 +15,7 @@ The site is built using Next.js + MDX + Theme UI, with Rebass + Emotion. Breakin
 
 So all the content of the site is written in standard Markdown, with a sprinkling of React components wrapping parts of the site like the top banner, grid of people, etc with special styling.
 
-Here's an example of MDX:
+Here’s an example of MDX:
 
 ```mdx
 <Banner>
@@ -30,7 +30,7 @@ Write text here
 Then in a JS file, define the component:
 
 ```js
-const Banner = props =>
+const Banner = props => (
   <Box
     {...props}
     sx={{
@@ -42,6 +42,7 @@ const Banner = props =>
       }
     }}
   />
+)
 ```
 
 The `Box` component is coming from Rebass—it's actually just a `<div>` with Theme UI [magic](https://theme-ui.com/jsx-pragma) applied. Everything inside [the `sx` prop](https://theme-ui.com/sx-prop) is running via Theme UI. The `{...props}` forwards on all the other props passed to `Banner`—which include the Markdown content, via `children`.
@@ -84,6 +85,6 @@ If you want to see all the code for the site in one place, check out [this file 
 
 If you want to see more projects from Hack Pennsylvania, I've put a few in [a Collection on Glitch](https://glitch.com/@lachlanjc/hack-pennsylvania).
 
-___
+---
 
 Questions/feedback? Email me: [lachlan@hackpenn.com](mailto:lachlan@hackpenn.com)

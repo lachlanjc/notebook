@@ -25,11 +25,11 @@ export default merge(base, {
       'Whyte, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     heading:
       'WhyteInktrap, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-    monospace: 'Menlo, monospace'
+    monospace: 'SFMono-Regular, Menlo, monospace'
   },
   fontSizes: [14, 18, 24, 28, 36, 48, 64, 72, 96, 128],
   fontWeights: {
-    heading: 800,
+    heading: 'bold',
     body: 400
   },
   lineHeights: {
@@ -46,6 +46,7 @@ export default merge(base, {
     circle: 9999
   },
   initialColorModeName: 'light',
+  printColorModeName: 'light',
   useColorSchemeMediaQuery: true,
   colors: {
     ...palette,
@@ -114,24 +115,37 @@ export default merge(base, {
       transitionTimingFunction: 'ease-out',
       transitionDuration: '.25s'
     },
+    h2: {
+      my: 2
+    },
     hr: {
       border: 0,
       height: 4,
-      bg: 'muted',
+      maxWidth: 256,
+      bg: 'accent',
       borderRadius: 2,
+      mx: 'auto',
       my: [3, 4]
     },
     pre: {
       p: 3,
-      bg: 'muted',
-      borderRadius: 6,
-      ...nightOwl
+      mx: [null, -3],
+      bg: 'sunken',
+      borderRadius: 'base',
+      lineHeight: 'title',
+      code: {
+        color: 'accent',
+        fontSize: 0
+      },
+      // ...nightOwl
     },
     inlineCode: {
       fontFamily: 'monospace',
-      px: 1,
-      bg: 'muted',
-      borderRadius: 3
+      color: 'accent',
+    },
+    'p > code, li > code': {
+      fontSize: '0.875em',
+      ':before,:after': { content: '"`"' }
     },
     blockquote: {
       borderRadius: 'base',
@@ -143,7 +157,16 @@ export default merge(base, {
       py: 2
     },
     a: {
-      color: 'primary'
+      color: 'primary',
+      transition: 'color 0.125s ease-in-out',
+      ':hover,:focus': {
+        color: 'accent'
+      }
+    },
+    'p > img:first-of-type:last-of-type': {
+      maxWidth: ['100%', null, 768],
+      mx: (680 - 768) / 2,
+      borderRadius: 'base'
     },
     ul: {
       '&.contains-task-list': {
@@ -165,14 +188,6 @@ export default merge(base, {
         input: {
           mr: 2
         }
-      }
-    },
-    navitem: {
-      color: 'inherit',
-      textDecoration: 'none',
-      fontWeight: 'bold',
-      ':hover,:focus': {
-        color: 'primary'
       }
     }
   }
