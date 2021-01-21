@@ -25,7 +25,7 @@ export default merge(base, {
       'Whyte, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     heading:
       'WhyteInktrap, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-    monospace: 'SFMono-Regular, Menlo, monospace'
+    monospace: 'ui-monospace, SFMono-Regular, Menlo, monospace'
   },
   fontSizes: [14, 18, 24, 28, 36, 48, 64, 72, 96, 128],
   fontWeights: {
@@ -169,13 +169,18 @@ export default merge(base, {
       borderRadius: 'extra'
     },
     ul: {
+      listStyleType: 'disc',
       '&.contains-task-list': {
         listStyle: 'none',
         pl: 3
       }
     },
     li: {
-      mb: 3,
+      my: 2,
+      '::marker' {
+        fontSize: 'inherit',
+        color: 'secondary'
+      },
       li: {
         mt: 1,
         mb: 1,
