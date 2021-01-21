@@ -1,6 +1,6 @@
 import base from '@theme-ui/preset-base'
 import nightOwl from '@theme-ui/prism/presets/night-owl.json'
-import { merge } from 'lodash'
+import { merge } from 'theme-ui'
 
 export const palette = {
   darker: '#121217',
@@ -177,7 +177,7 @@ export default merge(base, {
     },
     li: {
       my: 2,
-      '::marker' {
+      '::marker': {
         fontSize: 'inherit',
         color: 'secondary'
       },
