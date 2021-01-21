@@ -8,7 +8,6 @@ export const getName = path => {
       .replace(/(\d{4}-\d{2}-\d{2})/, '')
       .replace('-', ' ')
       .replace('/', '')
-      .replace('and', '&')
       .replace('nextjs', 'Next.js')
   )
   name = title(name, {
@@ -25,7 +24,7 @@ export const getName = path => {
       'UI',
       'COVID'
     ]
-  })
+  }).replace('and', '&')
   if (hasDate(path) && name === '') {
     name = format(new Date(getDate(path)), 'MMMM d, yyyy')
   }
