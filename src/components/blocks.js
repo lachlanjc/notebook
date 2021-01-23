@@ -94,12 +94,14 @@ export const Columns = props => (
     sx={{
       columnWidth: 256,
       columnGap: 16,
+      overflow: 'visible',
       p: {
         my: 0
       },
-      'h2:first-child': {
+      'h2:first-of-type': {
         mt: 0
-      }
+      },
+      ...props.sx
     }}
   />
 )

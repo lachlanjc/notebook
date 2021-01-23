@@ -1,5 +1,5 @@
 import base from '@theme-ui/preset-base'
-import nightOwl from '@theme-ui/prism/presets/night-owl.json'
+// import nightOwl from '@theme-ui/prism/presets/night-owl.json'
 import { merge } from 'theme-ui'
 
 export const palette = {
@@ -16,7 +16,9 @@ export const palette = {
   pink: '#ffeaeb',
   red: '#ff2467',
   yellow: '#ffaf26',
-  blue: '#3b47a8'
+  blue: '#3b47a8',
+  lilac: '#849de1',
+  rose: '#ff707a'
 }
 
 export default merge(base, {
@@ -54,7 +56,7 @@ export default merge(base, {
     background: palette.pink,
     sunken: palette.snow,
     primary: palette.blue,
-    secondary: palette.muted,
+    secondary: palette.lilac,
     muted: palette.smoke,
     accent: palette.red,
     modes: {
@@ -110,6 +112,7 @@ export default merge(base, {
     root: {
       fontFamily: 'body',
       lineHeight: 'body',
+      color: 'text',
       fontSize: 2,
       transitionProperty: 'background-color',
       transitionTimingFunction: 'ease-out',
@@ -147,14 +150,17 @@ export default merge(base, {
       fontSize: '0.875em',
       ':before,:after': { content: '"`"' }
     },
+    kbd: {
+      fontFamily: 'monospace',
+      color: 'accent',
+      fontSize: '0.875em'
+    },
     blockquote: {
-      borderRadius: 'base',
-      borderLeft: '4px solid',
-      borderLeftColor: 'muted',
-      bg: 'sunken',
-      ml: 0,
+      borderLeft: '5px dotted',
+      borderLeftColor: 'rose',
+      ml: [0, -3],
       pl: 3,
-      py: 2
+      p: { color: 'rose' }
     },
     a: {
       color: 'primary',
@@ -185,7 +191,7 @@ export default merge(base, {
         mt: 1,
         mb: 1,
         '&:last-of-type': {
-          mb: 3
+          mb: 2
         }
       },
       '&.task-list-item': {
