@@ -155,6 +155,13 @@ export default merge(base, {
       color: 'accent',
       fontSize: '0.875em'
     },
+    mark: {
+      color: 'dark',
+      bg: 'yellow',
+      px: 2,
+      mr: -1,
+      borderRadius: '1em 0.5em'
+    },
     blockquote: {
       borderLeft: '5px dotted',
       borderLeftColor: 'rose',
