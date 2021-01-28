@@ -73,7 +73,8 @@ export default merge(base, {
   buttons: {
     primary: {
       borderRadius: 'circle',
-      transition: 'text-shadow 0.125s ease-in, background-color 0.5s ease-in-out',
+      transition:
+        'text-shadow 0.125s ease-in, background-color 0.5s ease-in-out',
       color: 'white !important', // prevent child a selector from overwriting
       ':hover,:focus': {
         bg: 'accent',
@@ -139,12 +140,12 @@ export default merge(base, {
       code: {
         color: 'accent',
         fontSize: 0
-      },
+      }
       // ...nightOwl
     },
     inlineCode: {
       fontFamily: 'monospace',
-      color: 'accent',
+      color: 'accent'
     },
     'p > code, li > code': {
       fontSize: '0.875em',
@@ -177,12 +178,19 @@ export default merge(base, {
       }
     },
     'p > img:first-of-type:last-of-type': {
-      maxWidth: ['100%', null, 768],
-      mx: [null, null, (680 - 768) / 2],
+      display: 'block',
+      transform: ['translateX(-0.5rem)', null, 'translateX(-1.5rem)'],
+      width: ['calc(100% + 1rem)', null, 'calc(100% + 3rem)'],
+      maxWidth: 'unset',
+      maxHeight: '75vh',
+      objectPosition: 'center',
+      objectFit: 'contain',
+      mx: 'auto',
       borderRadius: 'extra'
     },
     ul: {
       listStyleType: 'disc',
+      pl: '1.375rem',
       '&.contains-task-list': {
         listStyle: 'none',
         pl: 3
