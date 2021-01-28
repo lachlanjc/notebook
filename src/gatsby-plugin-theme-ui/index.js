@@ -177,7 +177,7 @@ export default merge(base, {
         color: 'accent'
       }
     },
-    'p > img:first-of-type:last-of-type': {
+    'p > img:first-of-type:last-of-type, p > a:first-child:last-child > img': {
       display: 'block',
       transform: ['translateX(-0.5rem)', null, 'translateX(-1.5rem)'],
       width: ['calc(100% + 1rem)', null, 'calc(100% + 3rem)'],
