@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Grid } from 'theme-ui'
+import { Box, Flex, Grid } from 'theme-ui'
 import ReactPlayer from 'react-player/lazy'
 
 export const Container = ({ wide, ...props }) => (
@@ -56,7 +56,7 @@ export const Embed = ({ src, sx, title, ...props }) => (
   </Box>
 )
 
-export const YouTube = (props) => (
+export const YouTube = props => (
   <ReactPlayer
     width="100%"
     height={400}
@@ -66,13 +66,8 @@ export const YouTube = (props) => (
   />
 )
 
-export const Player = (props) => (
-  <ReactPlayer
-    width="100%"
-    height={400}
-    controls
-    {...props}
-  />
+export const Player = props => (
+  <ReactPlayer width="100%" height={400} controls {...props} />
 )
 
 export const Handwriting = props => (
@@ -172,8 +167,9 @@ const rainbow = {
 
 const rainbowKids = {}
 Object.entries(rainbow).map(([name, bg], i) => {
-  rainbowKids[`&:nth-child(${Object.keys(rainbow).length}n + ${i + 1}) a`] =
-    { bg }
+  rainbowKids[`&:nth-child(${Object.keys(rainbow).length}n + ${i + 1}) a`] = {
+    bg
+  }
 })
 
 export const ShortcutsList = props => (
@@ -223,11 +219,12 @@ export const AppList = props => (
             display: 'inline-block',
             border: '1px solid rgba(0,0,0,0.125)',
             overflow: 'hidden',
-            transition: '0.125s ease-in-out box-shadow, 0.2s ease-out transform',
+            transition:
+              '0.125s ease-in-out box-shadow, 0.2s ease-out transform',
             borderRadius: 14,
             img: {
               width: 64,
-              height: 64,
+              height: 64
             },
             ':hover,:focus': {
               boxShadow: '0 2px 6px rgba(0,0,0,0.125)',
@@ -241,17 +238,22 @@ export const AppList = props => (
 )
 
 export const AppGrid = props => (
-  <Grid
+  <Box
     {...props}
     as="section"
-    columns="repeat(auto-fit, minmax(96px, 1fr))"
-    gap={3}
     sx={{
-      justifyContent: 'center',
-      textAlign: 'center',
-      p: {
+      ul: {
+        listStyle: 'none',
+        pl: 0,
+        display: 'grid',
+        gridGap: 3,
+        gridTemplateColumns: 'repeat(auto-fit, minmax(96px, 1fr))',
+        justifyContent: 'center',
+        textAlign: 'center'
+      },
+      li: {
         my: 0,
-        '> a': {
+        a: {
           color: 'text',
           fontSize: 1,
           lineHeight: 'title',
@@ -260,7 +262,8 @@ export const AppGrid = props => (
             display: 'inline-block',
             border: '1px solid rgba(0,0,0,0.125)',
             overflow: 'hidden',
-            transition: '0.125s ease-in-out box-shadow, 0.2s ease-out transform',
+            transition:
+              '0.125s ease-in-out box-shadow, 0.2s ease-out transform',
             transformOrigin: 'center bottom',
             width: 96,
             height: 96,
