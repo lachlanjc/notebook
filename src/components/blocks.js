@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex, Grid } from 'theme-ui'
+import { Box, Flex, Grid, Text } from 'theme-ui'
 import ReactPlayer from 'react-player/lazy'
 
 export const Container = ({ wide, ...props }) => (
@@ -285,4 +285,65 @@ export const AppGrid = props => (
       }
     }}
   />
+)
+
+export const AppSpotlight = ({
+  icon,
+  name,
+  desc,
+  url,
+  sx = { my: 4 },
+  ...props
+}) => (
+  <Flex
+    as="a"
+    href={url}
+    sx={{
+      flexDirection: 'column',
+      justifyContent: 'center',
+      textDecoration: 'none',
+      textAlign: 'center',
+      fontSize: 1,
+      lineHeight: 'title',
+      transition: '0.125se ease-in-out color',
+      ...sx,
+      ':hover,:focus': {
+        color: 'accent',
+        img: {
+          boxShadow: '0 2px 8px rgba(0,0,0,0.125)',
+          transform: 'scale(1.25)'
+        }
+      }
+    }}
+    {...props}
+  >
+    <Box
+      as="img"
+      src={icon}
+      alt={`${name} icon`}
+      sx={{
+        display: 'inline-block',
+        border: '1px solid rgba(0,0,0,0.125)',
+        overflow: 'hidden',
+        transition: '0.125s ease-in-out box-shadow, 0.2s ease-out transform',
+        transformOrigin: 'center bottom',
+        width: 256,
+        height: 256,
+        borderRadius: 54,
+        mx: 'auto',
+        mb: 2
+      }}
+    />
+    <Box>
+      <Text as="strong" color="text">
+        {name}
+      </Text>
+      {desc && (
+        <Text as="span" color="secondary">
+          {' – '}
+          {desc}
+        </Text>
+      )}
+    </Box>
+  </Flex>
 )
