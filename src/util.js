@@ -9,6 +9,8 @@ export const getName = path => {
       .replace('-', ' ')
       .replace('/', '')
       .replace('nextjs', 'Next.js')
+      .replace('cant', 'can’t')
+      .replace('theyre', 'they’re')
   )
   name = title(name, {
     special: [
