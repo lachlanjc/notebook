@@ -6,11 +6,8 @@ export const getName = path => {
   let name = startCase(
     path
       .replace(/(\d{4}-\d{2}-\d{2})/, '')
-      .replace('-', ' ')
       .replace('/', '')
       .replace('nextjs', 'Next.js')
-      .replace('cant', 'can’t')
-      .replace('theyre', 'they’re')
   )
   name = title(name, {
     special: [
@@ -22,12 +19,15 @@ export const getName = path => {
       'macOS',
       'AirPods',
       'HomePod',
+      'MVP',
       'MDX',
       'UI',
       'COVID'
     ]
   })
     .replace(' and ', ' & ')
+    .replace('Cant', 'Can’t')
+    .replace('Theyre', 'They’re')
     .replace('Apple Fitness', 'Apple Fitness+')
   if (hasDate(path) && name === '') {
     name = format(new Date(getDate(path)), 'MMMM d, yyyy')
