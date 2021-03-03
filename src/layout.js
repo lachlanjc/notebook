@@ -133,7 +133,7 @@ const Layout = ({ xl, ...props }) => {
           <Icon glyph="github" size={36} />
         </a>
         <a href="mailto:lachlanjc@hey.com" title="Email">
-          <Icon glyph="email-fill" size={36} />
+          <Icon glyph="email" size={36} />
         </a>
       </Flex>
     </Box>
