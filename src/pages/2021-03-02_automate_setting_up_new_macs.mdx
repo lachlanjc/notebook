@@ -1,6 +1,7 @@
 # Automate setting up new Macs
 
-I recently erased my MacBook Pro to set it up fresh, then soon after, got a work laptop. Setting up a new Mac, with all the tools one needs as a developer, is a nontrivial process, & ripe for automation.
+I recently erased my MacBook Pro to set it up fresh, then soon after, got a work laptop.
+Setting up a new Mac, with all the tools one needs as a developer, is a nontrivial process, & ripe for automation.
 
 After being a longtime fan of the [Thoughtbot Laptop](https://github.com/thoughtbot/laptop) project to automate installation of various development tools, I wanted to customize it. I [forked the project](https://github.com/lachlanjc/laptop) to set up all the tools I use, enable hidden files on macOS, & then documented the manual steps I take as well. Since I continue to update that project, check out [its README](https://github.com/lachlanjc/laptop#README) for an up-to-date list of what it sets up, but it includes Homebrew, Git, Node, Yarn, Ruby, & a ton of other developer tools.
 
@@ -12,7 +13,7 @@ After being a longtime fan of the [Thoughtbot Laptop](https://github.com/thought
     - Modifier Keys. Remap Caps Lock to Escape
     - Customize Control Strip. Remove Siri, add Sleep
     - Shortcuts. Enable "Use keyboard navigation"
-    - Input Sources. Turn off "Show Input menu in menu bar"
+    - Input Sources. Disable "Show Input menu in menu bar"
 - Download my [Laptop script](https://github.com/lachlanjc/laptop) & execute it:
 
     ```sh
@@ -34,7 +35,9 @@ After being a longtime fan of the [Thoughtbot Laptop](https://github.com/thought
 - In FaceTime settings (<kbd>Cmd-,</kbd>), disable "Calls From iPhone"
 - In VSCode:
     - Configure Prettier as the default formatter, set its formatting settings
+    - Turn up default text size
     - Disable View > Appearance > Show Activity Bar
+- Install fonts (mine are stored in iCloud Drive)
 - Set up code folders (`~/src`, then grouped by GitHub org)
     - `mkdir src`
     - `cd src`
@@ -49,5 +52,5 @@ After being a longtime fan of the [Thoughtbot Laptop](https://github.com/thought
 
 (Note: I’ve only used Intel Macs. Not sure if anything is different on M1 machines.)
 
-1. Back up the whole computer. (I use the Samsung T3/T5 drives, alongside [ChronoSync](https://www.econtechnologies.com/chronosync/overview.html) since it verifies checksums after backing up, but I know people like [SuperDuper](https://www.shirt-pocket.com/SuperDuper/SuperDuperDescription.html) as well. Time Machine works in a pinch.)
+1. Back up the whole computer. (I use the Samsung T3/T5 drives, alongside [ChronoSync](https://www.econtechnologies.com/chronosync/overview.html) since it verifies checksums after backing up, but I know people like [SuperDuper](https://www.shirt-pocket.com/SuperDuper/SuperDuperDescription.html) as well. Time Machine works in a pinch, as does dragging your user folder to the drive in Finder.)
 2. Because [one is none](https://www.relay.fm/cortex/12) & to make it easier to bring the files you need to the new OS installation, copy the files you want to migrate to another drive as well. For me, I just dragged my code folder (`~/src`) to a secondary drive, since that’s what’s really valuable on my Mac. (I have some old projects that aren’t on GitHub.)
