@@ -57,6 +57,28 @@ export const Embed = ({ src, sx, title, ...props }) => (
   </Box>
 )
 
+export const CodeSandbox = ({ id, file, ...props }) => {
+  const colorMode = useColorMode()
+  return (
+    <iframe
+      src={`https://codesandbox.io/embed/${id}?fontsize=14&codemirror=1${
+        colorMode === 'light' ? '&theme=light' : ''
+      }${file ? `&file=${file}` : ''}`}
+      style={{
+        width: '100%',
+        height: 512,
+        border: 0,
+        borderRadius: 6,
+        overflow: 'hidden',
+      }}
+      title={`${initial(id.split('-'))} on CodeSandbox`}
+      allow="accelerometer; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; xr-spatial-tracking"
+      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+      {...props}
+    />
+  )
+}
+
 export const YouTube = props => (
   <ReactPlayer
     width="100%"

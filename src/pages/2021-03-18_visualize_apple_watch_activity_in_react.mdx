@@ -1,0 +1,180 @@
+import { Button } from 'theme-ui'
+import { AppGrid, CodeSandbox, Embed } from '../components/blocks'
+
+# Visualizing Apple Watch Activity with React
+
+Apple Watch [tracks your physical activity](https://www.apple.com/watch/close-your-rings/) throughout the day with a series of concentric rings, the data for which is saved to the Health app on your iPhone. Last year, for my [2019 in Review](https://2019.lachlanjc.com/activity), I wanted to visualize my activity rings on the web.
+
+This article will guide you through exporting the data using [Shortcuts](https://support.apple.com/guide/shortcuts/welcome/ios) on your iPhone, then using my [React](https://reactjs.org/) component to render the rings on a website.
+
+## Saving activity data as JSON
+
+I built a shortcut called [**Activity Export**](https://www.icloud.com/shortcuts/29a9cf0990fd46be9e90322f8c5f9b8a). It uses [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977?uo=4) for accessing the data & [Jayson](https://apps.apple.com/us/app/jayson/id1447750768?uo=4) for previewing/saving the JSON (both of which are on my [essential iOS apps list](https://notebook.lachlanjc.com/tools/#i-pad-apps)), so you’ll want to grab those from the App Store if you haven’t used them before.
+
+<AppGrid my={4}>
+
+- [![Toolbox Pro for Shortcuts](https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/b9/10/ec/b910ec11-d018-73f4-e1c2-a5bf382636c4/source/512x512bb.png) Toolbox Pro](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977?uo=4)
+- [![Jayson](https://is4-ssl.mzstatic.com/image/thumb/Purple114/v4/9a/92/26/9a922686-45e3-4239-faeb-77d4bc6bebfe/source/512x512bb.png) Jayson](https://apps.apple.com/us/app/jayson/id1447750768?uo=4)
+
+</AppGrid>
+
+<Button as="a" children="Download Shortcut" href="https://www.icloud.com/shortcuts/29a9cf0990fd46be9e90322f8c5f9b8a" />
+
+Breaking down the shortcut:
+
+1. First, we run Toolbox Pro’s **Get activity data** action, which asks for the start & end dates. When run, it will prompt you to enter the two dates. I’ve limited the results to 365 since I wanted one year of results.
+1. Next, we loop through each item—in this case, one day of activity rings.
+1. Since the daily goal for each ring is user-customizable, the React component accepts the progress of each ring as a prop in the form of a number from 0-1—which means we need to divide the daily progress by the goal to get each number. I perform that calculation for each ring (“Energy" is Move, then Exercise Minutes & Stand Hours), rounding each one to the thousandths place.
+1. I make a **Dictionary** (a JSON object, essentially) with each of the three values.
+1. In text, I make a row of the JSON file with the repeat item’s Date, formatted as ISO, without a time.
+1. I add that line to a variable called Lines, which will comprise the file contents.
+1. After the loop is finished, I combine the Lines variable with comma separators & nest it inside <kbd>{}</kbd> to make it one big JSON object.
+1. I save the JSON to iCloud & preview it using **Jayson**, prompting for the filename to use.
+
+Due to the complexity, the shortcut can take several minutes to run if you’re exporting an entire year of results, but you can just watch it go to work! Afterwards, it should open Jayson, where you can explore the results.
+
+## The Rings React component
+
+(This component uses [styled-jsx](https://github.com/vercel/styled-jsx), but you can use the same CSS with whatever styling solution you prefer.)
+
+```javascript filename=components/rings.js
+const dash = (n) => `${n * 100}, 100`
+
+const Rings = ({
+  move = 0.5,
+  exercise = 0.75,
+  stand = 0.875,
+  size = 72,
+  ...props
+}) => (
+  <svg
+    viewBox="0 0 36 36"
+    width={size}
+    height={size}
+    className="rings"
+    {...props}
+  >
+    <g className="move">
+      <circle strokeWidth={3} r={16} className="background" />
+      <circle
+        strokeWidth={3}
+        r={16}
+        className="completed"
+        strokeDasharray={dash(move)}
+      />
+    </g>
+    <g className="exercise">
+      <circle strokeWidth={4} r={16} className="background" />
+      <circle
+        strokeWidth={4}
+        r={16}
+        className="completed"
+        strokeDasharray={dash(exercise)}
+      />
+    </g>
+    <g className="stand">
+      <circle strokeWidth={6} r={16} className="background" />
+      <circle
+        strokeWidth={6}
+        r={16}
+        className="completed"
+        strokeDasharray={dash(stand)}
+      />
+    </g>
+    <style jsx>{`
+      .rings {
+        --move: #fa114f;
+        --exercise: #92e82a;
+        --stand: #1eeaef;
+      }
+      .rings g {
+        transform-origin: 50%;
+      }
+      .rings circle {
+        fill: none;
+        transform: translateX(50%) translateY(50%);
+      }
+      .background {
+        opacity: 0.25;
+      }
+      .completed {
+        stroke-linecap: round;
+      }
+      .move {
+        stroke: var(--move);
+        transform: scale(1) rotate(-90deg);
+      }
+      .exercise {
+        stroke: var(--exercise);
+        transform: scale(0.75) rotate(-90deg);
+      }
+      .stand {
+        stroke: var(--stand);
+        transform: scale(0.5) rotate(-90deg);
+      }
+    `}</style>
+  </svg>
+)
+
+export default Rings
+```
+
+As mentioned, this component uses numbers from 0-1 for the progress of each ring. To render the component, pass each decimal like this:
+
+```js
+<Rings move={0.75} exercise={0.66} stand={0.5} />
+```
+
+How does it work internally? Inspired by the technique in [this article](https://www.chilitime.design/2018/09/ActivityRings/), it uses 6 circles, two for each ring.
+
+- It renders an SVG at the size passed by the `size` prop, which is 72px by default.
+- For each ring, it makes a group, using the `<g>` tag, with two `<circle>`s inside. The colors are set using [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) defined at the top, which I extracted from Apple’s website.
+- The first circle is the background of the ring. The CSS has `opacity: 25%;` to make these fade into the background.
+- The second circle is the progress itself. It has no fill, only a stroke (border around the circle, essentially), which is dashed. However, there’s only one segment of the dashed line, whose “width” is set to the ring’s percentage full. The line cap, or the shape at the end of the line, is set to rounded.
+- All the circles are centered in the CSS, then each ring is scaled: 100% for the move ring, 75% for exercise, 50% for stand, so they appear concentric instead of next to one another.
+
+## Rendering the rings
+
+Now, bring the file we just generated into your React project, & save the Rings component above into a file. On your main page, import the JSON file & the Rings component, then map each row of the activity to a Rings component, like this:
+
+```js filename=pages/index.js
+import React from 'react'
+import activity from '../activity.json'
+import Rings from '../components/rings'
+
+const Page = () => (
+  <ol>
+    {Object.keys(activity).map((date) => (
+      <li key={date}>
+        <Rings {...activity[date]} title={date} />
+      </li>
+    ))}
+  </ol>
+)
+
+export default Page
+```
+
+If you want a React environment with sample data set up, open & fork this CodeSandbox:
+
+<CodeSandbox id="react-rings-starter-p1pjl" file="/pages/index.js" />
+
+If you want to jazz it up, show the dates & add some styling:
+
+<CodeSandbox id="react-rings-example-857k3" file="/pages/index.js" />
+
+## You did it!
+
+Indeed. After I first wrote this component, I made [this prototype website](https://rings.now.sh) to try them with real data, which is [open source here](https://github.com/lachlanjc/rings).
+
+<Embed src="https://rings.now.sh" />
+
+For my 2019 in Review page, I wanted to format the rings in a yearlong calendar, delineated by month. I used some [Lodash methods](https://lodash.com/) & [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) (via [Theme UI](https://theme-ui.com/)), which you can [check out here](https://github.com/lachlanjc/2019/blob/main/components/activity/rings.js).
+
+## Relevant resources
+
+The app didn’t exist yet when I started the 2019 in Review, but [Health Auto Export](https://apps.apple.com/us/app/health-auto-export-to-csv/id1115567069) looks handy. They wrote a [post about using Shortcuts Automations](https://www.healthexportapp.com/blog/automate-apple-health-exports-using-shortcuts) to regularly back up your Activity data, which may be useful.
+
+If you want to level up from a single static export, also check out Maxime Heckel’s [post on using Shortcuts Automations + Serverless](https://blog.maximeheckel.com/posts/build-personal-health-api-shortcuts-serverless/) to make a GraphQL-accessible live database of all Health metrics. There’s a [multitude of backend options](https://leerob.io/blog/backend) to which you can store your data, & [infinite ways](https://www.datasketch.es/) to visualize it :)
+
+If you make anything with this, please send it my way! Links below. I’d be delighted to see it.
