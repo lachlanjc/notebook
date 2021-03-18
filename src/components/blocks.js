@@ -1,12 +1,13 @@
 import React from 'react'
-import { Box, Flex, Grid, Text } from 'theme-ui'
+import { Box, Flex, Grid, Text, useColorMode } from 'theme-ui'
 import ReactPlayer from 'react-player/lazy'
+import { initial } from 'lodash'
 
 export const Container = ({ wide, ...props }) => (
   <Box
     {...props}
     sx={{
-      maxWidth: wide ? 'wide' : 'container'
+      maxWidth: wide ? 'wide' : 'container',
     }}
   />
 )
@@ -21,19 +22,19 @@ export const Tiles = props => (
         m: 0,
         display: 'grid',
         gridGap: 4,
-        gridTemplateColumns: 'repeat(auto-fit, minmax(256px, 1fr))'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(256px, 1fr))',
       },
       h2: {
-        fontSize: 2
+        fontSize: 2,
       },
       img: {
         display: 'block',
         width: 128,
         maxWidth: '100%',
         height: 'auto',
-        m: 'auto'
+        m: 'auto',
       },
-      ...props.sx
+      ...props.sx,
     }}
   />
 )
@@ -78,7 +79,7 @@ export const Handwriting = props => (
       borderRadius: 8,
       bg: 'smoke',
       p: 1,
-      mx: -3
+      mx: -3,
     }}
   />
 )
@@ -91,12 +92,12 @@ export const Columns = props => (
       columnGap: 16,
       overflow: 'visible',
       p: {
-        my: 0
+        my: 0,
       },
       'h2:first-of-type': {
-        mt: 0
+        mt: 0,
       },
-      ...props.sx
+      ...props.sx,
     }}
   />
 )
@@ -111,15 +112,15 @@ export const List = props => (
         lineHeight: 1,
         listStyle: 'none',
         columnWidth: 256,
-        columnGap: 4
+        columnGap: 4,
       },
       li: {
-        mb: 4
+        mb: 4,
       },
       a: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
       },
-      ...props.sx
+      ...props.sx,
     }}
   />
 )
@@ -136,7 +137,7 @@ export const LinkList = props => (
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(256px, 1fr))',
         gridGap: 3,
-        mb: 4
+        mb: 4,
       },
       li: { mb: 0 },
       p: { my: 0 },
@@ -148,9 +149,9 @@ export const LinkList = props => (
         fontWeight: 'bold',
         lineHeight: 'heading',
         textDecoration: 'none',
-        display: 'block'
+        display: 'block',
       },
-      ...props.sx
+      ...props.sx,
     }}
   />
 )
@@ -162,13 +163,13 @@ const rainbow = {
   green: '#33d6a6',
   cyan: '#5bc0de',
   blue: '#338eda',
-  purple: '#8067c3'
+  purple: '#8067c3',
 }
 
 const rainbowKids = {}
 Object.entries(rainbow).map(([name, bg], i) => {
   rainbowKids[`&:nth-child(${Object.keys(rainbow).length}n + ${i + 1}) a`] = {
-    bg
+    bg,
   }
 })
 
@@ -180,7 +181,7 @@ export const ShortcutsList = props => (
         mb: 0,
         display: 'flex',
         ...rainbowKids,
-        p: { my: 0 }
+        p: { my: 0 },
       },
       a: {
         bg: 'primary',
@@ -196,10 +197,10 @@ export const ShortcutsList = props => (
         alignItems: 'center',
         svg: {
           m: '-6px',
-          mr: 2
-        }
+          mr: 2,
+        },
       },
-      ...props.sx
+      ...props.sx,
     }}
   />
 )
@@ -224,15 +225,15 @@ export const AppList = props => (
             borderRadius: 14,
             img: {
               width: 64,
-              height: 64
+              height: 64,
             },
             ':hover,:focus': {
               boxShadow: '0 2px 6px rgba(0,0,0,0.125)',
-              transform: 'scale(1.25) rotate(-3deg)'
-            }
-          }
-        }
-      }
+              transform: 'scale(1.25) rotate(-3deg)',
+            },
+          },
+        },
+      },
     }}
   />
 )
@@ -249,7 +250,7 @@ export const AppGrid = props => (
         gridGap: 3,
         gridTemplateColumns: 'repeat(auto-fit, minmax(96px, 1fr))',
         justifyContent: 'center',
-        textAlign: 'center'
+        textAlign: 'center',
       },
       li: {
         my: 0,
@@ -269,7 +270,7 @@ export const AppGrid = props => (
             height: 96,
             borderRadius: 20,
             mx: 'auto',
-            mb: 2
+            mb: 2,
           },
           display: 'flex',
           flexDirection: 'column',
@@ -278,11 +279,11 @@ export const AppGrid = props => (
             color: 'accent',
             img: {
               boxShadow: '0 2px 8px rgba(0,0,0,0.125)',
-              transform: 'scale(1.25)'
-            }
-          }
-        }
-      }
+              transform: 'scale(1.25)',
+            },
+          },
+        },
+      },
     }}
   />
 )
@@ -311,9 +312,9 @@ export const AppSpotlight = ({
         color: 'accent',
         img: {
           boxShadow: '0 2px 8px rgba(0,0,0,0.125)',
-          transform: 'scale(1.25)'
-        }
-      }
+          transform: 'scale(1.25)',
+        },
+      },
     }}
     {...props}
   >
@@ -331,7 +332,7 @@ export const AppSpotlight = ({
         height: 256,
         borderRadius: 54,
         mx: 'auto',
-        mb: 2
+        mb: 2,
       }}
     />
     <Box>

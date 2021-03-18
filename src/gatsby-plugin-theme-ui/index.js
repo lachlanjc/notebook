@@ -1,5 +1,5 @@
 import base from '@theme-ui/preset-base'
-// import nightOwl from '@theme-ui/prism/presets/night-owl.json'
+// import nightOwl from '@theme-ui/prism/presets/vs-dark.json'
 import { merge } from 'theme-ui'
 
 export const palette = {
@@ -18,7 +18,7 @@ export const palette = {
   yellow: '#ffaf26',
   blue: '#3b47a8',
   lilac: '#849de1',
-  rose: '#ff707a'
+  rose: '#ff707a',
 }
 
 export default merge(base, {
@@ -27,25 +27,25 @@ export default merge(base, {
       'Whyte, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     heading:
       'WhyteInktrap, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-    monospace: 'ui-monospace, SFMono-Regular, Menlo, monospace'
+    monospace: 'ui-monospace, SFMono-Regular, Menlo, monospace',
   },
   fontSizes: [14, 18, 24, 28, 36, 48, 64, 72, 96, 128],
   fontWeights: {
     heading: 'bold',
-    body: 400
+    body: 400,
   },
   lineHeights: {
     title: 1.25,
-    body: 1.625
+    body: 1.625,
   },
   sizes: {
     container: 680,
-    xl: 1024
+    xl: 1024,
   },
   radii: {
     base: 6,
     extra: 9,
-    circle: 9999
+    circle: 9999,
   },
   initialColorModeName: 'light',
   printColorModeName: 'light',
@@ -66,9 +66,9 @@ export default merge(base, {
         sunken: palette.dark,
         primary: palette.yellow,
         secondary: palette.muted,
-        muted: palette.darkless
-      }
-    }
+        muted: palette.darkless,
+      },
+    },
   },
   buttons: {
     primary: {
@@ -78,9 +78,9 @@ export default merge(base, {
       color: 'white !important', // prevent child a selector from overwriting
       ':hover,:focus': {
         bg: 'accent',
-        textShadow: '0 0 6px currentColor'
-      }
-    }
+        textShadow: '0 0 6px currentColor',
+      },
+    },
   },
   cards: {
     secondary: {
@@ -93,21 +93,21 @@ export default merge(base, {
       lineHeight: 'caption',
       strong: {
         display: 'block',
-        fontSize: 2
+        fontSize: 2,
       },
       a: {
         display: 'block',
-        textDecoration: 'none'
-      }
-    }
+        textDecoration: 'none',
+      },
+    },
   },
   variants: {
     sheet: {
       bg: 'sunken',
       borderRadius: 8,
       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.0625)',
-      overflow: 'hidden'
-    }
+      overflow: 'hidden',
+    },
   },
   styles: {
     root: {
@@ -117,10 +117,12 @@ export default merge(base, {
       fontSize: 2,
       transitionProperty: 'background-color',
       transitionTimingFunction: 'ease-out',
-      transitionDuration: '.25s'
+      transitionDuration: '.25s',
     },
     h2: {
-      my: 2
+      fontSize: [3, 4],
+      mt: [3, 4],
+      mb: 2,
     },
     hr: {
       border: 0,
@@ -129,53 +131,68 @@ export default merge(base, {
       bg: 'accent',
       borderRadius: 2,
       mx: 'auto',
-      my: [3, 4]
+      my: [3, 4],
     },
     pre: {
       p: 3,
       mx: [null, -3],
       bg: 'sunken',
+      color: 'white',
       borderRadius: 'base',
-      lineHeight: 'title',
-      code: {
+      lineHeight: 1.375,
+      fontSize: 0,
+      '.plain, .parameter, .imports, .maybe-class-name, .interpolation': {
         color: 'accent',
-        fontSize: 0
-      }
-      // ...nightOwl
+      },
+      '.comment,.prolog,.doctype,.cdata,.punctuation,.operator,.entity,.url': {
+        color: 'secondary',
+      },
+      '.comment': {
+        fontStyle: 'italic',
+      },
+      '.property, .tag, .boolean, .number, .constant, .symbol, .deleted, .function, .class-name, .regex, .important, .variable': {
+        color: 'yellow',
+      },
+      '.atrule, .attr-value, .keyword': {
+        color: 'primary',
+      },
+      '.selector, .attr-name, .string, .char, .builtin, .inserted': {
+        color: 'lilac',
+      },
     },
     inlineCode: {
       fontFamily: 'monospace',
-      color: 'accent'
+      color: 'accent',
     },
     'p > code, li > code': {
       fontSize: '0.875em',
-      ':before,:after': { content: '"`"' }
+      ':before,:after': { content: '"`"' },
     },
     kbd: {
       fontFamily: 'monospace',
       color: 'accent',
-      fontSize: '0.875em'
+      fontSize: '0.875em',
     },
     mark: {
       color: 'dark',
       bg: 'yellow',
       px: 2,
       mr: -1,
-      borderRadius: '1em 0.5em'
+      borderRadius: '1em 0.5em',
     },
     blockquote: {
       borderLeft: '5px dotted',
       borderLeftColor: 'rose',
       ml: [0, -3],
       pl: 3,
-      p: { color: 'rose' }
+      p: { color: 'rose' },
     },
     a: {
       color: 'primary',
       transition: 'color 0.125s ease-in-out',
       ':hover,:focus': {
-        color: 'accent'
-      }
+        color: 'accent',
+      },
     },
     'p > img:first-of-type:last-of-type, p > a:first-child:last-child > img': {
       display: 'block',
@@ -186,35 +203,35 @@ export default merge(base, {
       objectPosition: 'center',
       objectFit: 'contain',
       mx: 'auto',
-      borderRadius: 'extra'
+      borderRadius: 'extra',
     },
     ul: {
       listStyleType: 'disc',
       pl: '1.375rem',
       '&.contains-task-list': {
         listStyle: 'none',
-        pl: 3
-      }
+        pl: 3,
+      },
     },
     li: {
       my: 2,
       '::marker': {
         fontSize: 'inherit',
-        color: 'secondary'
+        color: 'secondary',
       },
       li: {
         mt: 1,
         mb: 1,
         '&:last-of-type': {
-          mb: 2
-        }
+          mb: 2,
+        },
       },
       '&.task-list-item': {
         my: 1,
         input: {
-          mr: 2
-        }
-      }
-    }
-  }
+          mr: 2,
+        },
+      },
+    },
+  },
 })
