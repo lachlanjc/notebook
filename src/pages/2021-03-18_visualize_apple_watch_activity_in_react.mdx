@@ -24,18 +24,18 @@ Breaking down the shortcut:
 
 1. First, we run Toolbox Pro’s **Get activity data** action, which asks for the start & end dates. When run, it will prompt you to enter the two dates. I’ve limited the results to 365 since I wanted one year of results.
 1. Next, we loop through each item—in this case, one day of activity rings.
-1. Since the daily goal for each ring is user-customizable, the React component accepts the progress of each ring as a prop in the form of a number from 0-1—which means we need to divide the daily progress by the goal to get each number. I perform that calculation for each ring (“Energy" is Move, then Exercise Minutes & Stand Hours), rounding each one to the thousandths place.
-1. I make a **Dictionary** (a JSON object, essentially) with each of the three values.
-1. In text, I make a row of the JSON file with the repeat item’s Date, formatted as ISO, without a time.
-1. I add that line to a variable called Lines, which will comprise the file contents.
-1. After the loop is finished, I combine the Lines variable with comma separators & nest it inside <kbd>{}</kbd> to make it one big JSON object.
-1. I save the JSON to iCloud & preview it using **Jayson**, prompting for the filename to use.
+1. Since the daily goal for each ring is user-customizable, the React component accepts the progress of each ring as a prop in the form of a number from 0-1—which means we need to divide the daily progress by the goal to get each number. We perform that calculation for each ring (“Energy" is Move, then Exercise Minutes & Stand Hours), rounding each one to the thousandths place.
+1. We make a **Dictionary** (a JSON object, essentially) with each of the three values.
+1. In text, we make a row of the JSON file with the repeat item’s Date, formatted as ISO, without the time.
+1. We add that line to a variable called Lines, which will comprise the file contents.
+1. After the loop is finished, we combine the Lines variable with comma separators & nest it inside <kbd>{}</kbd> to make it one big JSON object.
+1. We save the JSON to iCloud & preview it using **Jayson**, prompting for the filename to use.
 
 Due to the complexity, the shortcut can take several minutes to run if you’re exporting an entire year of results, but you can just watch it go to work! Afterwards, it should open Jayson, where you can explore the results.
 
 ## The Rings React component
 
-(This component uses [styled-jsx](https://github.com/vercel/styled-jsx), but you can use the same CSS with whatever styling solution you prefer.)
+(This component uses [styled-jsx](https://github.com/vercel/styled-jsx), which is built into [Next.js](https://nextjs.org), but you can use the same CSS with whatever styling solution you prefer.)
 
 ```javascript filename=components/rings.js
 const dash = (n) => `${n * 100}, 100`
@@ -119,7 +119,7 @@ const Rings = ({
 export default Rings
 ```
 
-As mentioned, this component uses numbers from 0-1 for the progress of each ring. To render the component, pass each decimal like this:
+As mentioned, this component uses numbers from 0-1 for the progress of each ring. To render the component, pass each decimal value like this:
 
 ```js
 <Rings move={0.75} exercise={0.66} stand={0.5} />
