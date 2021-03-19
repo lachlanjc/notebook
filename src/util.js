@@ -7,7 +7,7 @@ export const getName = path => {
     path
       .replace(/(\d{4}-\d{2}-\d{2})/, '')
       .replace('/', '')
-      .replace('nextjs', 'Next.js')
+      .replace('nextjs', 'Next.js'),
   )
   name = title(name, {
     special: [
@@ -22,11 +22,12 @@ export const getName = path => {
       'MVP',
       'MDX',
       'UI',
-      'COVID'
-    ]
+      'COVID',
+    ],
   })
     .replace(' and ', ' & ')
-    .replace('Cant', 'Can’t')
+    .replace(' Im ', ' I’m ')
+    .replace(' Cant', ' Can’t')
     .replace('Theyre', 'They’re')
     .replace('Apple Fitness', 'Apple Fitness+')
   if (hasDate(path) && name === '') {

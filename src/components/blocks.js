@@ -370,3 +370,40 @@ export const AppSpotlight = ({
     </Box>
   </Flex>
 )
+
+export const Products = props => (
+  <Box
+    {...props}
+    as="section"
+    sx={{
+      ul: {
+        listStyle: 'none',
+        pl: '0 !important',
+        mt: 3,
+        mb: 4,
+      },
+      li: {
+        display: 'grid',
+        gridTemplateColumns: ['72px 1fr', '96px 1fr'],
+        gridGap: 3,
+        alignItems: 'start',
+        p: 0,
+        mt: 0,
+        mb: [3, 4],
+        '> p:first-child': {
+          width: '100%',
+          bg: 'sunken',
+          borderRadius: 'extra',
+          overflow: 'hidden',
+        },
+      },
+      img: {
+        width: [72, 96].map(n => `${n}px !important`),
+        height: [72, 96].map(n => `${n}px !important`),
+        objectFit: 'cover',
+        transform: 'none !important',
+      },
+      p: { my: 0 },
+    }}
+  />
+)
