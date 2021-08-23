@@ -1,0 +1,55 @@
+# Priotize optimization axes on the web
+
+When you’re building products, you have to decide what to prioritize—there’s always an infinite to-do list otherwise. Beyond the features/communication of your web site/app, there’s a meta-layer of contextual optimization every project must navigate. On the web, there’s a few axes of optimization I consider:
+
+- Accessibility
+   - Color modes (dark mode, light mode, high contrast, etc)
+   - Color blindness
+   - Keyboard navigation (skip links, keyboard tab order, focus styles)
+   - Screenreader (heading hierarchy, alt text)
+   - Preferring (reduced) [motion](https://www.joshwcomeau.com/react/prefers-reduced-motion/) or transparency
+   - Internationalization/localization (including RTL languages)
+- Performance
+   - Page size/loading speed
+      - Slow connection experience
+      - Offline experience?
+   - Slow rendering devices
+      - Low memory devices/situations
+   - Battery usage
+   - Self-serve vs. contacting company
+- Responsiveness
+   - Input modes (mouse/trackpad, virtual keyboard, physical keyboard shortcuts, touch, stylus/handwriting, dictation)
+   - Number of breakpoints (smartwatch → TV-size monitors)
+   - Window aspect ratios (will the website be used in [split screen](https://twitter.com/viticci/status/1427596399554801669?s=21) modes?)
+   - Screen resolution, (reduced) [data](https://polypane.app/blog/the-complete-guide-to-css-media-queries/#upcoming-media-query-features), color gamut, & [dynamic range](https://www.w3.org/TR/mediaqueries-5/#dynamic-range)
+   - Device- or browser-specific optimizations (phone camera/sensor [cutouts](https://webkit.org/blog/7929/designing-websites-for-iphone-x/), system gestures)
+   - Browser support
+   - Print styles
+- Sharing & SEO
+   - Page title & description
+   - Open Graph/Twitter meta tags
+   - Structured metadata (e.g. [schema.org](https://schema.org))
+   - [Favicons](https://css-tricks.com/how-to-favicon-in-2021/)
+
+Looking at merely this (incomplete) list, you can easily spend too much time optimizing the site vs. working on the core mission. A certain amount of each is critical (basic accessibility is non-negotiable for public-facing work), but intentionally skewing where you prioritize can be incredibly freeing & beneficial to users.
+
+For public landing pages, you typically need to do some balancing of all 4 axes. The page needs to load quickly enough for visitors to not bounce, be accessible to all visitors, work seamlessly on most device sizes (mobile traffic being a majority, but visitors still expect wide-screen-optimized layouts as well), & be great for sharing & SEO.
+
+It can be overwhelming, especially because the dozens of tasks these optimizations entail are often somewhat separate from the actual creative work of composing the page. Getting into the habit of building many of these into your workflow from the beginning (e.g. adding alt text whenever you add images) is useful, as well as building components to make it faster (e.g. the [Meta component](https://github.com/hackclub/theme/tree/main/packages/meta) I made for Hack Club sites adds full favicons & accepts props for page metadata it conditionally set meta tags with, adapted for [general use here](https://github.com/lachlanjc/next-theme-starter#meta-tags)).
+
+While it’s easy to think of many of these optimizations as chores, being best-in-class in certain areas (e.g. low bandwidth experience or rapid keyboard access) can become a feature as well as an asset for marketing/growth. For folks with specific needs like a certain accessibility feature/app, optimizing your product for them can win you a set of loyal, engaged customers.
+
+For every projects, you have to find the right balance for your visitors/customers. Pages of an internal web app should have page titles, but you can skip SEO/sharing steps entirely. Pages shown on fixed monitors don’t need quick loading or responsiveness. Mobile web apps have their own mix—while keyboards aren’t being used for navigation, other accessibility features will, & customers are more likely to be using them small, in extreme lighting conditions, or with one hand.
+
+At [Watershed](https://watershedclimate.com), the vast majority of our users are using our product on a 13”–16” laptop (most often Chrome on MacBooks). As such, we don’t test or prioritize mobile layouts for our product, because we’d be wasting our time compared to other features our customers are asking for. Making that decision explicit means I can spend brain cycles & hours I would spend on responsiveness on accessibility, continually testing & improving our keyboard focus & navigation.
+
+While the optimization for the Watershed app makes total sense, the idea of websites designed to be used exclusively in one context feel increasingly dated. I use the web from all my devices, in all kinds of circumstances: on my iPhone under direct sunlight with low battery & low brightness, on my bright 27” vertical display standing at my desk, on my iPad in Split Screen in dark mode with each thumb on separate services. Media queries for screen size & color mode & reduced motion are a great start, but I’m incredibly enthusiastic about responding to user context in ever-more ways, from contrast modes to [ambient light brightness](https://twitter.com/stammy/status/1366778068925353987?s=21) to HDR.
+
+As we step into the future, the number of axes & methods of optimization will likely continue to proliferate. A decade ago, responsive web design was still fairly new, phones were only a few sizes, the [Open Graph standard](https://ogp.me)/[schema.org](https://schema.org) were brand new, Retina screens weren’t on laptops, & offline experiences weren’t possible with the web. As more & more people & devices get on the internet (see: Apple Watch web browser, AR/VR in the future), there will leagues of new considerations for web authors.
+
+Ultimately, considering the context our products are used & being able to optimize for more scenarios & types of people is a massive win for the web. Though knowing the multitude of best practices & authoring great websites continues to increase in difficulty, it’s easier than ever to get started coding for the web. Adding all these features to the web platform simply raises the ceiling of what we can do with it through progressive enhancement.
+
+In the present, we have to decide how to prioritize not just features, but our optimization axes. Picking the right ones can free up your time for making certain experiences great, & win loyal customers. Picking the wrong ones can be a waste of valuable time[^1]. Over time, we’ll have more & more usage contexts to consider as well as opportunities for optimization. And that’s a beautiful progression for the web.
+
+[^1]: Or, in the worst of cases, get a lawsuit against you [to the Supreme Court](https://www.cnbc.com/2019/10/07/dominos-supreme-court.html).
+
