@@ -7,8 +7,8 @@ export const getName = path => {
     path
       .replace(/(\d{4}-\d{2}-\d{2})/, '')
       .replace('/', '')
-      .replace('nextjs', 'Next.js'),
-      .replace('priotize', 'Prioritize'),
+      .replace('nextjs', 'Next.js')
+      .replace('priotize', 'Prioritize')
   )
   name = title(name, {
     special: [
