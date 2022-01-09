@@ -1,31 +1,24 @@
+import { Link, useLoaderData } from 'remix'
+import { getPosts } from '~/post'
+import type { Post } from '~/post'
+
+export const loader = async () => {
+  const posts = await getPosts()
+  return { posts }
+}
+
 export default function Index() {
+  const { posts } = useLoaderData<{ posts: Array<Post> }>()
+
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
-      <h1>Welcome to Remix</h1>
+      <h1>Notebook</h1>
       <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
+        {posts.map(post => (
+          <li key={post.slug}>
+            <Link to={post.slug}>{post.name}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   )

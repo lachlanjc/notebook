@@ -32,6 +32,7 @@ export const getName = (path: string) => {
     .replace(' Cant', ' Can’t')
     .replace('Theyre', 'They’re')
     .replace('Apple Fitness', 'Apple Fitness+')
+    .replace('Music Roundup ', 'Music Roundup: ')
   if (hasDate(path) && name === '') {
     name = format(new Date(getDate(path)), 'MMMM d, yyyy')
   }
