@@ -1,4 +1,8 @@
-.cache
-public
 node_modules
+.DS_Store
+.cache
 .vercel
+.output
+
+public/build
+api/_build
