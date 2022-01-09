@@ -1,6 +1,29 @@
+import path from 'path'
 import title from 'title'
 import { isEmpty, startCase } from 'lodash'
 import { format } from 'date-fns'
+
+export type Post = {
+  name: string
+  date: string | null
+  slug: string
+}
+
+export const postsPath = path.join(__dirname, '..', '..', 'src', 'pages')
+
+export const getPost = (slug: string): Post => {
+  const post: Post = {
+    name: getName(slug.replace('.mdx', '')),
+    date: hasDate(slug) ? getDate(slug) : null,
+    slug: slug,
+  }
+  if (post.date && hasDate(slug) && post.name === '') {
+    const dt = new Date(post.date)
+    dt.setDate(dt.getDate() + 1) // I hate everything & everything hates me
+    post.name = formatDate(dt)
+  }
+  return post
+}
 
 export const getName = (path: string) => {
   let name = startCase(
@@ -56,7 +79,7 @@ export const getDescription = (path: string) => {
   let date = ''
   if (hasDate(path)) {
     const dt = new Date(getDate(path))
-    date = ` on ${formatDate(date)}`
+    date = ` on ${formatDate(dt)}`
   }
   return `Post by Lachlan Campbell${date} on their personal Notebook blog.`
 }
