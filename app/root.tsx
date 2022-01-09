@@ -8,19 +8,15 @@ import {
 } from 'remix'
 import type { MetaFunction } from 'remix'
 import { ThemeProvider } from 'theme-ui'
-import theme from './theme'
+import theme from '~/theme'
+import fonts from '~/fonts.css'
 
 export const meta: MetaFunction = () => {
   return { title: 'Notebook' }
 }
 
 export function links() {
-  return [
-    {
-      rel: 'stylesheet',
-      href: '/fonts.css',
-    },
-  ]
+  return [{ rel: 'stylesheet', href: fonts }]
 }
 
 export default function App() {
