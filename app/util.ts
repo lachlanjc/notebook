@@ -2,13 +2,13 @@ import title from 'title'
 import { isEmpty, startCase } from 'lodash'
 import { format } from 'date-fns'
 
-export const getName = path => {
+export const getName = (path: string) => {
   let name = startCase(
     path
       .replace(/(\d{4}-\d{2}-\d{2})/, '')
       .replace('/', '')
       .replace('nextjs', 'Next.js')
-      .replace('priotize', 'Prioritize')
+      .replace('priotize', 'Prioritize'),
   )
   name = title(name, {
     special: [
@@ -38,38 +38,40 @@ export const getName = path => {
   return name
 }
 
-export const hasDate = path =>
+export const hasDate = (path: string) =>
   !isEmpty(path.toString().match(/\d{4}-\d{2}-\d{2}/))
 
-export const getDate = path => {
+export const getDate = (path: string) => {
   const match = path.match(/(\d{4}-\d{2}-\d{2})/)
   return match ? match[0] : ''
 }
 
-export const getDescription = path => {
+export const formatDate = (date: Date) => format(date, 'MMMM dd, yyyy')
+
+export const getDescription = (path: string) => {
   if (path === '/') {
     return 'Lachlan Campbell’s personal blog, Notebook, with posts about whatever they want.'
   }
   let date = ''
   if (hasDate(path)) {
-    date = new Date(getDate(path))
-    date = ` on ${format(date, 'MMMM d, yyyy')}`
+    const dt = new Date(getDate(path))
+    date = ` on ${formatDate(date)}`
   }
   return `Post by Lachlan Campbell${date} on their personal Notebook blog.`
 }
 
-export const getImage = path => {
+export const getImage = (path: string) => {
   if (path === '/') {
     return 'https://notebook-cards.lachlanjc.vercel.app/Notebook.png?fontSize=400px'
   }
   let name = getName(path.toString())
-  let caption
+  let caption = ''
   let params = ''
   let theme = 'light'
   if (hasDate(path)) {
     let date = getDate(path)
     if (path.replace(/\//g, '') !== date) {
-      caption = format(new Date(date), 'MMM d, yyyy')
+      caption = formatDate(new Date(date))
     }
     if (name.length > 30) {
       params += '&fontSize=225px'

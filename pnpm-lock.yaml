@@ -10,8 +10,10 @@ specifiers:
   '@remix-run/vercel': ^1.1.1
   '@theme-ui/preset-base': ^0.13.1
   '@theme-ui/prism': ^0.13.1
+  '@types/lodash': ^4.14.178
   '@types/react': ^17.0.38
   '@types/react-dom': ^17.0.11
+  '@types/title': ^3.4.1
   date-fns: ^2.28.0
   lodash: ^4.17.21
   react: ^17.0.2
@@ -50,8 +52,10 @@ dependencies:
 
 devDependencies:
   '@remix-run/dev': 1.1.1
+  '@types/lodash': 4.14.178
   '@types/react': 17.0.38
   '@types/react-dom': 17.0.11
+  '@types/title': 3.4.1
   typescript: 4.5.4
 
 packages:
@@ -650,6 +654,10 @@ packages:
       '@types/node': 17.0.8
     dev: true
 
+  /@types/lodash/4.14.178:
+    resolution: {integrity: sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==}
+    dev: true
+
   /@types/mdast/3.0.10:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
     dependencies:
@@ -719,6 +727,10 @@ packages:
     dependencies:
       csstype: 3.0.10
     dev: false
+
+  /@types/title/3.4.1:
+    resolution: {integrity: sha512-GAt+5DJl84n7Qz+/weJteapG8j2csP/5NOg8H4dnaTxuqsK6AcZ4hPYsvvjAjcEVv5l9dfK8rz4pOfpgjlrNqg==}
+    dev: true
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
