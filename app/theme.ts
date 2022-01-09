@@ -1,6 +1,7 @@
 import base from '@theme-ui/preset-base'
 // import nightOwl from '@theme-ui/prism/presets/vs-dark.json'
 import { merge } from 'theme-ui'
+import { makeTheme } from '@theme-ui/css/utils'
 
 export const palette = {
   darker: '#121217',
@@ -21,12 +22,11 @@ export const palette = {
   rose: '#ff707a',
 }
 
-export default merge(base, {
+const theme = merge(base, {
   fonts: {
-    body:
-      'Whyte, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    body: 'Whyte, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     heading:
-      'WhyteInktrap, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      'WhyteInktrap, ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     monospace: 'ui-monospace, SFMono-Regular, Menlo, monospace',
   },
   fontSizes: [14, 18, 24, 28, 36, 48, 64, 72, 96, 128],
@@ -150,9 +150,10 @@ export default merge(base, {
       '.comment': {
         fontStyle: 'italic',
       },
-      '.property, .tag, .boolean, .number, .constant, .symbol, .deleted, .function, .class-name, .regex, .important, .variable': {
-        color: 'yellow',
-      },
+      '.property, .tag, .boolean, .number, .constant, .symbol, .deleted, .function, .class-name, .regex, .important, .variable':
+        {
+          color: 'yellow',
+        },
       '.atrule, .attr-value, .keyword': {
         color: 'primary',
       },
@@ -235,3 +236,5 @@ export default merge(base, {
     },
   },
 })
+
+export default makeTheme(theme)

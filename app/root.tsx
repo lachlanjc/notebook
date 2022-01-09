@@ -7,9 +7,20 @@ import {
   ScrollRestoration,
 } from 'remix'
 import type { MetaFunction } from 'remix'
+import { ThemeProvider } from 'theme-ui'
+import theme from './theme'
 
 export const meta: MetaFunction = () => {
-  return { title: 'New Remix App' }
+  return { title: 'Notebook' }
+}
+
+export function links() {
+  return [
+    {
+      rel: 'stylesheet',
+      href: '/fonts.css',
+    },
+  ]
 }
 
 export default function App() {
@@ -22,7 +33,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <ThemeProvider theme={theme}>
+          <Outlet />
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
