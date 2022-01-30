@@ -25,6 +25,7 @@ export const getName = path => {
       'UI',
       'COVID',
       'IRL',
+      'CMS',
     ],
   })
     .replace(' and ', ' & ')
