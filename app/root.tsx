@@ -9,7 +9,7 @@ import {
 import type { MetaFunction } from 'remix'
 import { ThemeProvider } from 'theme-ui'
 import theme from '~/theme'
-import fonts from '~/fonts.css'
+import fonts from '~/theme/fonts.css'
 
 export const meta: MetaFunction = () => {
   return { title: 'Notebook' }
