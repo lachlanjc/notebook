@@ -262,6 +262,7 @@ export const AppList = props => (
 
 export const AppGrid = props => (
   <Box
+    mb={4}
     {...props}
     as="section"
     sx={{
