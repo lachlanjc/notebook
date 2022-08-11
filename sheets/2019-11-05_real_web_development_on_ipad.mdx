@@ -1,0 +1,133 @@
+import { Button } from 'theme-ui'
+import { LinkList } from '../components/blocks'
+
+# Real web development on iPad
+
+![My setup, shown on iPad](https://d2wkqk610zk1ag.cloudfront.net/items/1N0Z3L3A1a0s0I0W1b3e/iVBORw0KGgoAAAANSUhEUgAAC50AAAjwCAYAAAAKgq9xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAM-2.PNG)
+
+As a web designer-developer, I’ve been doing all my work from a MacBook Pro since the beginning. But as a student carrying & using my iPad Pro for 95% of my work, I wanted a portable coding setup I could use from my iPad.
+
+(If you’re getting started with development, I absolutely recommend a Mac instead of a more complicated setup like the one I’m about to describe. Focus on learning the tools, not your setup for using them.)
+
+## Historical context
+
+Though in the past [I’ve heavily used Glitch](/2019-09-12_ipad_coding_with_glitch/) for coding on iPad, I’ve begun to reach its limitations. My Notebook site is big enough (!) that developing it maxes out the memory limits of Glitch, which forces the app to hang, restart, rebuild, and generally slows my development workflow down enormously. I love Glitch, but as of right now it’s just not well-suited enough for serious web development. Perhaps that [will change soon](https://twitter.com/anildash/status/1178018904708456448?s=21).
+
+There’s also hardware solutions [like @jxnblk’s](https://twitter.com/jxnblk/status/1147555688933154816?s=21), but when the entire premise of coding on iPad is portability, they don’t fit the bill for me.
+
+[Online-hosted VSCode](https://link.medium.com/aehMI5yHn1) is another exciting new option opening up, which is being officially embraced by Microsoft with this week’s launch of [Visual Studio Online](https://visualstudio.microsoft.com/services/visual-studio-online/). I haven’t tried either yet, but [Tierney Cyren has some details on Twitter](https://twitter.com/bitandbang/status/1191370550788206592?s=20).
+
+## My VPS setup
+
+I’ve now set up a VPS on [DigitalOcean](https://digitalocean.com) for running my coding setup from. While there are many similar services (Linode, AWS, etc), I’ve been really happy with DigitalOcean’s service.
+
+Here’s a referral link, if you’re interested: (I’ll get credit too!)
+
+<Button as="a" href="https://m.do.co/c/5df20347f8ef">
+  Get $50 on DigitalOcean
+</Button>
+
+(Huge shoutout also the [GitHub Student Developer Pack](http://education.github.com/pack), which provides discounts on tons of great developer services, including DigitalOcean!)
+
+### DigitalOcean droplet
+
+For getting started, I set up a minimum droplet on Ubuntu (with backups enabled) in NYC. Nothing special here.
+
+Big thanks to [Theo Bleier](https://tmb.sh) for helping me out here—servers are not at all my forté & he walked me through setting up a user, Linux basics, Tmux, etc. I couldn’t have done it without the assistance :)
+
+![DigitalOcean dashboard](https://d2wkqk610zk1ag.cloudfront.net/items/1c1X110r0e1t2o1k0d1L/IMG_0971.jpg)
+
+### Termius
+
+[Termius](https://termius.com) is a great SSH client [available free on the App Store](https://apps.apple.com/us/app/termius-ssh-client/id549039908). I added my server and everything worked just as expected.
+
+(Termius Pro is also available through the Student Developer Pack, so make sure to enable that, so you use their longer background sessions.)
+
+### Vim
+
+Using a command-line editor is the biggest change from Glitch/VSCode.
+I’m already well-versed in Vim, and use it inside VSCode normally, but it’s an adjustment nonetheless.
+
+If you’re looking to start learning it, [Adam Morse](https://mrmrs.cc) provided my original inspiration & learning resources. Here
+
+<LinkList>
+
+- [Vim as a design tool](http://mrmrs.cc/writing/vim-as-a-design-tool/)
+- [Common Vim](http://mrmrs.cc/writing/common-vim/)
+- [Screencast](http://designbytyping.com/2013/12/24/vim-project-setup/)
+- [Vimgifs](https://vimgifs.com)
+
+</LinkList>
+
+#### Setting up Vim
+
+On my Mac I have an incredibly long `.vimrc`, but I wanted to start out fresh on the server. You too will probably want to change a bunch of defaults (such as to show line numbers, set your indentation preference, etc), so here are some Vim setups to check out:
+
+<LinkList>
+
+- [@thesephist](https://github.com/thesephist/dotfiles/blob/master/remote/.vimrc)
+- [@jxnblk](https://gist.github.com/jxnblk/d7228fa1b1249ccc3e8d74433d3277c5)
+- [@mrmrs](https://github.com/mrmrs/vimrc/blob/master/.vimrc)
+- [@thoughtbot](https://github.com/thoughtbot/dotfiles/blob/master/vimrc)
+
+</LinkList>
+
+### Tmux
+
+I’ve heard about Tmux for awhile but had never used it, so I took the plunge. It’s basically a glorified command-line version of using multiple terminal tabs, except you can hide tabs, close & re-open windows, and do other fancy things.
+
+[Thoughtbot’s Crash Course](https://thoughtbot.com/blog/a-tmux-crash-course) was super useful for understanding the basics. I haven’t been using Tmux for long enough yet to have opinions on setting it up, but Thoughtbot has a [dotfile for that](https://github.com/thoughtbot/dotfiles/blob/master/tmux.conf).
+
+### Frontend development on iPad: the web inspector
+
+The lack of devtools in iOS Safari has long frustrated me. I’ve tried a number of apps in the past and made my own failed attempts to bundle Chrome’s devtools, but I’ve finally found a solution: [Inspect](https://apps.apple.com/us/app/inspect-browser/id1203594958). While not being quite as sophisticated as Safari or Chrome’s desktop devtools, it has the vast majority of what I need, such as tap to inspect, style editing, responsive design testing, viewing source & network requests, etc. I’ve never seen another iOS solution nearly as good—if you’re a frontend web developer with an iPad, you should check it out.
+
+Here’s what my setup looks like with Vim inside Termius in Split View with Inspect:
+
+![Termius/Vim + Inspect](https://d2wkqk610zk1ag.cloudfront.net/items/29131Y330C0w3e1J211n/IMG_0992.PNG)
+
+### What about localhost:3000?
+
+Because your code isn’t running on the device directly, `localhost` isn’t how you’ll access it. While each DigitalOcean droplet comes with a publicly-accessible IP address, it’s ugly & the default setup only allows using one port at a time.
+
+While [ngrok](http://ngrok.com) is well-known & works great, using anything but its random subdomains requires a costly subscription. While I’m not at all against paying for great tools, it seemed unnecessary for getting started.
+
+I found [serveo.net](https://serveo.net), which offers nearly the same functionality. You can super easily set your own subdomain (like your username or the project name), run it in the background via Tmux, and it worked pretty flawlessly for me.
+
+## Integrating with iOS Files
+
+Although at first I tried [setting up SMB filesharing](https://tutorials.ubuntu.com/tutorial/install-and-configure-samba) on my server to use the new [Connect to Server feature in iPadOS’ Files](https://www.macstories.net/stories/ios-and-ipados-13-the-macstories-review/7/#usb-drives-and-smb-servers), it didn’t work for me, probably due to my complete lack of understanding of such backend topics.
+
+I only then noticed that Termius has an integration with iOS Files by default! In fact, Termius’ integration is pretty solid, allowing you to browse, edit, and [open files in place](https://www.macstories.net/stories/beyond-the-tablet/3/#open-in-place-and-file-bookmarks). If you’re looking to just have access on iOS Files, Termius’ built-in capabilities should suffice.
+
+![Browsing the server filesystem via Termius in iOS Files](https://d2wkqk610zk1ag.cloudfront.net/items/3O1l3Q2n0v0h050J1O2A/h9cruzwcr81ncgd901ypey1cx33khwr1.png)
+
+While the file provider works great as it is, it offers no automation features. I installed the [Secure ShellFish](https://secureshellfish.app) app (by the developer of the unparalleled iOS Git client [Working Copy](https://workingcopyapp.com), and it’s free!). It facilitates a similar iOS File Provider:
+
+![Browsing the server filesystem via Secure ShellFish in iOS Files](https://d2wkqk610zk1ag.cloudfront.net/items/0M0f020a3G2O3F2j1g0E/u4tb62m11g7kag7bytz1db051uvbfpx9.png)
+
+But Secure ShellFish opens up lots more possibilities of automation…
+
+## iOS Automation
+
+Going from server to iOS Shortcuts was inevitable here, no?
+
+Though Termius’ file provider works nicely, the app provides only a single shortcut for automation on iOS, ”Connect to,” and has no filesystem shortcuts (uploading or querying files, namely).
+
+Secure ShellFish includes a wide array of shortcuts, based on [iOS 13 Shortcuts’ parameters](https://thesweetsetup.com/all-the-new-things-in-shortcuts-for-ios-13/). [Scriptable](https://scriptable.app) is another app that should be shouted-out here, since it supports the [Files bookmarks API](https://www.macstories.net/stories/beyond-the-tablet/9/#file-bookmarks), which allows for JavaScript-based automation of the filesystem. These scripts can be run in the background via Shortcuts/Siri. I’ve yet to use Scriptable significantly, but I suspect I will soon.
+
+### Publishing to my Notebook
+
+In the past, I published on this site by making a new file on Glitch, pasting in the text, confirming the page rendered correctly, & exporting to GitHub. (Netlify automatically deploys the site based on GitHub.) Without Glitch, I have more flexibility, but need to set up my own system.
+
+For now, I’m using a very simple workflow: write in [Drafts](https://apps.apple.com/us/app/drafts/id1236254471), save the post to a new file in [Working Copy](https://apps.apple.com/us/app/working-copy-git-client/id896694807), commit, push. Though I can write in any text editor & save to Working Copy, this workflow doesn’t allow me to preview or develop anything custom before the post goes live.
+
+Considering the [new automation features of Drafts 15](https://www.macstories.net/reviews/drafts-15-review-multiwindow-shortcuts-and-more/), I may also consider a publishing workflow directly from Drafts using Shortcuts and/or Secure ShellFish/Scriptable.
+
+Shortcuts also supports [running Bash scripts over SSH](https://rosemaryorchard.com/blog/workflow-upload-blog-post-via-ssh/). A more complex, but more flexible, publishing shortcut could upload via ShellFish and run a script over SSH: Secure ShellFish’s upload shortcuts would allow saving the MDX file at the correct path, then I could use Shortcuts’ Bash scripting to either enable Serveo and open Inspect (which does not support Shortcuts, unfortunately) or just directly `git commit && git push`.
+
+These automated directions are to explore over upcoming days/weeks, so for now I’m publishing via Working Copy without previewing or using Vim over SSH (like an animal).
+
+## Conclusion
+
+Full-stack web development on iPad comes with many constraints, but it enables creating all kinds of custom workflows fairly simply. If you embark on this journey and discover improvements to the workflow I’ve outlined here, please [let me know on Twitter](https://twitter.com/lachlanjc). Until then, happy coding!

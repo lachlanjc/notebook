@@ -1,0 +1,188 @@
+import { Grid, Box, Text } from 'theme-ui'
+
+export const Workouts = props => (
+  <Grid
+    as="section"
+    gap={3}
+    columns={[null, 2]}
+    mb={4}
+    mx={[null, -3]}
+    {...props}
+  />
+)
+
+export const Workout = ({ href, img, name, desc }) => (
+  <Box
+    as="a"
+    href={href}
+    sx={{
+      display: 'block',
+      textDecoration: 'none',
+      breakInside: 'avoid',
+      p: 3,
+      borderRadius: 9,
+      overflow: 'hidden',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center bottom',
+      minHeight: 128 * 1.5,
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.125)',
+      transition: '0.125s ease-in-out !important',
+      transitionProperty: 'box-shadow, transform',
+      ':hover,:focus': {
+        boxShadow:
+          '0 1px 2px rgba(0, 0, 0, 0.0625), 0 8px 12px rgba(0, 0, 0, 0.125)',
+        transform: 'scale(1.0625)'
+      },
+      'h3, p': {
+        fontFamily:
+          'ui-rounded, system-ui, "Helvetica Neue", Roboto, sans-serif !important',
+        color: 'white',
+        textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)',
+        my: 0
+      }
+    }}
+    style={{ backgroundImage: `url(${img})` }}
+  >
+    <Text as="h3" variant="styles.h2">
+      {name}
+    </Text>
+    <Text as="p" sx={{ opacity: 0.75 }}>
+      {desc}
+    </Text>
+  </Box>
+)
+
+# Apple Fitness+ is my favorite new habit
+
+After mixed experiences with Apple’s various services, I didn’t have high hopes for Apple Fitness+. But since it launched in early December, I’ve done several dozen workouts on Fitness+, several days every week. It’s surprisingly great.
+
+I’ve been wearing an Apple Watch every day since it launched in 2015. Right at the beginning, I was committed to closing all my rings every day, but like most people, that eventually faded. I did make real efforts to close my rings, with oscillating levels of interest throughout my last few years. Overall, my Apple Watch has consistently encouraged me to do more activity & exercise than I would without one, though.
+
+If you want to be more aware of your fitness & health, I do truly recommend the Apple Watch. Being aware of how much I sleep (I used [AutoSleep](https://apps.apple.com/us/app/autosleep-track-sleep-on-watch/id1164801111?uo=4) for a long time, but switched to [Apple’s built-in tracking](https://www.macstories.net/stories/sleep-tracking-in-watchos-7-and-ios-14-elevated-by-a-user-experience-driven-design/) with watchOS 7), washing my hands more & for longer than I used to, standing up every hour (it’s [remarkably easy](https://twitter.com/seldo/status/1350556471856041985?s=20) not to), being aware of my resting heart rate—I don’t believe in carefully tracking & optimizing all the numbers of your health, but having a sense of where you are & your general trends I’ve found incredibly helpful for keeping myself healthier.
+
+> One quick aside. The Stand ring monitoring is just not very good. While the handwashing & noise detection & the other, newer passive awareness features I’ve found fairly reliable, the Stand ring is anything but. I can walk around for multiple minutes & not get credit, or dangle my wrist from the couch just right & be rewarded for my standing. I also wear my Watch at night, which necessitates charging it before or after sleep, which loses me an hour of tracking there. I turned the ring to 10 hours from the default 12 a few months ago (scroll to the end of the Activity app for this control), & I’m glad for the reduced stress in my life.
+
+In mid-December, I realized I’d never had a month where I closed even just my Move ring every day, much less all of them. It’s been about a month now of closing every ring every day:
+
+<img
+  alt="Screenshot of month of perfect rings"
+  src="https://cloud-hjc260tgy.vercel.app/2021-01-22_888cnnm20j36hvhuujztjbx2xbwycvtn.jpeg"
+  style={{ display: 'block', margin: 'auto', maxHeight: 384 }}
+/>
+
+So fast-forward to Apple Fitness+. It has truly pleasantly surprised me: the trainers are diverse & a lot of fun, & I haven’t had negative experiences with any.
+The workouts are varied, accessible but fairly consistent in difficulty.
+
+My favorite way to use Fitness+ by far is the Apple TV. You can also download the Fitness app on your iPad or use it on the iPhone, but I find the small screen much harder to follow & feels more like watching a YouTube video than joining a group of trainers. Connecting AirPods to the Apple TV is seamless: taking an AirPod out pauses the video & the workout immediately, so you can grab a drink of water without missing a second.
+
+> [**Jordan Singer** on Twitter:](https://twitter.com/jsngr/status/1349485020658937857?s=21)
+>
+> Apple Fitness+ is such a great example of the Apple ecosystem working together and the dots connecting looking backwards.
+>
+> Health + Apple Music + Apple Watch & iPhone/iPad/TV
+
+While you’re doing a workout, the live metrics from your Apple Watch, as well as your Activity rings, appear onscreen. This seems like such a simple thing, but seeing my progress so visually is inordinately motivating. If you close a ring during the workout, you get the full fireworks.
+
+- When the trainer mentions your heart rate, your current rate slides up, alongside your low & high heart rate numbers for the workout
+- During HIIT & occasionally in other types of workouts, timers for your current rep count down to the end of each round
+- If the trainer mentions your rings, the stats appear next to the rings themselves
+- When the song changes, a notification on the side lets you know
+- The “Burn Bar” shows where you are in heart rate/calories/intensity in relation to others who have done the workout. It seems to have been taken offline a few weeks ago, but it’s no big loss.
+
+These features aren’t complex by any means, but make the experience feel super dynamic & polished, & come together as far more than the sum of their parts. While digital workout videos are nothing new, I’ve never been compelled to wade very far into trying to find reliable trainers online, & I never stuck with anything. Apple Fitness+ is easy to open, there’s no ads or promotions, & I know I’ll consistently get something high-quality. When reducing the barrier to starting a workout is so critical, these count for a lot.
+
+## My favorite workouts
+
+I do the most **HIIT**. They require less coordination than dance, & you burn the most calories in the shortest duration. Kim is my favorite there, she’s always fun & has different durations. Bakari has fantastic queer energy & is a joy, though he will wipe you out with the 30-minute HIIT. **Dance** makes me feel uncoordinated, but Jhon is super friendly & LaShawn’s workouts are exhausting.
+
+<Workouts>
+  <Workout
+    href="https://fitness.apple.com/us/workout/hiit-with-kim/1546700033"
+    img="https://is1-ssl.mzstatic.com/image/thumb/Video114/v4/2f/36/af/2f36afd3-2504-7b68-da01-d86908c9816a/media-HI_KN_0015-1649627-Artwork-iOS-26881.png/1200x675.jpg"
+    name="HIIT with Kim"
+    desc="20min • Pure Dance"
+  />
+  <Workout
+    href="https://fitness.apple.com/us/workout/hiit-with-bakari/1533913913"
+    img="https://is2-ssl.mzstatic.com/image/thumb/Video114/v4/f3/fd/a4/f3fda44c-9cc6-b39b-e9a2-8a735c9ec9b1/media-HI_BW_0007-1297260r2-Artwork-iOS-12736.png/1200x675.jpg"
+    name="HIIT with Bakari"
+    desc="30min • Upbeat Anthems"
+  />
+  <Workout
+    href="https://fitness.apple.com/us/workout/dance-with-lashawn/1532769425"
+    img="https://is4-ssl.mzstatic.com/image/thumb/Video124/v4/31/c0/6b/31c06b50-22c1-3c01-f484-cdcb70dba3ff/media-DA_LJ_0002-1314974-Artwork-iOS-8833.png/1200x675.jpg"
+    name="Dance with LaShawn"
+    desc="21min • Hip-Hop/R&B"
+  />
+  <Workout
+    href="https://fitness.apple.com/us/workout/dance-with-jhon/1545876279"
+    img="https://is5-ssl.mzstatic.com/image/thumb/Video124/v4/b6/c8/58/b6c8589e-b592-5e1a-36e8-a91471c6c0a4/media-DA_JG_0004-1620386-Artwork-iOS-24963.png/1200x675.jpg"
+    name="Dance with Jhon"
+    desc="21min • Latin Grooves"
+  />
+</Workouts>
+
+I highly recommend the **mindful cooldowns** they suggest after any non-yoga workout—it’s some stretching & breathing for 5 or 10 minutes, which I’ve gotten a lot from.
+After doing Bakari’s 30-minute HIIT I linked, I tried skipping the cooldown, & ended up being ridiculously sore for days, but I have no problem if I do the cooldown afterwards.
+Jessica & Dustin are excellent, but you can’t go wrong with any of them.
+
+<Workouts>
+  <Workout
+    href="https://fitness.apple.com/us/workout/mindful-cooldown-with-jessica/1546698194"
+    img="https://is2-ssl.mzstatic.com/image/thumb/Video114/v4/a4/a2/36/a4a2361b-b569-28ab-9279-baef4fc11623/media-MC_JS_0007-1599958-Artwork-iOS-23750.png/1200x675.jpg"
+    name="Mindful Cooldown with Jessica"
+    desc="5min • Chill Vibes"
+  />
+  <Workout
+    href="https://fitness.apple.com/us/workout/mindful-cooldown-with-dustin/1532685682"
+    img="https://is2-ssl.mzstatic.com/image/thumb/Video114/v4/21/15/50/21155095-f5c5-4880-9fe2-61f565ce0836/media-MC_DB_0001-1259431-Artwork-iOS-10121.png/1200x675.jpg"
+    name="Mindful Cooldown with Dustin"
+    desc="5min • Chill Vibes"
+  />
+</Workouts>
+
+**Yoga** has also been a surprising discovery. I didn’t have any recent experience doing yoga, but I’ve enjoyed every session I’ve done, especially at the end of the day. Molly & Jessica are my favorite trainers.
+
+<Workouts>
+  <Workout
+    href="https://fitness.apple.com/us/workout/yoga-with-jessica/1542562397"
+    img="https://is1-ssl.mzstatic.com/image/thumb/Video124/v4/c2/65/e8/c265e862-ab43-2309-f2e3-b5a4951b8bab/media-YO_JS_0013-1540970-Artwork-iOS-20148.png/1200x675.jpg"
+    name="Yoga with Jessica"
+    desc="30min • Chill Vibes"
+  />
+  <Workout
+    href="https://fitness.apple.com/us/workout/yoga-with-molly/1536823355"
+    img="https://is4-ssl.mzstatic.com/image/thumb/Video114/v4/44/32/ae/4432ae21-2fd4-9a11-32c9-03931df96564/media-YO_MF_0003-1437537-Artwork-iOS-14642.png/1200x675.jpg"
+    name="Yoga with Molly"
+    desc="20min • Chill Vibes"
+  />
+</Workouts>
+
+## Preventing distractions
+
+A few times I found myself getting distracted (especially during a slower workout like yoga) by a notification on my Apple Watch. There’s an easy solution to this—setting up a Shortcuts Automation for enabling Do Not Disturb during certain types of workouts.
+
+1. In the Shortcuts app, tap the Automations tab
+2. Tap +, then Personal Automation, then Apple Watch Workout
+3. Pick the Workout Types (I want yoga & HIIT but not walking, for instance), & make sure Starts is selected but Ends is not
+4. Tap Next, then the search bar, type in <kbd>DND</kbd>, select Set Do Not Disturb, then tap <kbd>Off</kbd> so it reads “Turn Do Not Disturb On until Turned Off”
+5. Tap Next, turn off Ask Before Running, & you’re done!
+
+![3 iPhones with screenshots of Shortcuts Automation process](https://cloud-c8asdjokv.vercel.app/2021-01-22_kww2d485acc0uuep1yjuby9m3aaxang0.png)
+
+For ending the DND afterwards, make a second automation. Tap + again, Personal Automation, Apple Watch Workout, pick Ends instead of Starts, Next, add the Set Do Not Disturb again, leave it at Off, Next, turn off the dreaded Ask Before Running.
+
+![2 iPhones with the second Automation process](https://cloud-860mphcbe.vercel.app/2021-01-22_qwrg8yqqtzw98u9hvkvvfbj8rmrgqkpu.png)
+
+***
+
+As part of Apple One Premier, it’s a great value (alongside iCloud, Apple Music, Apple TV+, Apple Arcade, & Apple News+ for $30/mo). There’s a few things I’d love to see added to Apple Fitness+:
+
+- The primary addition I’d love to see is multi-person support. Especially on the Apple TV, it’s a lot more fun to do a workout with other people around, & while they can track their workout just fine on their Apple Watches, only one person’s stats can show up on the TV at once.
+- A small detail: it’d be nice to see the currently-playing song in Control Center on the Apple TV
+- You can work out without an Apple Watch with the iPad app, but not the Apple TV app, where the functionality would make more sense, for family members who don’t have Apple Watches
+- The iPhone/iPad app allows adding workouts to a queue, but this feature is entirely missing on Apple TV
+
+Over time, I expect we’ll see more & new trainers & new workout types. The LA studio where they film all the videos is beautiful, though it’d be fun to see them branch out (post-COVID) to more exotic locations.
+
+Especially while we’re stuck at home, Apple Fitness+ has become a consistent part of my routine, that’s making me happier & healthier. Check it out—you might be pleasantly surprised.
