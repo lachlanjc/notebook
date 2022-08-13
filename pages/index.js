@@ -37,7 +37,7 @@ export default function IndexPage({ sheets, now }) {
               <A
                 sx={{
                   display: 'flex',
-                  flexDirection: ['column-reverse', 'row'],
+                  flexDirection: ['column', 'row'],
                   color: 'primary',
                   textDecoration: 'none',
                   ...(isEmpty(date)
@@ -60,6 +60,7 @@ export default function IndexPage({ sheets, now }) {
                       ml: [null, 'auto'],
                       fontVariantNumeric: 'tabular-nums',
                       color: 'secondary',
+                      whiteSpace: 'nowrap',
                     }}
                   >
                     {date}
@@ -94,12 +95,12 @@ export default function IndexPage({ sheets, now }) {
             </A>
           </Link> */}
         </Heading>
-        <Paragraph sx={{ mt: 3 }}>
+        <Paragraph sx={{ mt: 3, mb: 4 }}>
           After leaving Watershed at the end of July, I’m at home in State
           College, PA, working on web side projects & learning to drive before I
           return to NYU in September.
         </Paragraph>
-        <Divider />
+        <Divider sx={{ my: 4, display: ['none', 'block'] }} />
         <Heading as="h3">Collected web resources</Heading>
         <ul sx={{ listStyle: 'none', p: 0 }}>
           {Object.keys(bookmarkPages)

@@ -125,8 +125,7 @@ const Layout = ({ xl, sx, ...props }) => {
             ? {
                 display: 'grid',
                 gridTemplateColumns: [null, '1fr 256px'],
-                gap: [3, 4],
-                columnGap: [null, 4, 5],
+                gap: [4, 5],
               }
             : sx
         }
