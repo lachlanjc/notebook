@@ -71,7 +71,7 @@ const ColorSwitcher = props => {
   )
 }
 
-const Layout = ({ xl, ...props }) => {
+const Layout = ({ xl, sx, ...props }) => {
   const { asPath: path } = useRouter()
   const home = path === '/'
   const base = '@lachlanjc/notebook'
@@ -118,45 +118,65 @@ const Layout = ({ xl, ...props }) => {
         </Link>
         <ColorSwitcher />
       </header>
-      <Flex
-        as="p"
-        variant="container"
-        sx={{
-          alignItems: 'center',
-          color: 'secondary',
-          mt: 0,
-          mb: 3,
-          img: { verticalAlign: 'bottom' },
-        }}
+      <Box
+        as="article"
+        sx={
+          xl
+            ? {
+                display: 'grid',
+                gridTemplateColumns: [null, '1fr 256px'],
+                gap: [3, 4],
+                columnGap: [null, 4, 5],
+              }
+            : sx
+        }
       >
-        <Icon glyph="view" sx={{ mr: 2 }} />
-        Site views:
-        <img
-          src={`https://lachlanjc-analytics.glitch.me/counter.png?fallback=notebook.lachlanjc.com&color=${counterColor}`}
-          alt="View counter"
-        />
-      </Flex>
-      <article>{props.children}</article>
+        {props.children}
+      </Box>
       <Flex
         as="footer"
         sx={{
-          py: 4,
-          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
           alignItems: 'center',
-          justifyContent: 'center',
-          a: { color: 'primary', mx: 2 },
+          py: 4,
+          gap: 3,
         }}
       >
-        <Avatar />
-        <a href="https://twitter.com/lachlanjc" title="Twitter">
-          <Icon glyph="twitter" size={36} />
-        </a>
-        <a href="https://github.com/lachlanjc/notebook" title="GitHub">
-          <Icon glyph="github" size={36} />
-        </a>
-        <a href="mailto:lachlanjc@hey.com" title="Email">
-          <Icon glyph="email" size={36} />
-        </a>
+        <Flex
+          as="p"
+          sx={{
+            alignItems: 'center',
+            color: 'secondary',
+            mt: 0,
+            mb: 3,
+            img: { verticalAlign: 'bottom' },
+          }}
+        >
+          <Icon glyph="view" sx={{ mr: 2 }} />
+          Site views:
+          <img
+            src={`https://lachlanjc-analytics.glitch.me/counter.png?fallback=notebook.lachlanjc.com&color=${counterColor}`}
+            alt="View counter"
+          />
+        </Flex>
+        <Flex
+          sx={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            a: { color: 'primary', mx: 2 },
+          }}
+        >
+          <a href="https://twitter.com/lachlanjc" title="Twitter">
+            <Icon glyph="twitter" size={36} />
+          </a>
+          <a href="https://github.com/lachlanjc/notebook" title="GitHub">
+            <Icon glyph="github" size={36} />
+          </a>
+          <a href="mailto:lachlanjc@hey.com" title="Email">
+            <Icon glyph="email" size={36} />
+          </a>
+        </Flex>
       </Flex>
     </Box>
   )

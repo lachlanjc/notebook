@@ -9,6 +9,17 @@ const config = withContentlayer({
     emotion: true,
   },
   pageExtensions: ['js', 'ts', 'tsx', 'mdx'],
+  images: {
+    domains: ['cdn.glitch.com', 'www.icloud.com'],
+  },
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    },
+  },
+  async rewrites() {
+    return [{ source: '/shortcuts', destination: '/bookmarks/shortcuts' }]
+  },
 })
 
 export default config

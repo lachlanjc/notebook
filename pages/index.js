@@ -2,24 +2,26 @@
 import Link from 'next/link'
 import Layout from '../components/layout'
 import { pick, isEmpty, orderBy } from 'lodash-es'
-import { Themed, Paragraph, Link as A } from 'theme-ui'
+import { Themed, Paragraph, Link as A, Heading, Divider } from 'theme-ui'
 import { allSheets } from 'contentlayer/generated'
+import { bookmarkPages } from 'lib/bookmarks'
 
-export default function IndexPage({ sheets }) {
+export default function IndexPage({ sheets, now }) {
   return (
-    <Layout>
-      <Themed.h1 sx={{ mt: 4, mb: 0 }}>Notebook</Themed.h1>
-      <Paragraph sx={{ color: 'secondary', mt: 1, a: { color: 'inherit' } }}>
-        (where <a href="https://lachlanjc.com">@lachlanjc</a> publishes whatever
-        they&nbsp;want)
-      </Paragraph>
+    <Layout xl>
+      <div sx={{ gridColumn: [null, 'span 2'] }}>
+        <Themed.h1 sx={{ m: 0 }}>Notebook</Themed.h1>
+        <Paragraph sx={{ color: 'secondary', mt: 1, a: { color: 'inherit' } }}>
+          (where <a href="https://lachlanjc.com">@lachlanjc</a> publishes
+          whatever they&nbsp;want)
+        </Paragraph>
+      </div>
 
       <ol
         sx={{
           listStyle: 'none',
           p: 0,
-          ml: 0,
-          mt: 4,
+          m: 0,
         }}
       >
         {sheets.map(({ name, date, slug }) => (
@@ -44,17 +46,18 @@ export default function IndexPage({ sheets }) {
                         py: 1,
                         border: '2px solid currentColor',
                         borderRadius: 'circle',
-                        fontSize: 2,
                         transform: 'rotate(-2deg)',
                       }
                     : {}),
                 }}
               >
+                <strong sx={{ lineHeight: 'title' }}>{name}</strong>
                 {!isEmpty(date) && (
                   <small
                     sx={{
                       mt: [1, 0],
-                      mr: [null, 3],
+                      pl: [null, 3],
+                      ml: [null, 'auto'],
                       fontVariantNumeric: 'tabular-nums',
                       color: 'secondary',
                     }}
@@ -62,19 +65,76 @@ export default function IndexPage({ sheets }) {
                     {date}
                   </small>
                 )}
-                <strong sx={{ lineHeight: 'title' }}>{name}</strong>
               </A>
             </Link>
           </li>
         ))}
       </ol>
+      <aside>
+        <Heading as="h3">
+          Now
+          {/* <Link href="/now" passHref>
+            <A
+              sx={{
+                ml: 'auto',
+                aspectRatio: '1 / 1',
+                bg: 'primary',
+                color: 'background',
+                px: 1,
+                lineHeight: 1.25,
+                fontFamily: 'body',
+                fontWeight: 'normal',
+                fontSize: 1,
+                textDecoration: 'none',
+                borderRadius: 999,
+                display: 'inline-block',
+              }}
+            >
+              →
+            </A>
+          </Link> */}
+        </Heading>
+        <Paragraph sx={{ mt: 3 }}>
+          After leaving Watershed at the end of July, I’m at home in State
+          College, PA, working on web side projects & learning to drive before I
+          return to NYU in September.
+        </Paragraph>
+        <Divider />
+        <Heading as="h3">Collected web resources</Heading>
+        <ul sx={{ listStyle: 'none', p: 0 }}>
+          {Object.keys(bookmarkPages)
+            .filter(slug => slug.includes('-'))
+            .map(slug => (
+              <li key={slug}>
+                <Link href={`/bookmarks/${slug}`} passHref>
+                  <A
+                    sx={{
+                      color: 'primary',
+                      textDecoration: 'none',
+                      fontWeight: 'bold',
+                      mb: 1,
+                      display: 'block',
+                    }}
+                  >
+                    {bookmarkPages[slug].title}
+                  </A>
+                </Link>
+              </li>
+            ))}
+        </ul>
+      </aside>
     </Layout>
   )
 }
 
 export const getStaticProps = () => {
   const sheets = orderBy(
-    allSheets.map(sheet => pick(sheet, ['slug', 'name', 'date'])),
+    allSheets
+      .concat([
+        { slug: 'shortcuts', name: 'Shortcuts' },
+        { slug: 'bookmarks/articles', name: 'Recent Reads' },
+      ])
+      .map(sheet => pick(sheet, ['slug', 'name', 'date'])),
     ['date', 'name'],
     ['desc', 'desc'],
   )
