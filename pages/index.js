@@ -101,7 +101,7 @@ export default function IndexPage({ sheets, now }) {
           return to NYU in September.
         </Paragraph>
         <Divider sx={{ my: 4, display: ['none', 'block'] }} />
-        <Heading as="h3">Collected web resources</Heading>
+        <Heading as="h3">Collected web lists</Heading>
         <ul sx={{ listStyle: 'none', p: 0 }}>
           {Object.keys(bookmarkPages)
             .filter(slug => slug.includes('-'))
