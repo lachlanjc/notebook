@@ -4,7 +4,7 @@ const Meta = ({
   title = '@lachlanjc/notebook',
   name = '@lachlanjc/notebook',
   description = 'Lachlan Campbell’s daily blog, Notebook.',
-  image = 'https://notebook-cards.lachlanjc.vercel.app/Notebook.png?theme=dark',
+  image = 'https://notebook-cards.lachlanjc.vercel.app/Notebook?theme=dark',
 }) => (
   <Head>
     <title>{title}</title>
@@ -18,6 +18,11 @@ const Meta = ({
     <meta property="og:image" content={image} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={image} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href="http://notebook.lachlanjc.com/feed.xml"
+    />
   </Head>
 )
 

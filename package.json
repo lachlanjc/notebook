@@ -28,6 +28,7 @@
     "react-song-embed": "^1.0.0",
     "rehype-accessible-emojis": "^0.3.2",
     "remark-gfm": "^3.0.1",
+    "rss": "^1.2.2",
     "supercons": "^0.0.1",
     "theme-ui": "^0.14.7",
     "title": "^3.5.1"
