@@ -280,9 +280,9 @@ export const AppGrid = props => (
       li: {
         my: 0,
         a: {
-          color: 'text',
+          color: 'inherit',
           fontSize: 1,
-          lineHeight: 'title',
+          lineHeight: 1,
           transition: '0.125se ease-in-out color',
           img: {
             display: 'inline-block',
@@ -301,7 +301,6 @@ export const AppGrid = props => (
           flexDirection: 'column',
           textDecoration: 'none',
           ':hover,:focus': {
-            color: 'accent',
             img: {
               boxShadow: '0 2px 8px rgba(0,0,0,0.125)',
               transform: 'scale(1.25)',
@@ -313,6 +312,7 @@ export const AppGrid = props => (
   />
 )
 
+/*
 export const AppSpotlight = ({
   icon,
   name,
@@ -373,6 +373,7 @@ export const AppSpotlight = ({
     </Box>
   </Flex>
 )
+*/
 
 export const Products = props => (
   <Box

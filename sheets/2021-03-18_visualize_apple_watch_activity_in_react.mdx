@@ -36,7 +36,7 @@ Due to the complexity, the shortcut can take several minutes to run if you’re 
 
 (This component uses [styled-jsx](https://github.com/vercel/styled-jsx), which is built into [Next.js](https://nextjs.org), but you can use the same CSS with whatever styling solution you prefer.)
 
-```javascript filename=components/rings.js
+```javascript:components/rings.js
 const dash = (n) => `${n * 100}, 100`
 
 const Rings = ({
@@ -136,7 +136,7 @@ How does it work internally? Inspired by the technique in [this article](https:/
 
 Now, bring the file we just generated into your React project, & save the Rings component above into a file. On your main page, import the JSON file & the Rings component, then map each row of the activity to a Rings component, like this:
 
-```js filename=pages/index.js
+```js:pages/index.js
 import React from 'react'
 import activity from '../activity.json'
 import Rings from '../components/rings'

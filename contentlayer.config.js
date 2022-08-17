@@ -2,6 +2,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import { hasDate, getDate, getName } from './lib/util'
 import remarkGfm from 'remark-gfm'
 import rehypeAccessibleEmojis from 'rehype-accessible-emojis'
+import rehypeCodeTitles from 'rehype-code-title'
 
 export const Sheet = defineDocumentType(() => ({
   name: 'Sheet',
@@ -31,6 +32,6 @@ export default makeSource({
   documentTypes: [Sheet],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeAccessibleEmojis],
+    rehypePlugins: [rehypeAccessibleEmojis, rehypeCodeTitles],
   },
 })
