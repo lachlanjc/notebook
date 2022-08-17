@@ -462,7 +462,7 @@ packages:
       hast-util-to-estree: 2.1.0
       markdown-extensions: 1.1.1
       periscopic: 3.0.4
-      remark-mdx: 2.1.2
+      remark-mdx: 2.1.3
       remark-parse: 10.0.1
       remark-rehype: 10.1.0
       unified: 10.1.2
@@ -3058,8 +3058,8 @@ packages:
     resolution: {integrity: sha512-waIWwHEhuC/wuHf4vy26qQvKgJfNzSk3gqKjC71HkO7MAX9/4uBAPxAwW3euZkyRkyJDhSDT/dkTAPDcaS8RpQ==}
     dev: false
 
-  /remark-mdx/2.1.2:
-    resolution: {integrity: sha512-npQagPdczPAv0xN9F8GSi5hJfAe/z6nBjylyfOfjLOmz086ahWrIjlk4BulRfNhA+asutqWxyuT3DFVsxiTVHA==}
+  /remark-mdx/2.1.3:
+    resolution: {integrity: sha512-3SmtXOy9+jIaVctL8Cs3VAQInjRLGOwNXfrBB9KCT+EpJpKD3PQiy0x8hUNGyjQmdyOs40BqgPU7kYtH9uoR6w==}
     dependencies:
       mdast-util-mdx: 2.0.0
       micromark-extension-mdxjs: 1.0.0

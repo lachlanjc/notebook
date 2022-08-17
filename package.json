@@ -6,6 +6,7 @@
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
+    "postbuild": "node --experimental-json-modules ./lib/rss.mjs",
     "contentlayer": "contentlayer build"
   },
   "author": "Lachlan Campbell <lachlanjc@hey.com>",
