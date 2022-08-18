@@ -1,16 +1,16 @@
 # Set up RSS with Contentlayer & MDX
 
-I recently [switched](https://github.com/lachlanjc/notebook/commit/31a6c807a56b52e065bb60878c3c1890461fb3b0) this site off Gatsby (finally!) to Next.js & [Contentlayer](https://www.contentlayer.dev). Afterwards, I wanted to get an RSS feed set up, a long-overdue feature since I’m a heavy RSS reader personally.
+I recently [switched](https://github.com/lachlanjc/notebook/commit/31a6c807a56b52e065bb60878c3c1890461fb3b0) this site off Gatsby (finally!) to Next.js & [Contentlayer](https://www.contentlayer.dev). Afterwards, I wanted to get an RSS feed set up—a long-overdue feature, considering I’m a heavy RSS reader personally.
 
 For my first implementation, I referred to [Lee Robinson’s site codebase](https://github.com/leerob/leerob.io/blob/f7060f463001bc527e2e104d8bac6ace16a106e2/pages/feed.xml.tsx) to get the general structure of using a serverless function with the `rss` package as a Next.js page. Contentlayer made pulling in feed items super easy via their [generated indices](https://www.contentlayer.dev/docs/sources/files/generated-data#all-documents-manifest).
 
 ## Converting MDX source to plain text
 
-Since this site has no concept of a post summary/description, I wanted to extract the beginning of the post content. One of Contentlayer’s excellent features is built-in [MDX](https://mdxjs.com) support (without setting up a bunch of packages & Next.js plugins), which works great for the site itself, but since RSS feeds accept machine-renderable HTML text or human-readable plain text, neither the MDX source or rendered JS are desirable.
+Since this site has no concept of a post summary/description, I wanted to extract the beginning of the post content. One of Contentlayer’s excellent features is built-in [MDX](https://mdxjs.com) support (without setting up a bunch of packages & Next.js plugins), which works great for the site itself, but since RSS feeds need machine-renderable HTML text or human-readable plain text, neither the MDX source or rendered JS are desirable.
 
 I decided to distribute exclusively the first paragraph of text as simple plain text, then readers can open the site to view the rest. (I’m used to this workflow with many other feeds. The full MDX source could be rendered as HTML for a superior RSS reading experience, but that’s a larger project.)
 
-Contentlayer provided easy access to the MDX source text, then with a quick & dirty combination with [this (untyped/unmaintained) Remark plugin](https://www.npmjs.com/package/remark-mdx-to-plain-text) from Jared Sumner, & got my function generating post previews immediately:
+Contentlayer provided easy access to the MDX source text, then with a quick & dirty integration with [this (untyped/unmaintained) Remark plugin](https://www.npmjs.com/package/remark-mdx-to-plain-text) from Jared Sumner, & got my function generating post previews immediately:
 
 ```js
 import { remark } from 'remark'
@@ -28,7 +28,7 @@ await remark()
  .then(file => String(file).trim()),
 ```
 
-The feed looked fine as XML, so after a quick test with an RSS client[^1] I shipped it.
+The feed looked fine as XML, so I shipped it after a quick test with an RSS client[^1].
 
 [^1]: I’d recommend [NetNewsWire](https://netnewswire.com) as an RSS client if you’re looking for a fantastic free one; I personally use [Reeder 5](https://apps.apple.com/us/app/reeder-5/id1529445840?uo=4) for its excellent typography & gestural interactions.
 
@@ -36,7 +36,7 @@ The feed looked fine as XML, so after a quick test with an RSS client[^1] I ship
 
 (Contentlayer cannot work with [Next.js Edge Functions](https://nextjs.org/docs/api-routes/edge-api-routes) since it relies on `fs` under the hood, which the Edge Runtime doesn’t support.)
 
-However, I quickly realized any type of dynamic route was unnecessary: since pages are Git-tracked MDX files, the feed can be regenerated merely at deploy time, not per-request. I referred to Lee Robinson’s (somewhat-outdated) post on [building Next.js sitemaps](https://leerob.io/blog/nextjs-sitemap-robots) for the build script setup, moved my RSS API Route to a `.mjs` file, & it worked seamlessly with [much less code](https://github.com/lachlanjc/notebook/commit/121b37d6182e10c04775c8c2b5f7df8bcf19d8e6). Contentlayer is fast: the script took a mere 0.4s to run locally & didn’t change my Vercel build time at all. Serving the RSS file from Vercel’s CDN is instantaneous as well, with no added traffic costs.
+I quickly realized any type of dynamic route was unnecessary: since pages are Git-tracked MDX files, the feed can be regenerated merely at deploy time, not per-request. I referred to Lee Robinson’s (somewhat-outdated) post on [building Next.js sitemaps](https://leerob.io/blog/nextjs-sitemap-robots) for the build script setup, moved my RSS API Route to a `.mjs` file, & it worked seamlessly with [much less code](https://github.com/lachlanjc/notebook/commit/121b37d6182e10c04775c8c2b5f7df8bcf19d8e6). Contentlayer is fast: the script took a mere 0.4s to run locally & didn’t change my Vercel build time at all. Serving the RSS file from Vercel’s CDN is instantaneous as well, with no added traffic costs.
 
 My setup added this `postbuild` script in `package.json`:
 
@@ -88,10 +88,20 @@ async function generateFeed() {
   )
 
   const body = feed.xml({ indent: true })
-  writeFileSync('public/feed.xml', body)
+  writeFileSync('./.next/static/feed.xml', body)
 }
 
 generateFeed()
+```
+
+Finally, I added a rewrite to `next.config.(m)js` for the prettier URL:
+
+```js:next.config.mjs
+  async rewrites() {
+    return [
+      { source: '/feed.xml', destination: '/_next/static/feed.xml' },
+    ]
+  },
 ```
 
 If you want to subscribe to this site, the feed is [right here](https://notebook.lachlanjc.com/feed.xml), as promised. Happy RSSing!

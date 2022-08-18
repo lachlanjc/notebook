@@ -18,7 +18,10 @@ const config = withContentlayer({
     },
   },
   async rewrites() {
-    return [{ source: '/shortcuts', destination: '/bookmarks/shortcuts' }]
+    return [
+      { source: '/shortcuts', destination: '/bookmarks/shortcuts' },
+      { source: '/feed.xml', destination: '/_next/static/feed.xml' },
+    ]
   },
 })
 
