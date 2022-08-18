@@ -21,7 +21,7 @@ const Meta = ({
     <link
       rel="alternate"
       type="application/rss+xml"
-      href="http://notebook.lachlanjc.com/feed.xml"
+      href="https://notebook.lachlanjc.com/feed.xml"
     />
   </Head>
 )

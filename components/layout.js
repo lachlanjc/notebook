@@ -175,6 +175,9 @@ const Layout = ({ xl, sx, ...props }) => {
           <a href="mailto:lachlanjc@hey.com" title="Email">
             <Icon glyph="email" size={36} />
           </a>
+          <a href="/feed.xml" title="RSS">
+            <Icon glyph="rss" size={36} />
+          </a>
         </Flex>
       </Flex>
     </Box>
