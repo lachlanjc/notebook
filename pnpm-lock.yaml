@@ -1,10 +1,11 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 specifiers:
   '@emotion/react': ^11.10.0
   '@mdx-js/react': '1'
   '@theme-ui/preset-base': ^0.14.7
   '@theme-ui/prism': ^0.14.7
+  '@vercel/og': ^0.0.20
   contentlayer: ^0.2.6
   lodash-es: ^4.17.21
   next: ^12.2.3
@@ -29,17 +30,18 @@ dependencies:
   '@emotion/react': 11.10.0_react@17.0.2
   '@mdx-js/react': 1.6.22_react@17.0.2
   '@theme-ui/preset-base': 0.14.7
-  '@theme-ui/prism': 0.14.7_react@17.0.2+theme-ui@0.14.7
+  '@theme-ui/prism': 0.14.7_qgi53ns7ajcb23ihrbpajxbiui
+  '@vercel/og': 0.0.20
   contentlayer: 0.2.6
   lodash-es: 4.17.21
-  next: 12.2.3_react-dom@17.0.2+react@17.0.2
-  next-contentlayer: 0.2.6_5b98af96c6b0ac6af5d2f4db4ea97b31
+  next: 12.2.3_sfoxds7t5ydpegc3knd667wn6m
+  next-contentlayer: 0.2.6_lomk7fwgwcwgv5os6tnu5kl3ge
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
-  react-figma-embed: 1.0.1_react-dom@17.0.2+react@17.0.2
-  react-music-embed: 1.0.1_react-dom@17.0.2+react@17.0.2
+  react-figma-embed: 1.0.1_sfoxds7t5ydpegc3knd667wn6m
+  react-music-embed: 1.0.1_sfoxds7t5ydpegc3knd667wn6m
   react-player: 2.10.1_react@17.0.2
-  react-song-embed: 1.0.0_react-dom@17.0.2+react@17.0.2
+  react-song-embed: 1.0.0_sfoxds7t5ydpegc3knd667wn6m
   rehype-accessible-emojis: 0.3.2
   rehype-code-title: 1.0.0
   remark: 14.0.2
@@ -47,7 +49,7 @@ dependencies:
   remark-mdx-to-plain-text: 3.0.0
   rss: 1.2.2
   supercons: 0.0.1_react@17.0.2
-  theme-ui: 0.14.7_9226c060bfb9262946910e447c57fe46
+  theme-ui: 0.14.7_sitmayf7xetcsrurbzchyv76iy
   title: 3.5.1
 
 packages:
@@ -205,9 +207,9 @@ packages:
         optional: true
     dependencies:
       '@effect-ts/core': 0.58.1
-      '@effect-ts/otel': 0.13.0_df74a19b900b1de9cf2dc58ccefaf3de
-      '@effect-ts/otel-exporter-trace-otlp-grpc': 0.13.0_767ab7074b1e5c9b98f14b32d2c96b68
-      '@effect-ts/otel-sdk-trace-node': 0.13.0_9e98fa1f52686c7feed8197b31134712
+      '@effect-ts/otel': 0.13.0_352kdg4qbmo6ttznywgm56xt3y
+      '@effect-ts/otel-exporter-trace-otlp-grpc': 0.13.0_oz5lob2ldzojxghrjmznfsllna
+      '@effect-ts/otel-sdk-trace-node': 0.13.0_t2mpuh2snbwh73wydf5tce2hci
       '@opentelemetry/api': 1.0.4
       '@opentelemetry/core': 1.0.1_@opentelemetry+api@1.0.4
       '@opentelemetry/exporter-trace-otlp-grpc': 0.27.0_@opentelemetry+api@1.0.4
@@ -229,7 +231,7 @@ packages:
       '@effect-ts/system': 0.55.1
     dev: false
 
-  /@effect-ts/otel-exporter-trace-otlp-grpc/0.13.0_767ab7074b1e5c9b98f14b32d2c96b68:
+  /@effect-ts/otel-exporter-trace-otlp-grpc/0.13.0_oz5lob2ldzojxghrjmznfsllna:
     resolution: {integrity: sha512-SIyRO+2Kvd4F6dKe8ztEUsqCxrKlnArWHyGELfruA9vB/BGdmbVaSFlUzLBHTuobXIgIFsCVaFmfUtwXTsHLMg==}
     peerDependencies:
       '@effect-ts/core': ^0.58.0
@@ -239,14 +241,14 @@ packages:
       '@opentelemetry/sdk-trace-base': ^1.0.0
     dependencies:
       '@effect-ts/core': 0.58.1
-      '@effect-ts/otel': 0.13.0_df74a19b900b1de9cf2dc58ccefaf3de
+      '@effect-ts/otel': 0.13.0_352kdg4qbmo6ttznywgm56xt3y
       '@opentelemetry/api': 1.0.4
       '@opentelemetry/core': 1.0.1_@opentelemetry+api@1.0.4
       '@opentelemetry/exporter-trace-otlp-grpc': 0.27.0_@opentelemetry+api@1.0.4
       '@opentelemetry/sdk-trace-base': 1.0.1_@opentelemetry+api@1.0.4
     dev: false
 
-  /@effect-ts/otel-sdk-trace-node/0.13.0_9e98fa1f52686c7feed8197b31134712:
+  /@effect-ts/otel-sdk-trace-node/0.13.0_t2mpuh2snbwh73wydf5tce2hci:
     resolution: {integrity: sha512-sdKZ6TJZuxkbkigIUwKK7mgNVJEl+9RkRYCAF9NLz3xbGEGHiIuK3IePy9/nawjfkV2bKSCZ6QRb9TgVg12yRA==}
     peerDependencies:
       '@effect-ts/core': ^0.58.0
@@ -256,14 +258,14 @@ packages:
       '@opentelemetry/sdk-trace-node': ^1.0.0
     dependencies:
       '@effect-ts/core': 0.58.1
-      '@effect-ts/otel': 0.13.0_df74a19b900b1de9cf2dc58ccefaf3de
+      '@effect-ts/otel': 0.13.0_352kdg4qbmo6ttznywgm56xt3y
       '@opentelemetry/api': 1.0.4
       '@opentelemetry/core': 1.0.1_@opentelemetry+api@1.0.4
       '@opentelemetry/sdk-trace-base': 1.0.1_@opentelemetry+api@1.0.4
       '@opentelemetry/sdk-trace-node': 1.0.1_@opentelemetry+api@1.0.4
     dev: false
 
-  /@effect-ts/otel/0.13.0_df74a19b900b1de9cf2dc58ccefaf3de:
+  /@effect-ts/otel/0.13.0_352kdg4qbmo6ttznywgm56xt3y:
     resolution: {integrity: sha512-AR9l1Zj2eF1uv89Rpu0ePlW5l6qFNeBfmOsih7Yoi517g8dfURAXvgWVi67DmwqDQThz3xVuGd1evOcBqXCdsQ==}
     peerDependencies:
       '@effect-ts/core': ^0.58.0
@@ -783,6 +785,20 @@ packages:
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
     dev: false
 
+  /@resvg/resvg-wasm/2.0.0-alpha.4:
+    resolution: {integrity: sha512-pWIG9a/x1ky8gXKRhPH1OPKpHFoMN1ISLbJ+O+gPXQHIAKhNd5I28RlWf7q576hAOQA9JZTlo3p/M2uyLzJmmw==}
+    engines: {node: '>= 10'}
+    dev: false
+
+  /@shuding/opentype.js/1.4.0-beta.0:
+    resolution: {integrity: sha512-3NgmNyH3l/Hv6EvsWJbsvpcpUba6R8IREQ83nH83cyakCw7uM1arZKNfHwv1Wz6jgqrF/j4x5ELvR6PnK9nTcA==}
+    engines: {node: '>= 8.0.0'}
+    hasBin: true
+    dependencies:
+      fflate: 0.7.4
+      string.prototype.codepointat: 0.2.1
+    dev: false
+
   /@styled-system/background/5.1.2:
     resolution: {integrity: sha512-jtwH2C/U6ssuGSvwTN3ri/IyjdHb8W9X/g8Y0JLcrH02G+BW3OS8kZdHphF1/YyRklnrKrBT2ngwGUK6aqqV3A==}
     dependencies:
@@ -874,20 +890,20 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@theme-ui/color-modes/0.14.7_ddddcdfac2f272a738f93557f7b43ccc:
+  /@theme-ui/color-modes/0.14.7_3xo436wc6jzkoohzgvl7pnb4zq:
     resolution: {integrity: sha512-nEVS9o37Ga+ARLIivibWJzp6T2Q7cz6N0FRuSQYUSBimuMw329SRBXZ9LTmltatQO9+iYb5miiJOe/t/vQeOxg==}
     peerDependencies:
       '@emotion/react': ^11
       react: '>16'
     dependencies:
       '@emotion/react': 11.10.0_react@17.0.2
-      '@theme-ui/core': 0.14.7_ddddcdfac2f272a738f93557f7b43ccc
+      '@theme-ui/core': 0.14.7_3xo436wc6jzkoohzgvl7pnb4zq
       '@theme-ui/css': 0.14.7_@emotion+react@11.10.0
       deepmerge: 4.2.2
       react: 17.0.2
     dev: false
 
-  /@theme-ui/components/0.14.7_ddddcdfac2f272a738f93557f7b43ccc:
+  /@theme-ui/components/0.14.7_3xo436wc6jzkoohzgvl7pnb4zq:
     resolution: {integrity: sha512-iIzqBvRL8GNVkzuZinxInYNFW/38pvqqthuCgLsnOC0/A4Q4v13mn/fxlZa6pJjwouswsRLOrkd63bS7Svzkfw==}
     peerDependencies:
       '@emotion/react': ^11
@@ -902,7 +918,7 @@ packages:
       react: 17.0.2
     dev: false
 
-  /@theme-ui/core/0.14.7_ddddcdfac2f272a738f93557f7b43ccc:
+  /@theme-ui/core/0.14.7_3xo436wc6jzkoohzgvl7pnb4zq:
     resolution: {integrity: sha512-u60cKOZYsGDG9sSoM4jYj743OpNXXU27f7vXGwrO/B1t/1sv1MAQA0R8HtVwoi9DyOIcOmWfMWYTiMg+4vV1MA==}
     peerDependencies:
       '@emotion/react': ^11
@@ -910,7 +926,7 @@ packages:
     dependencies:
       '@emotion/react': 11.10.0_react@17.0.2
       '@theme-ui/css': 0.14.7_@emotion+react@11.10.0
-      '@theme-ui/parse-props': 0.14.7_ddddcdfac2f272a738f93557f7b43ccc
+      '@theme-ui/parse-props': 0.14.7_3xo436wc6jzkoohzgvl7pnb4zq
       deepmerge: 4.2.2
       react: 17.0.2
     dev: false
@@ -924,7 +940,7 @@ packages:
       csstype: 3.1.0
     dev: false
 
-  /@theme-ui/mdx/0.14.7_e7f80f262bf70e50509794bb4e52e0a7:
+  /@theme-ui/mdx/0.14.7_474a6jrl64hfauexss5u4uxau4:
     resolution: {integrity: sha512-Hqlrzj5tI/fRuD5sJMblTcaChA5xajeSC7qpMRACjWgdNNiw/g/bi0V5uNejBRpILgmZua5EDQ2XV0IqhSGcPQ==}
     peerDependencies:
       '@emotion/react': ^11
@@ -933,12 +949,12 @@ packages:
     dependencies:
       '@emotion/react': 11.10.0_react@17.0.2
       '@mdx-js/react': 1.6.22_react@17.0.2
-      '@theme-ui/core': 0.14.7_ddddcdfac2f272a738f93557f7b43ccc
+      '@theme-ui/core': 0.14.7_3xo436wc6jzkoohzgvl7pnb4zq
       '@theme-ui/css': 0.14.7_@emotion+react@11.10.0
       react: 17.0.2
     dev: false
 
-  /@theme-ui/parse-props/0.14.7_ddddcdfac2f272a738f93557f7b43ccc:
+  /@theme-ui/parse-props/0.14.7_3xo436wc6jzkoohzgvl7pnb4zq:
     resolution: {integrity: sha512-qF10mAYs3wcIkSU5ZSbmHUngwTkPS87D23qg1ArbeO+m+/e4uqOy0+6W0Lt/4JTP7lnWWsCYuScK3F3hOp2q0w==}
     peerDependencies:
       '@emotion/react': ^11
@@ -955,28 +971,28 @@ packages:
       '@theme-ui/css': '>=0.12.0'
     dev: false
 
-  /@theme-ui/prism/0.14.7_react@17.0.2+theme-ui@0.14.7:
+  /@theme-ui/prism/0.14.7_qgi53ns7ajcb23ihrbpajxbiui:
     resolution: {integrity: sha512-+QeaYSdkHvmVHMdkSKf/g0bGfxWyX1BqC4PzYOTWXowsTnWRPa6AEACDz6uOCJ2+Z2qp0Of4GRQjT+2sXnvN5Q==}
     peerDependencies:
       theme-ui: ^0.14.5
     dependencies:
       prism-react-renderer: 1.3.5_react@17.0.2
-      theme-ui: 0.14.7_9226c060bfb9262946910e447c57fe46
+      theme-ui: 0.14.7_sitmayf7xetcsrurbzchyv76iy
     transitivePeerDependencies:
       - react
     dev: false
 
-  /@theme-ui/theme-provider/0.14.7_e7f80f262bf70e50509794bb4e52e0a7:
+  /@theme-ui/theme-provider/0.14.7_474a6jrl64hfauexss5u4uxau4:
     resolution: {integrity: sha512-RmuDkdotzMcNSx/nI2nwBtQAwH/B9mae/nsR0o6AXyd+zOAfF9YY3vbtjYZicaYfcE/mnjmXqKTTwd4KaHu4UQ==}
     peerDependencies:
       '@emotion/react': ^11
       react: '>16'
     dependencies:
       '@emotion/react': 11.10.0_react@17.0.2
-      '@theme-ui/color-modes': 0.14.7_ddddcdfac2f272a738f93557f7b43ccc
-      '@theme-ui/core': 0.14.7_ddddcdfac2f272a738f93557f7b43ccc
+      '@theme-ui/color-modes': 0.14.7_3xo436wc6jzkoohzgvl7pnb4zq
+      '@theme-ui/core': 0.14.7_3xo436wc6jzkoohzgvl7pnb4zq
       '@theme-ui/css': 0.14.7_@emotion+react@11.10.0
-      '@theme-ui/mdx': 0.14.7_e7f80f262bf70e50509794bb4e52e0a7
+      '@theme-ui/mdx': 0.14.7_474a6jrl64hfauexss5u4uxau4
       react: 17.0.2
     transitivePeerDependencies:
       - '@mdx-js/react'
@@ -1058,6 +1074,19 @@ packages:
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
+    dev: false
+
+  /@types/yoga-layout/1.9.2:
+    resolution: {integrity: sha512-S9q47ByT2pPvD65IvrWp7qppVMpk9WGMbVq9wbWZOHg6tnXSD4vyhao6nOSBwwfDdV2p3Kx9evA9vI+XWTfDvw==}
+    dev: false
+
+  /@vercel/og/0.0.20:
+    resolution: {integrity: sha512-089P+TfqWz0xBxjOvOhkZIDDtfrLcye94H4IZ+SqxoGPWpNGXaBvRJER/z5SoJxJRcCAL8tPiK5zdjRskM6tLw==}
+    engines: {node: '>=16'}
+    dependencies:
+      '@resvg/resvg-wasm': 2.0.0-alpha.4
+      satori: 0.0.43
+      yoga-wasm-web: 0.1.2
     dev: false
 
   /acorn-jsx/5.3.2_acorn@8.8.0:
@@ -1167,6 +1196,10 @@ packages:
     dependencies:
       pascal-case: 3.1.2
       tslib: 2.4.0
+    dev: false
+
+  /camelize/1.0.1:
+    resolution: {integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==}
     dev: false
 
   /caniuse-lite/1.0.30001373:
@@ -1334,6 +1367,27 @@ packages:
       which: 1.3.1
     dev: false
 
+  /css-background-parser/0.1.0:
+    resolution: {integrity: sha512-2EZLisiZQ+7m4wwur/qiYJRniHX4K5Tc9w93MT3AS0WS1u5kaZ4FKXlOTBhOjc+CgEgPiGY+fX1yWD8UwpEqUA==}
+    dev: false
+
+  /css-box-shadow/1.0.0-3:
+    resolution: {integrity: sha512-9jaqR6e7Ohds+aWwmhe6wILJ99xYQbfmK9QQB9CcMjDbTxPZjwEmUQpU91OG05Xgm8BahT5fW+svbsQGjS/zPg==}
+    dev: false
+
+  /css-color-keywords/1.0.0:
+    resolution: {integrity: sha512-FyyrDHZKEjXDpNJYvVsV960FiqQyXc/LlYmsxl2BcdMb2WPx0OGRVgTg55rPSyLSNMqP52R9r8geSp7apN3Ofg==}
+    engines: {node: '>=4'}
+    dev: false
+
+  /css-to-react-native/3.0.0:
+    resolution: {integrity: sha512-Ro1yETZA813eoyUp2GDBhG2j+YggidUmzO1/v9eYBKR2EHVEniE2MI/NqpTQ954BMpTPZFsGNPm46qFB9dpaPQ==}
+    dependencies:
+      camelize: 1.0.1
+      css-color-keywords: 1.0.0
+      postcss-value-parser: 4.2.0
+    dev: false
+
   /csstype/3.1.0:
     resolution: {integrity: sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==}
     dev: false
@@ -1387,6 +1441,10 @@ packages:
   /diff/5.1.0:
     resolution: {integrity: sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==}
     engines: {node: '>=0.3.1'}
+    dev: false
+
+  /emoji-regex/10.2.1:
+    resolution: {integrity: sha512-97g6QgOk8zlDRdgq1WxwgTMgEWGVAQvB5Fdpgc1MkNy56la5SKP9GsMXKDOdqwn90/41a8yPwIGk1Y6WVbeMQA==}
     dev: false
 
   /emoji-regex/8.0.0:
@@ -1727,6 +1785,10 @@ packages:
     dependencies:
       node-domexception: 1.0.0
       web-streams-polyfill: 3.2.1
+    dev: false
+
+  /fflate/0.7.4:
+    resolution: {integrity: sha512-5u2V/CDW15QM1XbbgS+0DfPxVB+jUKhWEKuuFuHncbk3tEEqzmoXL+2KyOFuKGqOnmdIy0/davWF1CkuwtibCw==}
     dev: false
 
   /fill-range/7.0.1:
@@ -2688,7 +2750,7 @@ packages:
     hasBin: true
     dev: false
 
-  /next-contentlayer/0.2.6_5b98af96c6b0ac6af5d2f4db4ea97b31:
+  /next-contentlayer/0.2.6_lomk7fwgwcwgv5os6tnu5kl3ge:
     resolution: {integrity: sha512-4k1mkW7P0vpvJ/XngJH23ZJAupKrhIS44y8eoGRQF8mEX+G+IhLlI7T95BsxB8U6I8JYOA2L6m8yxol4P6CCLQ==}
     peerDependencies:
       next: ^12
@@ -2697,7 +2759,7 @@ packages:
     dependencies:
       '@contentlayer/core': 0.2.6
       '@contentlayer/utils': 0.2.6
-      next: 12.2.3_react-dom@17.0.2+react@17.0.2
+      next: 12.2.3_sfoxds7t5ydpegc3knd667wn6m
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       rxjs: 7.5.6
@@ -2707,7 +2769,7 @@ packages:
       - supports-color
     dev: false
 
-  /next/12.2.3_react-dom@17.0.2+react@17.0.2:
+  /next/12.2.3_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-TA0tmSA6Dk6S6kfvCNbF7CWYW8468gZUxr/3/30z4KvAQbXnl2ASYZElVe7q/hBW/1F1ee0tSBlHa4/sn+ZIBw==}
     engines: {node: '>=12.22.0'}
     hasBin: true
@@ -2867,6 +2929,10 @@ packages:
     engines: {node: '>=8.6'}
     dev: false
 
+  /postcss-value-parser/4.2.0:
+    resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
+    dev: false
+
   /postcss/8.4.14:
     resolution: {integrity: sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==}
     engines: {node: ^10 || ^12 || >=14}
@@ -2965,7 +3031,7 @@ packages:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
     dev: false
 
-  /react-figma-embed/1.0.1_react-dom@17.0.2+react@17.0.2:
+  /react-figma-embed/1.0.1_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-X2/O6QjGnpgXeSpkR/XCpbvsx0FFReoo4WTHkb78VS6DU5IEGjIXXVCo4acYpCVJsk+g9qMhrLzs4R7Vvur6LA==}
     peerDependencies:
       react: ^0.14.7 || ^15.0.0 || ^16.0.0
@@ -2979,7 +3045,7 @@ packages:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
 
-  /react-music-embed/1.0.1_react-dom@17.0.2+react@17.0.2:
+  /react-music-embed/1.0.1_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-j6fWYt0dP+WIyp+EQlUSJjlWYC1vaKId3TYRSj6WFYJUUNPe9VgEpteYgSJpkPCFxkE/z+M358I8Nd1K8xBI/A==}
     peerDependencies:
       prop-types: ^15.5.4
@@ -3003,7 +3069,7 @@ packages:
       react-fast-compare: 3.2.0
     dev: false
 
-  /react-song-embed/1.0.0_react-dom@17.0.2+react@17.0.2:
+  /react-song-embed/1.0.0_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-EOJBeBrOmYj83SMaSBWgXikH27pVIX9msuR1skl7rtJflsir3XkXDKMAV8QyPvqfilIYSoSBnaKtpzna0xHtgg==}
     peerDependencies:
       prop-types: ^15.5.4
@@ -3197,6 +3263,19 @@ packages:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
     dev: false
 
+  /satori/0.0.43:
+    resolution: {integrity: sha512-SzYwr+LsELWRJU9KMviEOE9TdShry+R5AdS54YQvgAVKFDN4yniAIzwQk1/z2TtIx0ceUT9zTeosWAoWvJBEtQ==}
+    engines: {node: '>=16'}
+    dependencies:
+      '@shuding/opentype.js': 1.4.0-beta.0
+      css-background-parser: 0.1.0
+      css-box-shadow: 1.0.0-3
+      css-to-react-native: 3.0.0
+      emoji-regex: 10.2.1
+      postcss-value-parser: 4.2.0
+      yoga-layout-prebuilt: 1.10.0
+    dev: false
+
   /scheduler/0.20.2:
     resolution: {integrity: sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==}
     dependencies:
@@ -3277,6 +3356,10 @@ packages:
       emoji-regex: 8.0.0
       is-fullwidth-code-point: 3.0.0
       strip-ansi: 6.0.1
+    dev: false
+
+  /string.prototype.codepointat/0.2.1:
+    resolution: {integrity: sha512-2cBVCj6I4IOvEnjgO/hWqXjqBGsY+zwPmHl12Srk9IXSZ56Jwwmy+66XO5Iut/oQVR7t5ihYdLB0GMa4alEUcg==}
     dev: false
 
   /stringify-entities/4.0.3:
@@ -3374,18 +3457,18 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /theme-ui/0.14.7_9226c060bfb9262946910e447c57fe46:
+  /theme-ui/0.14.7_sitmayf7xetcsrurbzchyv76iy:
     resolution: {integrity: sha512-3CMyupASBnf3/b3We8VS3kSPUnk/jhXGzRCQCcHsNkA8nrxZ6pR2QABa768YRlc7EYBUlXCvyWnSmGQlX0Omog==}
     peerDependencies:
       react: '>16'
       react-dom: '>16'
     dependencies:
-      '@theme-ui/color-modes': 0.14.7_ddddcdfac2f272a738f93557f7b43ccc
-      '@theme-ui/components': 0.14.7_ddddcdfac2f272a738f93557f7b43ccc
-      '@theme-ui/core': 0.14.7_ddddcdfac2f272a738f93557f7b43ccc
+      '@theme-ui/color-modes': 0.14.7_3xo436wc6jzkoohzgvl7pnb4zq
+      '@theme-ui/components': 0.14.7_3xo436wc6jzkoohzgvl7pnb4zq
+      '@theme-ui/core': 0.14.7_3xo436wc6jzkoohzgvl7pnb4zq
       '@theme-ui/css': 0.14.7_@emotion+react@11.10.0
-      '@theme-ui/mdx': 0.14.7_e7f80f262bf70e50509794bb4e52e0a7
-      '@theme-ui/theme-provider': 0.14.7_e7f80f262bf70e50509794bb4e52e0a7
+      '@theme-ui/mdx': 0.14.7_474a6jrl64hfauexss5u4uxau4
+      '@theme-ui/theme-provider': 0.14.7_474a6jrl64hfauexss5u4uxau4
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     transitivePeerDependencies:
@@ -3649,6 +3732,17 @@ packages:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 20.2.9
+    dev: false
+
+  /yoga-layout-prebuilt/1.10.0:
+    resolution: {integrity: sha512-YnOmtSbv4MTf7RGJMK0FvZ+KD8OEe/J5BNnR0GHhD8J/XcG/Qvxgszm0Un6FTHWW4uHlTgP0IztiXQnGyIR45g==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@types/yoga-layout': 1.9.2
+    dev: false
+
+  /yoga-wasm-web/0.1.2:
+    resolution: {integrity: sha512-8SkgawHcA0RUbMrnhxbaQkZDBi8rMed8pQHixkFF9w32zGhAwZ9/cOHWlpYfr6RCx42Yp3siV45/jPEkJxsk6w==}
     dev: false
 
   /zwitch/2.0.2:

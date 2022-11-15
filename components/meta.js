@@ -4,7 +4,9 @@ const Meta = ({
   title = '@lachlanjc/notebook',
   name = '@lachlanjc/notebook',
   description = 'Lachlan Campbell’s daily blog, Notebook.',
-  image = 'https://notebook-cards.lachlanjc.vercel.app/Notebook?theme=dark',
+  image = `https://${
+    process.env.NEXT_PUBLIC_VERCEL_URL ?? 'notebook.lachlanjc.com'
+  }/api/card?title=Notebook`,
 }) => (
   <Head>
     <title>{title}</title>
