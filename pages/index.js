@@ -96,9 +96,9 @@ export default function IndexPage({ sheets, now }) {
           </Link> */}
         </Heading>
         <Paragraph sx={{ mt: 3, mb: 4 }}>
-          After leaving Watershed at the end of July, I’ve returned to NYU to
-          pick up <A href="https://edu.lachlanjc.com">my second year</A>. This
-          week, I’m at Esalen in Big Sur, CA to attend{' '}
+          After leaving Watershed at the end of July, I’m back in NYC finishing{' '}
+          <A href="https://edu.lachlanjc.com">my third semester</A> at NYU. In
+          October, I went to Big&nbsp;Sur, CA to attend{' '}
           <A href="https://www.trackii.com/oceans-22-conference">
             Oceans 22 at Track II
           </A>
