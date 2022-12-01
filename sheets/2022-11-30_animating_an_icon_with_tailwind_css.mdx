@@ -1,6 +1,6 @@
 # Animating a wind turbine icon with Tailwind CSS
 
-For an upcoming project, I needed icons for various power sources. I haven’t found a set of open source icons covering energy transition-related objects that’s consistent & high-quality, so for this game I’ve made my own. I started by using [Bootstrap Icons](https://icons.getbootstrap.com/)—one of my favorite open source sets—but for wind, coal, & gas wanted to make custom ones. I’ve done icon design for [Supercons](http://supercons.vercel.app/) before, which taught me a ton (such as how time-consuming & labor-intensive making these simple shapes is), but these icons needed more custom components than recycling existing pieces from other icons. Here’s my process of designing the set, in Figma. (The rightmost of each collection are the final version; my icon design process is messy.)
+For an upcoming project, I needed icons for various power sources. I haven’t found a set of open source icons covering energy transition-related objects that’s consistent & high-quality, so for this game I’ve made my own. I started by using [Bootstrap Icons](https://icons.getbootstrap.com/)—one of my favorite open source sets—but for wind, coal, & gas wanted to make custom ones. I’ve done icon design for [Supercons](http://supercons.vercel.app/) before, which taught me a ton (such as how time-consuming & labor-intensive making these simple shapes is), but these icons needed more custom components than recycling existing pieces from other icons. Here’s my process of designing the set, in Figma. [**Get the Figma icons file here**](https://www.figma.com/community/file/1180153442516490375).
 
 ![Iconography](https://cloud-pgiirzz9b-lachlanjc.vercel.app/iconography.png)
 
@@ -16,31 +16,22 @@ I went overboard with my implementation of the icons, adding a microinteraction 
   Microinteraction: animation of turbine blades turning on hover
 </video>
 
-To start, in my Tailwind config file, I added an animation called `spin-slow`:
-
-```js
-extend: {
-  animation: {
-    'spin-slow': 'spin 3s linear infinite',
-  },
-}
-```
-
 For my first try, three parts were needed.
 
-1. I had a `<g>` (SVG group element) around the turbine paths. I added the `hover:animate-spin-slow` class, which applied the animation on hover.
-2. By default, SVG elements only see hover events when you’re hovering the visibly-painted area, but because that area is moving due to the animation, it will animate away from your cursor, stopping the `:hover` styles (the animation). This makes it stutter constantly. The `pointer-events: bounding-box;` CSS declaration extends pointer events to the square container the paths are in, instead of the visibly-painted area, so if you’re hovering anywhere on the blades the animation will apply. I discovered Tailwind CSS’s [arbitrary values feature](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values), which lets you add extra CSS properties by removing whitespace & enclosing it in brackets, so the class `[pointer-events:bounding-box]` adds that CSS.
+1. I had a `<g>` (SVG group element) around the turbine paths. I added the `hover:animate-spin` class, which applied the animation on hover.
+2. The animation needed to proceed more slowly. I discovered Tailwind CSS’s [arbitrary values feature](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values), which lets you add extra CSS properties by removing whitespace & enclosing it in brackets. [Jamie Kyle suggested](https://mastodon.lol/@jamiebuilds/109435075677480848) using `hover:[animation-duration:3s]` to solve this.
+2. By default, SVG elements only see hover events when you’re hovering the visibly-painted area, but because that area is moving due to the animation, it will animate away from your cursor, stopping the `:hover` styles (the animation). This makes it stutter constantly. The `pointer-events: bounding-box;` CSS declaration extends pointer events to the square container the paths are in, instead of the visibly-painted area, so if you’re hovering anywhere on the blades the animation will apply. so the class `[pointer-events:bounding-box]` adds that CSS.
 3. The default origin for CSS transforms (such as rotation) is the upper left, but wind turbines spin around their center. The `origin-center` class (CSS `transform-origin: center`) fixes that, making it look physically accurate.
 
-Classes for the turbine `<g>` for this implementation: `[pointer-events:bounding-box] hover:animate-spin-slow origin-center`.
+Classes for the turbine `<g>` for this implementation: `hover:animate-spin hover:[animation-duration:3s] origin-center [pointer-events:bounding-box]`.
 
-While this worked well enough, I wanted the animation to run when you were hovering anywhere on the icon, not only on the blades. While this is easy in CSS, it’s not obvious for utility classes. Luckily, Tailwind’s [hover groups](https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-parent-state) fix this problem: you put the class `group` on the parent SVG, then on the child element (the `<g>` wrapping the blades), `group-hover:animate-spin-slow`.
+While this worked well enough, I wanted the animation to run when you were hovering anywhere on the icon, not only on the blades. While this is easy in CSS, it’s not obvious for utility classes. Luckily, Tailwind’s [hover groups](https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-parent-state) fix this problem: you put the class `group` on the parent SVG, then on the child element (the `<g>` wrapping the blades), `group-hover:animate-spin`.
 
-I discovered you can chain multiple prefixes in Tailwind, e.g. `motion-safe:hover:` as a prefix for `@media (prefers-reduced-motion: no-preference) { element:hover {} }` ([read here](https://web.dev/prefers-reduced-motion/) if you haven’t used that media query before). This allowed the class name `motion-safe:group-hover:animate-spin-slow`, which applies my animation to the blades when the parent element is hovered if the user wants motion.
+I discovered you can chain multiple prefixes in Tailwind, e.g. `motion-safe:hover:` as a prefix for `@media (prefers-reduced-motion: no-preference) { element:hover {} }` ([read here](https://web.dev/prefers-reduced-motion/) if you haven’t used that media query before). This allowed the class name `motion-safe:group-hover:animate-spin`, which applies my animation to the blades when the parent element is hovered if the user wants motion.
 
-In the end, the parent SVG has the class `group`, then the blades `<g>` element has the class `motion-safe:group-hover:animate-spin-slow origin-center`, and the animation works flawlessly! (Not in Safari, unfortunately, which has different behaviors around `<g>` hovering that bite me on every SVG project.)
+In the end, the parent SVG has the class `group`, then the blades `<g>` element has the class `motion-safe:group-hover:animate-spin motion-safe:group-hover:[animation-duration:3s] origin-center`, and the animation works flawlessly! (Not in Safari, unfortunately, which has different behaviors around `<g>` hovering that bite me on every SVG project.)
 
-[**Play with the demo on Tailwind’s editor**](https://play.tailwindcss.com/iGlL5UWbzd)
+[**Play with the demo on Tailwind’s editor**](https://play.tailwindcss.com/dEnTob4di4)
 
 Here’s the final icon component in React:
 
@@ -54,7 +45,7 @@ export function IconWind({ size }) {
       className="group"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g className="motion-safe:group-hover:animate-spin-slow origin-center">
+      <g className="motion-safe:group-hover:animate-spin motion-safe:group-hover:[animation-duration:3s] origin-center">
         <path
           d="M8 0C8.26522 0 8.51957 0.105357 8.70711 0.292893C8.89464 0.48043 9 0.734784 9 1V6.268H7V1C7 0.734784 7.10536 0.48043 7.29289 0.292893C7.48043 0.105357 7.73478 0 8 0Z"
           fill="white"
@@ -92,4 +83,4 @@ export function IconWind({ size }) {
 }
 ```
 
-(I brought the same animation to the sun more straightforwardly, with the class `motion-safe:hover:animate-spin-slow` on the SVG element.)
+(I brought the same animation to the sun more straightforwardly, with the class `motion-safe:group-hover:animate-spin motion-safe:group-hover:[animation-duration:3s]` on the SVG element.)
