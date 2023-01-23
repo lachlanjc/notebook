@@ -1,0 +1,39 @@
+# Custom Next.js image blur placeholders
+
+[Next.js Image Optimization](https://nextjs.org/docs/basic-features/image-optimization) is a web framework at its best: Next.js took a huge problem—image loading—that I’d wasted a ton of time making bad solutions to, and made the *ideal* implementation the default option. The first iteration had serious drawbacks from both API & UX perspectives, but the Vercel team listened, rewrote it, and the newer one is top-tier. It’s perfect vertical integration.
+
+`next/image`’s blur-up placeholder, controlled by the `blurDataURL` prop, is a nice progressive enhancement, and a massive improvement for large header backgrounds. If you’re making a low-traffic site, though, the source image for a lander will leave the cache sometimes, and visitors will be left with either nothing (if the image source is remote) or a super low-res placeholder for several seconds while the image resizes and downloads. I was noticing this on the [Dispersions website](https://dispersions.cbcampbell.com/) I made, which hosts images on a separate CDN to keep the Git repo smaller.
+
+Talking to `next/image` author [@styfle](https://styfle.dev/) recently in Indianapolis, he reminded me the `blurDataURL` generated when you statically import an image is merely the URL to a super tiny version of the image. In **production**, that’s an image encoded as a (no surprise here) base64 data URL, e.g.
+
+```
+data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIAAUACAMBIgACEQEDEQH/xAAoAAEBAAAAAAAAAAAAAAAAAAAABwEBAQAAAAAAAAAAAAAAAAAAAwT/2gAMAwEAAhADEAAAAJ+Co//EAB0QAQABAwUAAAAAAAAAAAAAAAIDAAEEBRETQdL/2gAIAQEAAT8AytSlzLRwMHaJNXXa5fNf/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAFBcf/aAAgBAgEBPwCLD//EABYRAQEBAAAAAAAAAAAAAAAAAAEAMf/aAAgBAwEBPwB1v//Z
+```
+
+In **development**, if you inspect the `StaticImport` object itself, the `blurDataURL` prop is:
+
+```
+/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffilename.jpeg&w=8&q=70
+```
+
+<details>
+
+<summary>Curious about the discrepancy?</summary>
+
+The source code has this comment describing it:
+
+> During `next dev`, we don't want to generate blur placeholders with webpack
+  because it can delay starting the dev server. Instead, `next-image-loader.js`
+  will inline a special url to lazily generate the blur placeholder at request time.
+
+</details>
+
+That URL is resizing the image to 8px wide, then `next build` is transforming it into a data URL. Therefore, if we want a custom blur-up placeholder that’s higher-quality, or for a remote image, we can:
+
+1. Get a thumbnail version of our image (say, 12 or 16px wide), either via the `/_next/image` URL or another resizer
+2. Convert it to base64
+3. Add the prop manually
+
+I wrote a quick [macOS Shortcut](https://www.icloud.com/shortcuts/3d73f6f168da45dd9403572f206fdfa5) to do this: after you install it, right-click an image in Finder, click the shortcut, then paste the prop into your Image tag. The Dispersions site now appears to load far faster, with a decent-fidelity blur-up placeholder appearing immediately in the header instead of several seconds of grey waiting.
+
+If you’re looking to generate these placeholders automatically from a remote image source, while you could [roll your own](https://github.com/vercel/platforms/blob/83c330f414fc4503e814db94175fe9860083c5fe/lib/util.ts#L13), I recommend [@joe-bell](https://joebell.co.uk/)’s [plaiceholder](https://github.com/joe-bell/plaiceholder) project instead, which makes this [super easy](https://github.com/joe-bell/plaiceholder/blob/main/examples/next/src/pages/base64/single.tsx).
