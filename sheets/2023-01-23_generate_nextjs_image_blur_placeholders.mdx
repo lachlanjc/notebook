@@ -36,4 +36,6 @@ That URL is resizing the image to 8px wide, then `next build` is transforming it
 
 I wrote a quick [macOS Shortcut](https://www.icloud.com/shortcuts/3d73f6f168da45dd9403572f206fdfa5) to do this: after you install it, right-click an image in Finder, click the shortcut, then paste the prop into your Image tag. The Dispersions site now appears to load far faster, with a decent-fidelity blur-up placeholder appearing immediately in the header instead of several seconds of grey waiting.
 
+![Screenshot of activating shortcut in macOS Finder](https://cloud-5px1wf5wr-lachlanjc.vercel.app/nextdataurl_shortcut.png)
+
 If you’re looking to generate these placeholders automatically from a remote image source, while you could [roll your own](https://github.com/vercel/platforms/blob/83c330f414fc4503e814db94175fe9860083c5fe/lib/util.ts#L13), I recommend [@joe-bell](https://joebell.co.uk/)’s [plaiceholder](https://github.com/joe-bell/plaiceholder) project instead, which makes this [super easy](https://github.com/joe-bell/plaiceholder/blob/main/examples/next/src/pages/base64/single.tsx).
