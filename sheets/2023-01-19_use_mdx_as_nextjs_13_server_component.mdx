@@ -1,0 +1,47 @@
+# Use MDX as a Next.js 13 server component
+
+Next.js 13.1.2 quietly [added support](https://github.com/vercel/next.js/pull/44651) for rendering MDX as a server component, enabling using MDX as a build step for HTML with no client-side JS overhead. It uses a faster, experimental [Rust-based MDX compiler](https://github.com/vercel/next.js/pull/41919/files). It’s not production-ready, but it works for me and wasn’t difficult to set up, so here’s how:
+
+1. **Install dependencies.**
+
+	```bash
+	pnpm i @mdx-js/react @next/mdx
+	pnpm i @types/mdx --save-dev
+	```
+2. **Enable the experimental flag.**
+
+	```js filename=next.config.js
+	/** @type {import('next').NextConfig} */
+	const nextConfig = {
+	  experimental: {
+	    appDir: true,
+	    mdxRs: true,
+	  },
+	}
+	
+	const withMDX = require('@next/mdx')()
+	module.exports = withMDX(nextConfig)
+	```
+3. **Set up components file.** This must be in the root of your project, named `mdx-components.(js|jsx|ts|tsx)`.
+
+	```typescript
+	const kebabCase = (str: string) =>
+	  str.toLowerCase().split(/\W+/).filter(Boolean).join('-')
+	
+	export function useMDXComponents(components: {
+	  [component: string]: React.ComponentType
+	}) {
+	  return {
+	    h2: ({ children }) => <h2 id={kebabCase(children)>{children}</h2>,
+	    ...components,
+	  }
+	}
+	```
+
+You can test if DOM is being rendered as a server component by inspecting it, then switching to the [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en): if it doesn’t show up there, React isn’t running on it client-side, so it’s a server component.
+
+***
+
+Though being able to customize component rendering only at the full site level and not per-usage is limiting, being able to use MDX as a preprocessor and ship plain HTML to the client (or ship the interactive client components without the bulk) enables using MDX in more projects where the JS payload wasn’t justified for minimal usages.
+
+For content-heavy sites like blogs & documentation sites, shipping the HTML without its representation as JSON can also obviate the Next.js “static props too large” warnings, while lessening the data & battery usage for visitors. Happy MDXing!
