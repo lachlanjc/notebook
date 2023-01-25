@@ -1,0 +1,17 @@
+# 2023 CSS wishlist
+
+Dave Rupert shared his [CSS wishlist for 2023](https://daverupert.com/2023/01/css-wishlist-2023/): new specs he’d love to see implemented. While I’d be delighted to have & would use all the features he mentioned, here’s a quick list of what I’d like to use in browsers.
+
+1. **`text-wrap: balance;`** ([spec](https://drafts.csswg.org/css-text-4/#text-wrap)). Visually unbalanced headlines are a typographic menace on the web, but solving them requires custom CSS tweaking (such as `max-width: 16ch;`), HTML character entities like `&nbsp;`, or JavaScript. Having this be a single property I could apply near-globally to h1 & h2 elements would save a bunch of time in making a polished design. Until then, mastermind Shu Ding’s [React Wrap Balancer](https://react-wrap-balancer.vercel.app/) works incredibly well, and I’m excited to see support come to Satori.
+2. **Sibling functions** ([proposal](https://github.com/w3c/csswg-drafts/issues/4559)). One trick I rely on for visual effects and animations is adding a custom property (usually with React) for an element’s index, then using that in `calc` or `animation-delay`. (You’ll spot it in a `transform` in the “steps” section of this [new SEC page](https://watershed.com/solutions/sec) for Watershed I worked on last week.) As with most styling JS, over time CSS should build in the simple, common use cases directly to the language, in this case to write CSS like `animation-delay: calc(sibling-index() * 0.1s);`.
+3. **CSS Grid masonry layout** ([details](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout)). The spec has been around for years, but is only available behind a flag in Firefox. The CSS solution to masonry layout will be a beautiful end to the hacks, and on websites like [Scrapbook](https://scrapbook.hackclub.com), a minor godsend compared to JavaScript-based solutions using flexbox column layouts or absolute positioning.
+4. **Random numbers** ([proposal](https://github.com/w3c/csswg-drafts/issues/2826#issuecomment-1204305712)). I wouldn’t use these for the majority of projects, but would allow organic shapes (think of `border-radius: random(0, 100)px random(0, 100)px;`) & complex generative art in CSS.
+5. **Animating to `auto`.** There’s many cases where I want simple animation, like a mobile navigation menu animating up from the bottom of the screen, where being able to animate a property like `height` from `0` to `auto`. JavaScript motion libraries like Framer Motion do this automatically, but I’d like those animations to be available in native CSS.
+
+## Bonus readings
+
+Three CSS articles I enjoyed this week:
+
+- **[Conditional CSS](https://ishadeed.com/article/conditional-css/)** by Ahmad Shadeed describes the many, many ways to apply styles conditionally, even if CSS doesn’t have traditional `if` statements. I’ve used the delightful conditional border-radius trick he mentions on my personal homepage for awhile.
+- **[Day 88: CSS Motion Path](https://www.matuzo.at/blog/2023/100daysof-day88/)** by Manuel Matuzovic, who’s been doing nearly 100 days of blog posts covering new CSS features. I’d missed that [browser support](https://caniuse.com/css-motion-paths) for motion paths is looking decent!
+- **[The truth about CSS selector performance](https://blogs.windows.com/msedgedev/2023/01/17/the-truth-about-css-selector-performance/)** by Patrick Brosset shows how rules like “`*` is slow” don’t capture the nuance of selector performance at all, and what to watch out for instead.

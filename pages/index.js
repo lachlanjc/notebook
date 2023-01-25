@@ -96,13 +96,8 @@ export default function IndexPage({ sheets, now }) {
           </Link> */}
         </Heading>
         <Paragraph sx={{ mt: 3, mb: 4 }}>
-          After leaving Watershed at the end of July, I’m back in NYC finishing{' '}
-          <A href="https://edu.lachlanjc.com">my third semester</A> at NYU. In
-          October, I went to Big&nbsp;Sur, CA to attend{' '}
-          <A href="https://www.trackii.com/oceans-22-conference">
-            Oceans 22 at Track II
-          </A>
-          .
+          After spending January in San Francisco back at Watershed, I’m in NYC for{' '}
+          <A href="https://edu.lachlanjc.com">my spring semester</A> at NYU.
         </Paragraph>
         <Divider sx={{ my: 4, display: ['none', 'block'] }} />
         <Heading as="h3">Collected web lists</Heading>
