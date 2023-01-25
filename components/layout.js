@@ -171,7 +171,6 @@ const Layout = ({ xl, sx, ...props }) => {
             title="Mastodon"
             target="_blank"
             rel="me"
-            style={{ lineHeight: 0 }}
           >
             {/* <Icon glyph="mastodon" size={36} /> */}
             <svg
