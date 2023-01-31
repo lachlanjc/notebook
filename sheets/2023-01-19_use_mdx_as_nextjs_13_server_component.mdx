@@ -10,7 +10,7 @@ Next.js 13.1.2 quietly [added support](https://github.com/vercel/next.js/pull/44
 	```
 2. **Enable the experimental flag.**
 
-	```js filename=next.config.js
+	```js:next.config.js
 	/** @type {import('next').NextConfig} */
 	const nextConfig = {
 	  experimental: {
@@ -24,7 +24,7 @@ Next.js 13.1.2 quietly [added support](https://github.com/vercel/next.js/pull/44
 	```
 3. **Set up components file.** This must be in the root of your project, named `mdx-components.(js|jsx|ts|tsx)`.
 
-	```typescript
+	```typescript:mdx-components.tsx
 	const kebabCase = (str: string) =>
 	  str.toLowerCase().split(/\W+/).filter(Boolean).join('-')
 	
