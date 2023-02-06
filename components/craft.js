@@ -1,5 +1,6 @@
 // @ts-check
-import { Text, Link, Image as Img, Themed } from 'theme-ui'
+import { useState } from 'react'
+import { Text, Link, Image as Img, Themed, useColorMode } from 'theme-ui'
 import { getName } from '../lib/util'
 import Image from 'next/future/image'
 
@@ -27,12 +28,53 @@ function ShortcutBlock({ url, title, iconUrl }) {
   )
 }
 
+function GoogleFontBlock({ url, title }) {
+  const [failed, setFailed] = useState(false)
+  const [colorMode] = useColorMode()
+  return (
+    <Link
+      href={url}
+      target="_blank"
+      sx={{
+        bg: 'sunken',
+        borderRadius: 'extra',
+        color: 'primary',
+        display: 'flex',
+        alignItems: 'center',
+        textDecoration: 'none',
+        gap: 3,
+        mt: 3,
+        p: 3,
+        img: {
+          filter: colorMode === 'dark' ? 'invert()' : null,
+        }
+      }}
+    >
+      {failed ?
+        title
+      ) : (
+        <img
+          src={`https://raw.githubusercontent.com/getstencil/GoogleWebFonts-FontFamilyPreviewImages/master/48px/original/${title
+            .split(/\s+/)
+            .join('')}-400.v${title === 'Recursive' ? 21 : 1}.png`}
+          height={24}
+          alt={title}
+          onError={() => setFailed(true)}
+        />
+      )}
+    </Link>
+  )
+}
+
 // type=url
 function URLBlock({ content, properties, options: { showLinkIcons } }) {
   if (properties.url == null && content == null) {
     return null
   }
   let url = properties.url || content
+  if (url.includes('fonts.google.com/specimen')) {
+    return <GoogleFontBlock {...properties} />
+  }
   if (url.includes('icloud.com/shortcuts')) {
     return <ShortcutBlock {...properties} />
   }
