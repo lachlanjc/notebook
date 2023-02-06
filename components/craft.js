@@ -50,7 +50,7 @@ function GoogleFontBlock({ url, title }) {
         }
       }}
     >
-      {failed ?
+      {failed ? (
         title
       ) : (
         <img
