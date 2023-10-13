@@ -86,9 +86,10 @@ function URLBlock({ content, properties, options: { showLinkIcons } }) {
   if (!properties.title) {
     properties.title = getName(url.pathname)
   }
+  const isAppleMusic = url.hostname === 'music.apple.com'
   return (
     <Link
-      href={properties.url || content}
+      href={isAppleMusic ? `https://album.link/${properties.url}` : properties.url || content}
       target="_blank"
       sx={{
         textDecoration: 'none',
@@ -120,7 +121,7 @@ function URLBlock({ content, properties, options: { showLinkIcons } }) {
         >
           {properties.title}
         </Text>
-        {url.hostname && url.hostname !== 'fonts.google.com' && (
+        {url.hostname && url.hostname !== 'fonts.google.com' && !isAppleMusic && (
           <Text as="small" sx={{ color: 'secondary', fontSize: 0 }}>
             {url.hostname.replace('www.', '')}
           </Text>
@@ -131,7 +132,7 @@ function URLBlock({ content, properties, options: { showLinkIcons } }) {
           src={properties.iconUrl}
           loading="lazy"
           width={96}
-          height={48}
+          height={isAppleMusic ? 96 : 48}
           alt=""
           sx={{
             borderRadius: 6,
@@ -160,8 +161,8 @@ const components = {
   text: TextBlock,
 }
 
-export default function CraftBlocks({ blocks }) {
-  const showLinkIcons = blocks.every(block => block.type === 'url')
+export default function CraftBlocks({ blocks, showLinkIcons }) {
+  // const showLinkIcons = blocks.every(block => block.type === 'url')
   return (
     <>
       {blocks.map(block => {
