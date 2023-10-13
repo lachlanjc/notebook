@@ -3,11 +3,11 @@ import Layout from '../../components/layout'
 import CraftBlocks from '../../components/craft'
 import { bookmarkPages, getDocBlocks } from '../../lib/bookmarks'
 
-export default function Bookmarks({ title, blocks }) {
+export default function Bookmarks({ slug, title, blocks }) {
   return (
     <Layout>
       <Themed.h1>{title}</Themed.h1>
-      <CraftBlocks blocks={blocks} />
+      <CraftBlocks blocks={blocks} showLinkIcons={slug !== 'articles'} />
     </Layout>
   )
 }
@@ -23,5 +23,5 @@ export async function getStaticProps({ params }) {
   const { slug } = params
   const { title, id } = bookmarkPages[slug]
   const blocks = await getDocBlocks(id)
-  return { props: { title, blocks }, revalidate: 20 }
+  return { props: { slug, title, blocks }, revalidate: 20 }
 }
