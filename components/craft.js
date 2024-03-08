@@ -31,6 +31,7 @@ function ShortcutBlock({ url, title, iconUrl }) {
 function GoogleFontBlock({ url, title }) {
   const [failed, setFailed] = useState(false)
   const [colorMode] = useColorMode()
+  const fontName = title?.replace(' - Google Fonts', '') || ''
   return (
     <Link
       href={url}
@@ -54,7 +55,7 @@ function GoogleFontBlock({ url, title }) {
         title
       ) : (
         <img
-          src={`https://raw.githubusercontent.com/getstencil/GoogleWebFonts-FontFamilyPreviewImages/master/48px/original/${title
+          src={`https://raw.githubusercontent.com/getstencil/GoogleWebFonts-FontFamilyPreviewImages/master/48px/original/${fontName
             .split(/\s+/)
             .join('')}-400.v${title === 'Recursive' ? 21 : 1}.png`}
           height={24}
