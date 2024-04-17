@@ -1,13 +1,15 @@
 # 10 features Next.js 15 could launch
 
-Since 2020, Next.js has settled into an October release cycle at Next.js Conf. Here’s what I have high confidence in the Next team releasing:
+Ahead of even [Vercel Ship](https://vercel.com/ship/ticket/dZm6qJHNWz6A), I’m already dreaming about what could come to Next.js this fall with v15 at Next.js Conf.
+
+Here’s my highest-confidence items for the Next team releasing:
 
 - **App Router is stable(r).** 2022 introduced and overpromised about App Router, 2023 brought “stability,” by which the team meant API stability, if not bug-free stability, which was widely misunderstood. Unclear how to brand improved stability as revolutionary, but this should be the main focus again this year.
 - **Turbopack for dev by default.** 18 months after the announcement, Turbopack supports the majority of Next.js features and is now my go-to—[99.9% of tests are passing!](https://areweturboyet.com/) Now, it should be the default: drop the `--turbo`, it’s cleaner.
 - **Turbopack for builds (preview).** Builds can always be faster. Pour some Rust on them.
 - **View Transitions.** [CSS View Transitions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API) are already at [71% browser support](https://caniuse.com/view-transitions), and [have landed](https://webkit.org/blog/15260/release-notes-for-safari-technology-preview-192/) in Safari Technical Preview, so will likely be available in the most-used browsers by September/late this year. Mastermind Shu Ding launched a preview of [support in App Router](https://next-view-transitions.vercel.app/). Building this into Next.js itself, ideally supporting Pages Router too, would add visual flare to this release.
 
-The recently-released [Portfolio Starter Kit](https://vercel.com/templates/next.js/portfolio-starter-kit) demonstrates what’s too difficult in Next today for building content-based sites: and should be built in natively:
+The recently-released [Portfolio Starter Kit](https://vercel.com/templates/next.js/portfolio-starter-kit) demonstrates what’s too difficult in Next today for building content-based sites—and should be built in natively:
 
 - **Content collections.** It’s [way too much work](https://github.com/vercel/examples/blob/main/solutions/blog/app/blog/utils.ts) to grab a collection of files that are anything but JSON, whether MD(X) or images or anything else, to render a simple blog/feed. An API inspired by [Contentlayer](https://contentlayer.dev/) (RIP), [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/), and [Bun’s Glob API](https://bun.sh/docs/api/glob) would make Next.js dramatically easier for many developers’ first projects with it, a personal website/blog.
 - **New [MDX](https://mdxjs.com/) plugin.** On the same topic, rendering MDX right now is a mess: [the official plugin](https://nextjs.org/docs/app/building-your-application/configuring/mdx) isn’t what you want to render MDX blog posts, the most common use case. (A subdirectory of posts isn’t “remote,” and shouldn’t be more complicated than embedding known-path local files.) It requires installing 4 dependencies, then the RSC/Rust implementation only supports project-wide custom components. Next’s MDX plugin should work seamlessly with content collections & RSC to render a directory’s worth of files.
