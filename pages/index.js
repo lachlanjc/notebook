@@ -96,7 +96,7 @@ export default function IndexPage({ sheets, now }) {
           </Link> */}
         </Heading>
         <Paragraph sx={{ mt: 3, mb: 4 }}>
-          After spending the summer in San Francisco back at Watershed, I’m in Berlin for a semester studying abroad at NYU Berlin.
+          After last fall in Berlin, I moved to New York in January 2024, where I’m now finishing my last year at NYU, before moving to San Francisco summer 2025.
         </Paragraph>
         <Divider sx={{ my: 4, display: ['none', 'block'] }} />
         <Heading as="h3">Collected web lists</Heading>
