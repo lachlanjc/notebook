@@ -55,9 +55,10 @@ function GoogleFontBlock({ url, title }) {
         title
       ) : (
         <img
-          src={`https://raw.githubusercontent.com/getstencil/GoogleWebFonts-FontFamilyPreviewImages/master/48px/original/${fontName
+          src={`https://raw.githubusercontent.com/paper-design/google-fonts-scripts/initial-build/output/png/${fontName
+            .toLowerCase()
             .split(/\s+/)
-            .join('')}-400.v${title === 'Recursive' ? 21 : 1}.png`}
+            .join('-')}.png`}
           height={24}
           alt={title}
           onError={() => setFailed(true)}
