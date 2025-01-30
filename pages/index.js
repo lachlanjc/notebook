@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import { pick, isEmpty, orderBy } from 'lodash-es'
 import { Themed, Paragraph, Link as A, Heading, Divider } from 'theme-ui'
 import { allSheets } from 'contentlayer/generated'
-import { bookmarkPages } from 'lib/bookmarks'
+import { bookmarkPages, cityPages } from 'lib/bookmarks'
 
 export default function IndexPage({ sheets, now }) {
   return (
@@ -72,37 +72,10 @@ export default function IndexPage({ sheets, now }) {
         ))}
       </ol>
       <aside>
-        <Heading as="h3">
-          Now
-          {/* <Link href="/now" passHref>
-            <A
-              sx={{
-                ml: 'auto',
-                aspectRatio: '1 / 1',
-                bg: 'primary',
-                color: 'background',
-                px: 1,
-                lineHeight: 1.25,
-                fontFamily: 'body',
-                fontWeight: 'normal',
-                fontSize: 1,
-                textDecoration: 'none',
-                borderRadius: 999,
-                display: 'inline-block',
-              }}
-            >
-              →
-            </A>
-          </Link> */}
-        </Heading>
-        <Paragraph sx={{ mt: 3, mb: 4 }}>
-          After last fall in Berlin, I moved to New York in January 2024, where I’m now finishing my last year at NYU, before moving to San Francisco summer 2025.
-        </Paragraph>
-        <Divider sx={{ my: 4, display: ['none', 'block'] }} />
         <Heading as="h3">Collected web lists</Heading>
         <ul sx={{ listStyle: 'none', p: 0 }}>
           {Object.keys(bookmarkPages)
-            .filter(slug => slug.includes('-'))
+            .filter(slug => slug.includes('-') && !slug.startsWith('city-'))
             .map(slug => (
               <li key={slug}>
                 <Link href={`/bookmarks/${slug}`} passHref>
@@ -120,6 +93,27 @@ export default function IndexPage({ sheets, now }) {
                 </Link>
               </li>
             ))}
+        </ul>
+        <Divider sx={{ my: 4, display: ['none', 'block'] }} />
+        <Heading as="h3">City guides</Heading>
+        <ul sx={{ listStyle: 'none', p: 0 }}>
+          {Object.keys(cityPages).map(slug => (
+            <li key={slug}>
+              <Link href={`/bookmarks/${slug}`} passHref>
+                <A
+                  sx={{
+                    color: 'primary',
+                    textDecoration: 'none',
+                    fontWeight: 'bold',
+                    mb: 1,
+                    display: 'block',
+                  }}
+                >
+                  {cityPages[slug].title}
+                </A>
+              </Link>
+            </li>
+          ))}
         </ul>
       </aside>
     </Layout>

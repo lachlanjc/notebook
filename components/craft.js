@@ -48,7 +48,7 @@ function GoogleFontBlock({ url, title }) {
         p: 3,
         img: {
           filter: colorMode === 'dark' ? 'invert()' : null,
-        }
+        },
       }}
     >
       {failed ? (
@@ -64,6 +64,58 @@ function GoogleFontBlock({ url, title }) {
           onError={() => setFailed(true)}
         />
       )}
+    </Link>
+  )
+}
+
+function AppleMapsBlock({ url, title, description, smartLinkData }) {
+  console.log(smartLinkData)
+  return (
+    <Link
+      href={url}
+      target="_blank"
+      sx={{
+        textDecoration: 'none',
+        lineHeight: 1.125,
+        display: 'inline-flex',
+        flexDirection: 'column',
+        alignItems: 'start',
+        gap: 2,
+        width: 'calc(50% - 8px)',
+        pt: 2,
+        pb: 3,
+        '&:nth-of-type(odd)': {
+          pr: 2,
+        },
+        '&:nth-of-type(even)': {
+          pl: 2,
+        },
+      }}
+    >
+      <Img
+        loading="lazy"
+        src={smartLinkData.decorator.url}
+        width={smartLinkData.decorator.width}
+        height={smartLinkData.decorator.height}
+        alt=""
+        sx={{
+          borderRadius: 6,
+        }}
+      />
+      <div>
+        <Text
+          as="strong"
+          sx={{
+            lineHeight: 1.375,
+            display: 'block',
+          }}
+        >
+          {title}
+        </Text>
+        <Text as="small" sx={{ color: 'secondary', fontSize: 0 }}>
+          {description?.split(' ·')?.[0]}
+        </Text>
+      </div>
     </Link>
   )
 }
@@ -89,9 +141,17 @@ function URLBlock({ content, properties, options: { showLinkIcons } }) {
     properties.title = getName(url.pathname)
   }
   const isAppleMusic = url.hostname === 'music.apple.com'
+  const isAppleMaps = url.hostname === 'maps.apple.com'
+  if (isAppleMaps) {
+    return <AppleMapsBlock {...properties} />
+  }
   return (
     <Link
-      href={isAppleMusic ? `https://album.link/${properties.url}` : properties.url || content}
+      href={
+        isAppleMusic
+          ? `https://album.link/${properties.url}`
+          : properties.url || content
+      }
       target="_blank"
       sx={{
         textDecoration: 'none',
@@ -123,11 +183,13 @@ function URLBlock({ content, properties, options: { showLinkIcons } }) {
         >
           {properties.title}
         </Text>
-        {url.hostname && url.hostname !== 'fonts.google.com' && !isAppleMusic && (
-          <Text as="small" sx={{ color: 'secondary', fontSize: 0 }}>
-            {url.hostname.replace('www.', '')}
-          </Text>
-        )}
+        {url.hostname &&
+          url.hostname !== 'fonts.google.com' &&
+          !isAppleMusic && (
+            <Text as="small" sx={{ color: 'secondary', fontSize: 0 }}>
+              {url.hostname.replace('www.', '')}
+            </Text>
+          )}
       </span>
       {showLinkIcons && properties.iconUrl && (
         <Img
@@ -155,6 +217,7 @@ function TextBlock({ content, style = { textStyle: undefined } }) {
       subtitle: Themed.h2,
       heading: Themed.h3,
     }[style?.textStyle] ?? Text
+  console.log(style)
   return <Component>{content}</Component>
 }
 
