@@ -69,7 +69,6 @@ function GoogleFontBlock({ url, title }) {
 }
 
 function AppleMapsBlock({ url, title, description, smartLinkData }) {
-  console.log(smartLinkData)
   return (
     <Link
       href={url}
@@ -217,7 +216,6 @@ function TextBlock({ content, style = { textStyle: undefined } }) {
       subtitle: Themed.h2,
       heading: Themed.h3,
     }[style?.textStyle] ?? Text
-  console.log(style)
   return <Component>{content}</Component>
 }
 
