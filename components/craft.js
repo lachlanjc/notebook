@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Text, Link, Image as Img, Themed, useColorMode } from 'theme-ui'
 import { getName } from '../lib/util'
-import Image from 'next/image'
+import Image from 'next/future/image'
 
 function ShortcutBlock({ url, title, iconUrl }) {
   return (

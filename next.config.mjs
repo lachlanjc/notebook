@@ -18,6 +18,11 @@ const config = withContentlayer({
       { source: '/feed.xml', destination: '/_next/static/feed.xml' },
     ]
   },
+  async redirects() {
+    return [
+      { source: '/ipad-apps', destination: '/ipad_apps', permanent: true },
+    ]
+  },
 })
 
 export default config
