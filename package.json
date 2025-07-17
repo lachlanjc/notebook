@@ -34,8 +34,8 @@
     "remark-gfm": "^3.0.1",
     "remark-mdx-to-plain-text": "^3.0.0",
     "rss": "^1.2.2",
-    "supercons": "^0.0.1",
     "theme-ui": "^0.14.7",
+    "supercons": "^0.1.7",
     "title": "^3.5.3"
   }
 }
