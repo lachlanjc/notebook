@@ -140,7 +140,7 @@ function URLBlock({ content, properties, options: { showLinkIcons } }) {
     properties.title = getName(url.pathname)
   }
   const isAppleMusic = url.hostname === 'music.apple.com'
-  const isAppleMaps = url.hostname === 'maps.apple.com'
+  const isAppleMaps = url.hostname.includes('maps.apple')
   if (isAppleMaps) {
     return <AppleMapsBlock {...properties} />
   }
