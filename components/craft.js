@@ -91,16 +91,18 @@ function AppleMapsBlock({ url, title, description, smartLinkData }) {
         },
       }}
     >
-      <Img
-        loading="lazy"
-        src={smartLinkData.decorator.url}
-        width={smartLinkData.decorator.width}
-        height={smartLinkData.decorator.height}
-        alt=""
-        sx={{
-          borderRadius: 6,
-        }}
-      />
+      {typeof smartLinkData?.decorator === 'object' &&
+        <Img
+          loading="lazy"
+          src={smartLinkData.decorator.url}
+          width={smartLinkData.decorator.width}
+          height={smartLinkData.decorator.height}
+          alt=""
+          sx={{
+            borderRadius: 6,
+          }}
+        />
+      }
       <div>
         <Text
           as="strong"
