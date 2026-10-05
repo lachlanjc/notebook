@@ -20,7 +20,7 @@ Second, I tried to differentiate them. Their marketing sites felt templated & no
 
 DatoCMS has a nice WYSIWYG editor, & if I wanted to use their image & video APIs more it’d be compelling, but between [next/image](https://nextjs.org/docs/basic-features/image-optimization) & Vimeo embeds, those aren’t important for this project. Creating components inside the UI & mirroring those as React components felt brittle, like leaving DatoCMS would require reformatting all the content. The editor itself was nice but nothing special.
 
-![Screenshot of a Watershed blog post in Contentful](https://cloud-9hpgt6bna-lachlanjc.vercel.app/contentful.png)
+![Screenshot of a Watershed blog post in Contentful](https://pub-7a1a0d6fb190461bb89ab01b79d28648.r2.dev/2022/contentful.png)
 
 Contentful’s dashboard makes a ton of sense, & I found it easy to set up my models, import content, & be off to the races. The text authoring experience felt solid, & media import was excellent, making it undoubtedly a strong contender.
 
@@ -48,11 +48,11 @@ After booting up a demo site using Sanity, I decided it was the best fit. I thin
 
 I wrote a flexible MDX component for images on the site, which uses `next/image` for optimization/performant loading, supports full-bleed or inset images, an optional visible caption, alt text, and can link through to another page on the site or an external link. Writing JSX props for the different options isn’t intuitive enough for non-developers, so I created a Sanity schema for images with clear GUI controls. The cherry on top was the ability to quickly write a custom React component at the end of the image editor with a button to copy the JSX image syntax. Sanity provides a top-notch [UI component library](https://www.sanity.io/ui) that makes extending their UI incredibly quick, so simple additions don’t require writing CSS.
 
-![Screenshot of Image component creation in Sanity Studio](https://cloud-9hpgt6bna-lachlanjc.vercel.app/sanity_image_component.png)
+![Screenshot of Image component creation in Sanity Studio](https://pub-7a1a0d6fb190461bb89ab01b79d28648.r2.dev/2022/sanity_image_component.png)
 
 One critical piece of the publishing workflow—exacerbated when custom React components are in the mix—is previewing before publishing. In the Git/MDX-based workflow, I would send Vercel deploy preview links in Slack after each edit. With Sanity, I was able to integrate [Next.js Preview Mode](https://nextjs.org/docs/advanced-features/preview-mode) to allow split-screen live-previewing draft blog posts on our production website from inside the CMS.
 
-![Screenshot of Sanity Studio split screen editor and preview mode on the live website](https://cloud-9hpgt6bna-lachlanjc.vercel.app/sanity_preview.png)
+![Screenshot of Sanity Studio split screen editor and preview mode on the live website](https://pub-7a1a0d6fb190461bb89ab01b79d28648.r2.dev/2022/sanity_preview.png)
 
 As the developer, it’s been super easy to work with Sanity. [Jason Lengstorf’s Smashing Magazine article](https://www.smashingmagazine.com/2020/12/mdx-stored-sanity-next-js-website/) helped enormously with setting up the initial architecture, & using [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) made it easy on the frontend. With [Next.js dynamic import](https://nextjs.org/docs/advanced-features/dynamic-import), pages load the JavaScript for the components they need; the Vimeo player isn’t weighing down the whole blog. I switched on [Next.js `revalidate`](https://nextjs.org/docs/api-reference/data-fetching/get-static-props#revalidate) for each blog post to refresh each page every few seconds[^1] while continuing to serve our site statically from the Vercel CDN.
 
@@ -60,11 +60,11 @@ As the developer, it’s been super easy to work with Sanity. [Jason Lengstorf�
 
 ## Expanding the site
 
-![Screenshot of section of Watershed homepage with customer milestones](https://cloud-9hpgt6bna-lachlanjc.vercel.app/milestones.png)
+![Screenshot of section of Watershed homepage with customer milestones](https://pub-7a1a0d6fb190461bb89ab01b79d28648.r2.dev/2022/milestones.png)
 
 This past week, I added a new section to our homepage to show milestones from Watershed customers, each with their logos & hyperlinked to their sites. To prototype the component, I made a quick JSON file in the codebase, but realized connecting these to Sanity would allow other team members to add new milestones as they’re announced. In about half an hour, I spun up a new Sanity schema, including making a descriptive form with per-field instructions, pasted my JSON content in, & wrote a quick query on the frontend to pull them in.
 
-![Screenshot of customer milestone configuration in Sanity Studio](https://cloud-9hpgt6bna-lachlanjc.vercel.app/sanity_milestones.png)
+![Screenshot of customer milestone configuration in Sanity Studio](https://pub-7a1a0d6fb190461bb89ab01b79d28648.r2.dev/2022/sanity_milestones.png)
 
 ***
 

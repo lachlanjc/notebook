@@ -12,7 +12,7 @@ On the Mac, there’s more options to turn to. [Pixelmator Pro](https://apps.app
 
 All of which brings me to my [**Resize and Optimize**](https://www.icloud.com/shortcuts/39ae1f8c13c940ac9bc7ca6553e836e2) shortcut, which I now have pinned in the bottom right of my Finder window for processing images with:
 
-![Screenshot of macOS Finder window with Resize and Optimize Quick Action in the corner](https://cloud-nvygrwfrq-lachlanjc.vercel.app/finder_quick_actions.png)
+![Screenshot of macOS Finder window with Resize and Optimize Quick Action in the corner](https://pub-7a1a0d6fb190461bb89ab01b79d28648.r2.dev/2022/finder_quick_actions.png)
 
 I can run it via the Menu Bar or the Quick Action, & for each file it asks what size (by longest edge), prefilling 50% scale, resizes the image, then compresses it to either JPG or PNG, depending on the original file type. It overwrites the image in-place, obviating the need for multiple folders of versions.
 
@@ -33,7 +33,7 @@ I applied a trick @viticci [shared recently](https://club.macstories.net/posts/m
 5. **Round** to nearest pixel
 6. **Ask for input**, because you can only provide a default answer to an ask for input, not an “ask each time” parameter
 
-![Screenshot of described shortcuts actions for calculating 50% of the larger image dimension](https://cloud-1ph1xyf74-lachlanjc.vercel.app/dimensions.png)
+![Screenshot of described shortcuts actions for calculating 50% of the larger image dimension](https://pub-7a1a0d6fb190461bb89ab01b79d28648.r2.dev/2022/dimensions.png)
 
 Though convoluted in Shortcuts form, this code runs near-instantly, immediately presenting me with the most scenario pre-filled but still giving me full control of the image dimensions.
 
@@ -46,7 +46,7 @@ I ran into trouble figuring out how to get the modified file to overwrite the in
 3. **Set name of** modified file to file name with extension (#2)
 4. **Save** modified file to `Parent Directory`
 
-![Screenshot of described actions for overwriting a file](https://cloud-nvygrwfrq-lachlanjc.vercel.app/overwrite.png)
+![Screenshot of described actions for overwriting a file](https://pub-7a1a0d6fb190461bb89ab01b79d28648.r2.dev/2022/overwrite.png)
 
 ## Making a great shortcut for Finder
 
@@ -57,7 +57,7 @@ I always try to make shortcuts as flexible & input-method-agnostic as possible. 
     - If it has no value, **Get Selected Files in Finder**
 3. **Repeat with each item in** `If Result` (which will be either the Quick Actions files or the selected ones), so you can select as many files as you need & the shortcut runs on each
 
-![Screenshot of start of shortcut with described actions for accepting files](https://cloud-nvygrwfrq-lachlanjc.vercel.app/setup.png)
+![Screenshot of start of shortcut with described actions for accepting files](https://pub-7a1a0d6fb190461bb89ab01b79d28648.r2.dev/2022/setup.png)
 
 ***
 
