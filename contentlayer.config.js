@@ -33,5 +33,10 @@ export default makeSource({
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypeAccessibleEmojis, rehypeCodeTitles],
+    // Bundle MDX for the Node runtime so SSR-safe (non-`browser` condition)
+    // builds of dependencies are inlined. The default `browser` platform
+    // inlines @emotion/cache's browser build, whose createCache() touches
+    // `document`, breaking `next build` prerendering.
+    esbuildOptions: opts => ({ ...opts, platform: 'node' }),
   },
 })
